@@ -10,7 +10,8 @@
 🔌 Підтримка всіх операторів та 20+ регіонів України:
 Віджет працює з графіками ДТЕК (DTEK), YASNO та офіційними даними Обленерго. Вибір черги та підчерги (1.1–6.2 або 1–12) у два кліки:
 
-<img width="669" height="331" alt="photo_2026-11-10_09-00-49" src="https://github.com/user-attachments/assets/a6a9bc8d-4c5c-408e-88ee-f300dac3a1fd" />
+<img width="804" height="358" alt="image" src="https://github.com/user-attachments/assets/1c4c30f9-0b27-4a26-9020-0419a0de4a7d" />
+
 
 > 🔗 **Дзеркало та інші утиліти автора:** <a href="https://devmihey.itch.io/">devmihey.itch.io</a>
 
@@ -24,7 +25,8 @@
 * **Підтримка операторів:** ДТЕК, YASNO та регіональні Обленерго.
 * **Мінімалізм та швидкість:** низьке споживання оперативної пам'яті та процесора, вбудоване автооновлення.
 
-<img width="720" alt="Вибір області та черги" src="https://github.com/user-attachments/assets/ca641faf-a723-416e-b888-b0bf76200c9a" />
+<img width="388" height="205" alt="image" src="https://github.com/user-attachments/assets/fecfd819-2f9c-457e-b6a6-60567f2ab0d8" />
+
 
 ---
 
