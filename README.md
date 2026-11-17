@@ -1,10 +1,8 @@
 <div align="center">
-<img width="411" height="184" alt="image" src="https://github.com/user-attachments/assets/44afba29-07f6-4f7f-a28e-4d471d60ae18" />
-
+<img width="402" height="206" alt="image" src="https://github.com/user-attachments/assets/85f3dcff-fd34-4613-ab66-15a9335b6bb6" />
 
 # ⚡ SvitloAlertChecker
 ​### Графік відключень світла + Повітряна тривога (Додаток - віджет для Windows ПК)
-<p><strong>Програма ОНОВЛЮЕТЬСЯ - </strong><a href="https://t.me/+GJcw40ZlYadkNzIy" target="_blank"><strong>ПЕРЕДАТИ БАГ</strong></a></p>
 
 [![GitHub Release](https://img.shields.io/github/v/release/DEVMIHEY/SvitloAlertChecker?style=flat-square&color=16a34a&label=Версія)](https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest)
 [![Platform](https://img.shields.io/badge/Платформа-Windows-blue?style=flat-square)](https://github.com/DEVMIHEY/SvitloAlertChecker)
