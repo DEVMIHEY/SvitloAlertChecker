@@ -3,24 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SvitloAlertChecker — Графік відключень світла та Повітряна тривога для ПК</title>
-  <meta name="description" content="Безкоштовний віджет для Windows: точний графік відключень світла (ДТЕК, YASNO, Обленерго) та радар тривог по 136 районах України.">
+  <title>SvitloAlertChecker — Графік відключень світла та Повітряна тривога</title>
+  <meta name="description" content="Безкоштовний віджет для Windows: точний графік відключень світла та радар тривог по 136 районах України.">
   <style>
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
-    .container { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
-    .hero { text-align: center; background: #161b22; border: 1px solid #30363d; border-radius: 20px; padding: 40px 24px; margin-bottom: 24px; }
-    .badge { display: inline-block; background: #21262d; color: #58a6ff; padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 16px; }
-    h1 { margin: 0 0 16px; font-size: 32px; color: #fff; }
-    .subtitle { color: #8b949e; font-size: 17px; max-width: 600px; margin: 0 auto 28px; }
-    .btn { display: inline-block; background: #238636; color: #fff; text-decoration: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 16px; margin: 6px; }
-    .btn:hover { background: #2ea043; }
-    .btn-sec { background: #21262d; border: 1px solid #30363d; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 16px;
+    }
+    .hero {
+      text-align: center;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 20px;
+      padding: 40px 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .badge {
+      display: inline-block;
+      background: #21262d;
+      border: 1px solid #384252;
+      color: #58a6ff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 5vw, 38px);
+      color: #ffffff;
+      font-weight: 800;
+    }
+    .subtitle {
+      color: #8b949e;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #238636;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+    .btn:hover { background: #2ea043; transform: translateY(-1px); }
+    .btn-sec {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #e6edf3;
+    }
     .btn-sec:hover { background: #30363d; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px; }
-    .card { background: #161b22; border: 1px solid #30363d; border-radius: 16px; padding: 20px; }
-    .card h3 { margin: 0 0 8px; font-size: 17px; color: #fff; }
-    .card p { margin: 0; font-size: 14px; color: #8b949e; }
-    .footer { text-align: center; color: #8b949e; font-size: 14px; margin-top: 32px; }
+    .btn-itch {
+      background: #fa5c5c;
+    }
+    .btn-itch:hover { background: #ff7070; }
+    
+    .preview-box {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .preview-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid #30363d;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: #58a6ff; }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: #ffffff;
+    }
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      color: #8b949e;
+    }
+    .footer {
+      text-align: center;
+      color: #8b949e;
+      font-size: 14px;
+      padding-top: 24px;
+      border-top: 1px solid #21262d;
+    }
+    .footer a { color: #58a6ff; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -29,19 +134,42 @@
       <div class="badge">⚡ Версія v5.2.1 · Windows 10 / 11 · Безкоштовно</div>
       <h1>SvitloAlertChecker</h1>
       <p class="subtitle">Міні-віджет поверх усіх вікон: точний графік відключень світла (ДТЕК, YASNO, Обленерго) та миттєвий радар повітряних тривог по 136 районах України.</p>
-      <a href="https://github.com" class="btn">⬇ Завантажити для Windows (.exe)</a>
-      <a href="https://github.com" class="btn btn-sec">GitHub Репозиторій</a>
+      
+      <div class="btn-group">
+        <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" class="btn btn-itch">⬇ Завантажити на itch.io</a>
+        <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest" target="_blank" class="btn">Завантажити з GitHub (.exe)</a>
+        <a href="https://github.com/DEVMIHEY/SvitloAlertChecker" target="_blank" class="btn btn-sec">Репозиторій</a>
+      </div>
     </div>
-    <div style="text-align:center; margin-bottom: 24px;">
-      <img src="https://github.com" alt="Інтерфейс віджета SvitloAlertChecker" style="max-width:100%; border-radius:16px; border:1px solid #30363d;">
+
+    <!-- Блок з картинкою віджета -->
+    <div class="preview-box">
+      <!-- Якщо картинка лежить у корені вашого репозиторію, переконайтеся що назва файлу збігається (наприклад: screenshot.png або preview.png) -->
+      <img src="screenshot.png" onerror="this.onerror=null; this.src='https://img.itch.zone/aW1nLzMyMDUzNTIxLmpwZw==/original/yszshw.jpg';" alt="Інтерфейс віджета SvitloAlertChecker" class="preview-img">
     </div>
+
     <div class="grid">
-      <div class="card"><h3>⏱ Шкала 6 / 24 години</h3><p>Компактна панель на найближчі 6 годин або розгортання на повну добу та завтра в один клік.</p></div>
-      <div class="card"><h3>🚨 Радар тривог</h3><p>Червоні та жовті загрози по всіх 136 районах, м'який спалах по краях екрана та звук відбою.</p></div>
-      <div class="card"><h3>🛡 Ігровий режим</h3><p>Опція Click-Through пропускає кліки крізь віджет — ніколи не зіб'є приціл у грі чи фокус.</p></div>
-      <div class="card"><h3>🔌 20 регіонів України</h3><p>Підтримка ДТЕК, YASNO та всіх обласних енергокомпаній з вибором черги (1.1–6.2).</p></div>
+      <div class="card">
+        <h3>⏱ Шкала 6 / 24 години</h3>
+        <p>Компактна панель на найближчі 6 годин або розгортання на повну добу та завтра в один клік.</p>
+      </div>
+      <div class="card">
+        <h3>🚨 Радар тривог</h3>
+        <p>Червоні та жовті загрози по всіх 136 районах, м'який спалах по краях екрана та звук відбою.</p>
+      </div>
+      <div class="card">
+        <h3>🛡 Ігровий режим</h3>
+        <p>Опція Click-Through пропускає кліки крізь віджет — ніколи не зіб'є приціл у грі чи робочий фокус.</p>
+      </div>
+      <div class="card">
+        <h3>🔌 20+ регіонів України</h3>
+        <p>Підтримка ДТЕК, YASNO та всіх обласних енергокомпаній з вибором вашої підчерги (1.1–6.2).</p>
+      </div>
     </div>
-    <div class="footer">Зроблено з 💛💙 в Україні · Автор: <a href="https://itch.io" style="color:#58a6ff;">MIHEY</a></div>
+
+    <div class="footer">
+      Зроблено з 💛💙 в Україні · Автор: <a href="https://devmihey.itch.io" target="_blank">DEV MIHEY</a>
+    </div>
   </div>
 </body>
 </html>
