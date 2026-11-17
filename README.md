@@ -7,10 +7,10 @@
   ### 💥 Глобальне об'єднання: AlertChecker + SvitloChecker
   **Повітряна тривога + Графік відключень світла для ПК у єдиному Soft Bento віджеті**
 
-  <p align="center">
+ <p align="center">
     <a href="https://devmihey.github.io/SvitloAlertChecker/"><img src="https://img.shields.io/badge/🌐_Офіційний_сайт-GitHub_Pages-58a6ff?style=for-the-badge" alt="Website" /></a>
     <a href="https://devmihey.itch.io/svitloalertchecker"><img src="https://img.shields.io/badge/Itch.io-Завантажити-fa5c5c?style=for-the-badge&logo=itchdotio&logoColor=white" alt="Itch.io" /></a>
-    <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest"><img src="https://img.shields.io/github/v/release/DEVMIHEY/SvitloAlertChecker?color=238636&label=Завантажити%20.exe&style=for-the-badge&logo=windows&logoColor=white" alt="GitHub Release" /></a>
+    <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest"><img src="https://img.shields.io/badge/GitHub-Завантажити_.exe-238636?style=for-the-badge&logo=windows&logoColor=white" alt="GitHub Release" /></a>
   </p>
 
   <p align="center">
