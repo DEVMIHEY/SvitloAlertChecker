@@ -3,20 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d1117">
   
   <title>SvitloAlertChecker — Повітряна тривога та Графік відключень світла для ПК (Windows)</title>
   <meta name="description" content="Глобальне об'єднання легендарних AlertChecker та SvitloChecker в єдиний віджет для Windows: радар повітряних тривог по 136 районах України (червоні/жовті загрози) та точний графік відключень світла (ДТЕК, YASNO, Обленерго) по всіх чергах 1.1–6.2.">
   <meta name="keywords" content="повітряна тривога пк, графік відключень світла windows, SvitloAlertChecker, AlertChecker, SvitloChecker, радар тривог, ДТЕК графік, YASNO, обленерго черги, віджет тривоги на робочий стіл, флеш спалах екрану, жовта тривога, відбій тривоги">
   <meta name="author" content="DEV MIHEY">
 
+  <!-- Канонічне посилання для пошуковиків -->
+  <link rel="canonical" href="https://devmihey.github.io/SvitloAlertChecker/">
+
+  <!-- OpenGraph / Соцмережі / Месенджери (Telegram, Viber) -->
   <meta property="og:title" content="SvitloAlertChecker — Повітряна тривога + Графік відключень світла для ПК">
   <meta property="og:description" content="Глобальне об'єднання AlertChecker та SvitloChecker: моніторинг світла ДТЕК/YASNO та радар 136 районів.">
   <meta property="og:image" content="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg">
+  <meta property="og:url" content="https://devmihey.github.io/SvitloAlertChecker/">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
   <meta name="google-site-verification" content="3UCZaG-gHaYudyfYwhqsb65zi61D7xWmKpI3Cp_xJqI" />
 
   <link rel="icon" type="image/png" href="icon.png">
+
+  <!-- Мікророзмітка Schema.org для розширеного сніпету Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SvitloAlertChecker",
+    "operatingSystem": "Windows 10, Windows 11",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "UAH"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "DEV MIHEY"
+    },
+    "description": "Глобальне об'єднання AlertChecker та SvitloChecker в єдиний віджет для Windows: радар повітряних тривог по 136 районах України та точний графік відключень світла (ДТЕК, YASNO, Обленерго)."
+  }
+  </script>
 
   <style>
     *, *::before, *::after {
@@ -33,19 +61,19 @@
     .container {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 16px 16px 12px; /* Мінімальні відступи зверху і знизу */
+      padding: 16px 16px 12px;
     }
     .hero {
       text-align: center;
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 18px;
-      padding: 16px 20px 18px; /* Сплюснули внутрішній відступ */
+      padding: 16px 20px 18px;
       margin-bottom: 12px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
     .app-icon {
-      width: 58px; /* Акуратний розмір замість 92px */
+      width: 58px;
       height: 58px;
       margin: 0 auto 8px;
       display: block;
@@ -62,7 +90,7 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      margin-bottom: 8px; /* Обидва бейджі тепер в один рядок */
+      margin-bottom: 8px;
     }
     .badge {
       display: inline-block;
@@ -117,7 +145,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 9px 18px; /* Компактні кнопки */
+      padding: 9px 18px;
       border-radius: 8px;
       font-weight: 600;
       font-size: 13.5px;
@@ -243,10 +271,8 @@
   <div class="container">
 
     <header class="hero">
-      <!-- Акуратна іконка -->
       <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon" onerror="this.style.display='none';">
 
-      <!-- Бейджі тепер в один горизонтальний рядок -->
       <div class="badges-row">
         <span class="badge-merger">💥 AlertChecker + SvitloChecker</span>
         <span class="badge">⚡ v5.2.1 · Windows 10 / 11 · Безкоштовно</span>
@@ -267,7 +293,6 @@
       </div>
     </header>
 
-    <!-- Скриншоти поруч в один ряд -->
     <section class="screenshots-row">
       <div class="preview-card">
         <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg" alt="SvitloAlertChecker — Відбій тривоги та статус світла">
@@ -280,7 +305,6 @@
       </div>
     </section>
 
-    <!-- 4 картки -->
     <section class="grid">
       <div class="card">
         <h3>🚨 Радар тривог & Flash Screen</h3>
