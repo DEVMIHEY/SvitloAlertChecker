@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SvitloAlertChecker — Графік відключень світла та Повітряна тривога для Windows</title>
-  <meta name="description" content="Зручний міні-віджет для Windows: точний графік відключень світла (ДТЕК, YASNO, Обленерго) та миттєвий радар повітряних тривог по 136 районах України.">
   
+  <!-- SEO Заголовки та Опис для Google Пошуку -->
+  <title>SvitloAlertChecker — Повітряна тривога та Графік відключень світла для ПК (Windows)</title>
+  <meta name="description" content="Глобальне об'єднання легендарних AlertChecker та SvitloChecker в єдиний віджет для Windows: радар повітряних тривог по 136 районах України (червоні/жовті загрози) та точний графік відключень світла (ДТЕК, YASNO, Обленерго) по всіх чергах 1.1–6.2.">
+  <meta name="keywords" content="повітряна тривога пк, графік відключень світла windows, SvitloAlertChecker, AlertChecker, SvitloChecker, радар тривог, ДТЕК графік, YASNO, обленерго черги, віджет тривоги на робочий стіл, флеш спалах екрану, жовта тривога, відбій тривоги">
+  <meta name="author" content="DEV MIHEY">
+
+  <!-- Open Graph для соцмереж та прев'ю -->
+  <meta property="og:title" content="SvitloAlertChecker — Повітряна тривога + Графік відключень світла для ПК">
+  <meta property="og:description" content="Глобальне об'єднання AlertChecker та SvitloChecker: моніторинг світла ДТЕК/YASNO та радар 136 районів.">
+  <meta property="og:image" content="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg">
+  <meta property="og:type" content="website">
+
   <!-- ВСТАВ СВІЙ ТЕГ ВІД GOOGLE SEARCH CONSOLE СЮДИ: -->
   <!-- <meta name="google-site-verification" content="ТВІЙ_КОД" /> -->
+
+  <link rel="icon" type="image/png" href="icon.png">
 
   <style>
     *, *::before, *::after {
@@ -22,7 +34,7 @@
       -webkit-font-smoothing: antialiased;
     }
     .container {
-      max-width: 1040px; /* розширили, щоб 3 картинки в ряду виглядали просторо */
+      max-width: 1040px;
       margin: 0 auto;
       padding: 40px 16px;
     }
@@ -30,34 +42,68 @@
       text-align: center;
       background: #161b22;
       border: 1px solid #30363d;
-      border-radius: 20px;
-      padding: 44px 24px;
+      border-radius: 24px;
+      padding: 40px 24px 44px;
       margin-bottom: 28px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+    .app-icon {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 16px;
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(88, 166, 255, 0.35);
+      transition: transform 0.3s ease;
+    }
+    .app-icon:hover {
+      transform: scale(1.06) rotate(3deg);
     }
     .badge {
       display: inline-block;
       background: #1f2937;
       border: 1px solid #384252;
       color: #58a6ff;
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 20px;
       font-size: 13px;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+    .badge-merger {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(59, 130, 246, 0.15));
+      border: 1px solid rgba(234, 179, 8, 0.4);
+      color: #ffd859;
+      padding: 4px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
     }
     h1 {
-      margin: 0 0 16px;
-      font-size: clamp(26px, 5vw, 40px);
+      margin: 0 0 12px;
+      font-size: clamp(28px, 5vw, 42px);
       color: #ffffff;
       font-weight: 800;
       letter-spacing: -0.5px;
     }
+    .hero-lead {
+      color: #58a6ff;
+      font-size: clamp(16px, 3vw, 19px);
+      font-weight: 600;
+      max-width: 720px;
+      margin: 0 auto 14px;
+    }
     .subtitle {
       color: #8b949e;
-      font-size: 16px;
-      max-width: 680px;
+      font-size: 15px;
+      max-width: 720px;
       margin: 0 auto 30px;
+      line-height: 1.6;
     }
     .btn-group {
       display: flex;
@@ -102,10 +148,10 @@
       transform: translateY(-1px);
     }
 
-    /* ОСЬ ТУТ: 3 КАРТИНКИ ПОРУЧ В ОДИН РЯД */
+    /* Галерея: 3 скриншоти пліч-о-пліч */
     .screenshots-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* рівно 3 колонки поруч */
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-bottom: 36px;
     }
@@ -130,15 +176,13 @@
       object-fit: cover;
       display: block;
     }
-
-    /* На смартфонах перемикаємо в 1 стовпчик, щоб не було мікроскопічним */
     @media (max-width: 768px) {
       .screenshots-row {
         grid-template-columns: 1fr;
       }
     }
 
-    /* Сітка з описом можливостей */
+    /* 4 основні інформативні картки */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -148,24 +192,35 @@
     .card {
       background: #161b22;
       border: 1px solid #30363d;
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 22px;
-      transition: border-color 0.2s;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover {
       border-color: #58a6ff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      transform: translateY(-2px);
     }
     .card h3 {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       font-size: 16px;
       color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .card p {
       margin: 0;
-      font-size: 14px;
+      font-size: 13.5px;
       color: #8b949e;
-      line-height: 1.5;
+      line-height: 1.55;
     }
+    .card strong {
+      color: #c9d1d9;
+    }
+
     .footer {
       text-align: center;
       color: #8b949e;
@@ -186,9 +241,21 @@
   <div class="container">
 
     <header class="hero">
+      <!-- Твоя фірмова іконка віджета -->
+      <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon" onerror="this.style.display='none';">
+
+      <div class="badge-merger">💥 Глобальне об'єднання: AlertChecker + SvitloChecker</div>
+      <br>
       <div class="badge">⚡ Версія v5.2.1 · Windows 10 / 11 · Безкоштовно</div>
+      
       <h1>SvitloAlertChecker</h1>
-      <p class="subtitle">Зручний міні-віджет поверх усіх вікон: точний графік відключень світла (ДТЕК, YASNO, Обленерго) та миттєвий радар повітряних тривог у єдиному Soft Bento інтерфейсі для Windows.</p>
+      <div class="hero-lead">Повітряна тривога + Графік відключень світла для ПК</div>
+      
+      <!-- SEO-текст із ключовими словами для пошуку Google -->
+      <p class="subtitle">
+        Легендарні програми <strong>AlertChecker</strong> та <strong>SvitloChecker</strong> тепер разом! 
+        Зручний міні-віджет поверх усіх вікон: <strong>Повітряна тривога</strong> (всі 24 області та 136 районів, червоні та жовті загрози) + <strong>Графік відключень світла</strong> для всіх регіонів та всіх підчерг 1.1–6.2 (<strong>ДТЕК, YASNO, Обленерго</strong>) в єдиному Soft Bento інтерфейсі.
+      </p>
       
       <div class="btn-group">
         <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener" class="btn btn-itch">⬇ Завантажити на itch.io</a>
@@ -197,7 +264,7 @@
       </div>
     </header>
 
-    <!-- ТРИ КАРТИНКИ В ОДИН РЯД ПОРУЧ -->
+    <!-- Три скриншоти поруч в один горизонтальний ряд -->
     <section class="screenshots-row">
       <div class="preview-card">
         <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg" alt="SvitloAlertChecker — Відбій тривоги та статус світла">
@@ -210,30 +277,25 @@
       </div>
     </section>
 
-    <!-- Блоки фішок програми -->
+    <!-- 4 оновлені потужні картки з ключовими можливостями -->
     <section class="grid">
       <div class="card">
+        <h3>🚨 Радар тривог & Flash Screen</h3>
+        <p>Моніторинг загроз по <strong>всіх 136 районах</strong> України. Червоні тривоги та жовта підвищена небезпека. <strong>3-колірний спалах (Flash Screen)</strong> по краях екрана, звуки сирени та голосовий/звуковий відбій.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Графіки світла 20+ областей</h3>
+        <p>Миттєве автооновлення розкладу без сайтів і ботів: <strong>ДТЕК, YASNO та всі Обленерго</strong>. Точний вибір підчерг <strong>(1.1–6.2)</strong> та зворотний таймер до наступного відключення чи увімкнення.</p>
+      </div>
+      <div class="card">
         <h3>⏱ Шкала 6 / 24 години</h3>
-        <p>Показує найближчі години (:00 та :30). Клік розгортає повну добу (Сьогодні/Завтра).</p>
+        <p>Міні-капсула над треєм на <strong>найближчі 6 годин</strong>. В один клік розгортається на <strong>повну добу (24 години) та розклад на завтра</strong>. Автоматичне оновлення статусів у реальному часі.</p>
       </div>
       <div class="card">
-        <h3>🚨 Радар тривог</h3>
-        <p>Червоні та жовті загрози по 136 районах України, м'який спалах по краях екрана та звук відбою.</p>
-      </div>
-      <div class="card">
-        <h3>🛡 Ігровий режим</h3>
-        <p>Опція «Не реагувати на кліки» пропускає кліки крізь віджет — не заважає в іграх та софті.</p>
-      </div>
-      <div class="card">
-        <h3>🔌 20+ регіонів</h3>
-        <p>Підтримка ДТЕК, YASNO та всіх обленерго з вибором вашої черги (1.1–6.2).</p>
+        <h3>🛡 Ігровий Click-Through</h3>
+        <p>Режим <strong>«Не реагувати на кліки»</strong> пропускає курсор крізь віджет: ніколи не зіб'є приціл у шутерах чи фокус у роботі. <strong>Розумне приглушення</strong>: коли світло є і тихо, віджет стає напівпрозорим.</p>
       </div>
     </section>
 
     <footer class="footer">
-      Зроблено з 💛💙 в Україні · Автор: <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener">DEV MIHEY</a>
-    </footer>
-
-  </div>
-</body>
-</html>
+      Зроблено з 💛💙 в Україні · Автор: <a href="https://devmihey.itch.
