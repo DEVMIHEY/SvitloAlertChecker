@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devmihey.github.io/SvitloAlertChecker/sitemap.xml
