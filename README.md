@@ -1,5 +1,6 @@
 <div align="center">
-<img width="330" height="151" alt="image" src="https://github.com/user-attachments/assets/18522987-146b-40c1-9d17-c9fb91170ea5" />
+<img width="411" height="184" alt="image" src="https://github.com/user-attachments/assets/44afba29-07f6-4f7f-a28e-4d471d60ae18" />
+
 
 # ⚡ SvitloAlertChecker
 
