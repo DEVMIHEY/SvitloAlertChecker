@@ -5,44 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0d1117">
   
-  <title>SvitloAlertChecker — Повітряна тривога та Графік відключень світла для ПК (Windows)</title>
-  <meta name="description" content="Глобальне об'єднання легендарних AlertChecker та SvitloChecker в єдиний віджет для Windows: радар повітряних тривог по 136 районах України (червоні/жовті загрози) та точний графік відключень світла (ДТЕК, YASNO, Обленерго) по всіх чергах 1.1–6.2.">
+  <title>SvitloAlertChecker v5.3.0 — Повітряна тривога та Графік відключень світла для ПК</title>
+  <meta name="description" content="SvitloAlertChecker v5.3.0 для Windows: миттєвий радар повітряних тривог по 136 районах та графік відключень світла (ДТЕК, YASNO, Обленерго) 1.1–6.2. Віджет поверх усіх вікон, click-through, автооновлення розкладу.">
   <meta name="keywords" content="повітряна тривога пк, графік відключень світла windows, SvitloAlertChecker, AlertChecker, SvitloChecker, радар тривог, ДТЕК графік, YASNO, обленерго черги, віджет тривоги на робочий стіл, флеш спалах екрану, жовта тривога, відбій тривоги">
   <meta name="author" content="DEV MIHEY">
 
-  <!-- Канонічне посилання для пошуковиків -->
   <link rel="canonical" href="https://devmihey.github.io/SvitloAlertChecker/">
 
-  <!-- OpenGraph / Соцмережі / Месенджери (Telegram, Viber) -->
-  <meta property="og:title" content="SvitloAlertChecker — Повітряна тривога + Графік відключень світла для ПК">
-  <meta property="og:description" content="Глобальне об'єднання AlertChecker та SvitloChecker: моніторинг світла ДТЕК/YASNO та радар 136 районів.">
+  <!-- OpenGraph -->
+  <meta property="og:title" content="SvitloAlertChecker v5.3.0 — Повітряна тривога + Графік відключень світла для ПК">
+  <meta property="og:description" content="Миттєвий радар 136 районів швидше за ботів та графіки ДТЕК/YASNO без збоїв шкали. Компактний віджет для Windows.">
   <meta property="og:image" content="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg">
   <meta property="og:url" content="https://devmihey.github.io/SvitloAlertChecker/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
   <meta name="google-site-verification" content="3UCZaG-gHaYudyfYwhqsb65zi61D7xWmKpI3Cp_xJqI" />
-
   <link rel="icon" type="image/png" href="icon.png">
 
-  <!-- Мікророзмітка Schema.org для розширеного сніпету Google -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "SvitloAlertChecker",
+    "softwareVersion": "5.3.0",
     "operatingSystem": "Windows 10, Windows 11",
     "applicationCategory": "UtilitiesApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "UAH"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "DEV MIHEY"
-    },
-    "description": "Глобальне об'єднання AlertChecker та SvitloChecker в єдиний віджет для Windows: радар повітряних тривог по 136 районах України та точний графік відключень світла (ДТЕК, YASNO, Обленерго)."
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "UAH" },
+    "author": { "@type": "Person", "name": "DEV MIHEY" },
+    "description": "Глобальне об'єднання AlertChecker та SvitloChecker: радар тривог 136 районів та графіки світла ДТЕК, YASNO, Обленерго."
   }
   </script>
 
@@ -57,25 +48,28 @@
       color: #e6edf3;
       line-height: 1.45;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     .container {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 16px 16px 12px;
+      padding: 16px 16px 20px;
     }
+    
+    /* HERO СЕКЦІЯ */
     .hero {
       text-align: center;
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 18px;
-      padding: 16px 20px 18px;
-      margin-bottom: 12px;
+      padding: 20px 20px 22px;
+      margin-bottom: 14px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
     .app-icon {
       width: 58px;
       height: 58px;
-      margin: 0 auto 8px;
+      margin: 0 auto 10px;
       display: block;
       border-radius: 50%;
       box-shadow: 0 0 16px rgba(88, 166, 255, 0.35);
@@ -90,14 +84,14 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .badge {
       display: inline-block;
       background: #1f2937;
       border: 1px solid #384252;
       color: #58a6ff;
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 14px;
       font-size: 11.5px;
       font-weight: 600;
@@ -107,7 +101,7 @@
       background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(59, 130, 246, 0.15));
       border: 1px solid rgba(234, 179, 8, 0.4);
       color: #ffd859;
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 14px;
       font-size: 11.5px;
       font-weight: 700;
@@ -116,24 +110,24 @@
     }
     h1 {
       margin: 0 0 4px;
-      font-size: clamp(22px, 3.5vw, 30px);
+      font-size: clamp(24px, 4vw, 32px);
       color: #ffffff;
       font-weight: 800;
       letter-spacing: -0.5px;
     }
     .hero-lead {
       color: #58a6ff;
-      font-size: 15px;
+      font-size: 15.5px;
       font-weight: 600;
       max-width: 720px;
-      margin: 0 auto 6px;
+      margin: 0 auto 8px;
     }
     .subtitle {
       color: #8b949e;
-      font-size: 13px;
+      font-size: 13.5px;
       max-width: 820px;
-      margin: 0 auto 16px;
-      line-height: 1.45;
+      margin: 0 auto 18px;
+      line-height: 1.5;
     }
     .btn-group {
       display: flex;
@@ -178,22 +172,12 @@
       transform: translateY(-1px);
     }
 
-    /* Bento-галерея (2 горизонтальні зверху + 3 вертикальні знизу) */
-    .bento-gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .gallery-row-horizontal {
+    /* ГОЛОВНІ ГОРИЗОНТАЛЬНІ ВІДЖЕТИ */
+    .widgets-preview {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-    }
-    .gallery-row-vertical {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      margin-bottom: 14px;
     }
     .preview-card {
       background: #161b22;
@@ -201,9 +185,6 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       transition: border-color 0.2s, transform 0.2s;
     }
     .preview-card:hover {
@@ -216,25 +197,131 @@
       object-fit: cover;
       display: block;
     }
-    @media (max-width: 768px) {
-      .gallery-row-horizontal,
-      .gallery-row-vertical {
-        grid-template-columns: 1fr;
-      }
+
+    /* КРЕАТИВ: 3D ВЕЄР ДЛЯ 3 ФОТО НАЛАШТУВАНЬ */
+    .showcase-stage {
+      background: radial-gradient(circle at 50% 30%, rgba(88, 166, 255, 0.08) 0%, rgba(22, 27, 34, 0.6) 70%);
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      padding: 24px 16px 20px;
+      margin-bottom: 14px;
+      text-align: center;
+      position: relative;
+    }
+    .stage-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .stage-subtitle {
+      font-size: 12.5px;
+      color: #8b949e;
+      margin: 0 auto 18px;
     }
 
-    /* 4 компактні картки */
+    .fan-deck {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+      min-height: 380px;
+      padding: 10px 0 20px;
+      position: relative;
+    }
+    .fan-card {
+      position: relative;
+      width: 250px;
+      max-width: 80vw;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #161b22;
+      border: 1px solid #384252;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      cursor: pointer;
+      user-select: none;
+    }
+    .fan-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .fan-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(13, 17, 23, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: all 0.3s;
+    }
+
+    /* Початкове положення вікон (3D-веєр у стопці) */
+    .card-left {
+      transform: translateX(45px) rotate(-7deg) scale(0.92);
+      z-index: 1;
+      filter: brightness(0.75);
+    }
+    .card-center {
+      transform: translateX(0) scale(1.02);
+      z-index: 3;
+      border-color: #444c56;
+    }
+    .card-right {
+      transform: translateX(-45px) rotate(7deg) scale(0.92);
+      z-index: 1;
+      filter: brightness(0.75);
+    }
+
+    /* При наведенні на контейнер — вони м'яко розлітаються */
+    .fan-deck:hover .card-left {
+      transform: translateX(-16px) rotate(-3deg) scale(0.96);
+      filter: brightness(0.9);
+    }
+    .fan-deck:hover .card-right {
+      transform: translateX(16px) rotate(3deg) scale(0.96);
+      filter: brightness(0.9);
+    }
+
+    /* При наведенні на конкретну картку — вона виходить вперед з фокусом */
+    .fan-card:hover {
+      transform: translateY(-14px) scale(1.06) rotate(0deg) !important;
+      z-index: 10 !important;
+      filter: brightness(1) !important;
+      border-color: #58a6ff !important;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85), 0 0 20px rgba(88, 166, 255, 0.3) !important;
+    }
+    .fan-card:hover .fan-tag {
+      background: #58a6ff;
+      color: #0d1117;
+      border-color: #58a6ff;
+    }
+
+    /* 4 ГОЛОВНІ ФІЧІ v5.3.0 */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     .card {
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 16px;
       transition: all 0.2s ease;
       display: flex;
       flex-direction: column;
@@ -244,8 +331,8 @@
       transform: translateY(-2px);
     }
     .card h3 {
-      margin: 0 0 6px;
-      font-size: 14.5px;
+      margin: 0 0 8px;
+      font-size: 15px;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -258,14 +345,14 @@
       line-height: 1.45;
     }
     .card strong {
-      color: #c9d1d9;
+      color: #e6edf3;
     }
 
     .footer {
       text-align: center;
       color: #8b949e;
       font-size: 12.5px;
-      padding-top: 10px;
+      padding-top: 14px;
       border-top: 1px solid #21262d;
     }
     .footer a {
@@ -275,6 +362,24 @@
     }
     .footer a:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .widgets-preview {
+        grid-template-columns: 1fr;
+      }
+      .fan-deck {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px 10px 20px;
+        min-height: auto;
+      }
+      .fan-card {
+        flex: 0 0 210px;
+        transform: none !important;
+        filter: none !important;
+        margin-right: 12px;
+      }
     }
   </style>
 </head>
@@ -304,47 +409,62 @@
       </div>
     </header>
 
-    <section class="bento-gallery">
-      <!-- 2 горизонтальні картинки -->
-      <div class="gallery-row-horizontal">
-        <div class="preview-card">
-          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyMzcyNi5qcGc=/347x500/csalhw.jpg" alt="SvitloAlertChecker — Тривога та таймер до відключення">
-        </div>
-        <div class="preview-card">
-          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg" alt="SvitloAlertChecker — Відбій тривоги та статус світла">
-        </div>
+    <!-- Горизонтальні віджети поверх трею -->
+    <section class="widgets-preview">
+      <div class="preview-card">
+        <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyMzcyNi5qcGc=/347x500/csalhw.jpg" alt="SvitloAlertChecker — Тривога та таймер до відключення">
       </div>
+      <div class="preview-card">
+        <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg" alt="SvitloAlertChecker — Відбій тривоги та статус світла">
+      </div>
+    </section>
 
-      <!-- 3 вертикальні картинки -->
-      <div class="gallery-row-vertical">
-        <div class="preview-card">
-          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg" alt="SvitloAlertChecker — Меню керування">
+    <!-- КРЕАТИВНИЙ 3D-ВЕЄР ДЛЯ НАЛАШТУВАНЬ (наведи курсор) -->
+    <section class="showcase-stage">
+      <div class="stage-title">⚙ Панель повного контролю</div>
+      <div class="stage-subtitle">Наведіть курсор на вікно, щоб розгорнути та розглянути інтерфейс</div>
+
+      <div class="fan-deck">
+        <!-- Картка 1: Спалах, Звук, Керування -->
+        <div class="fan-card card-left">
+          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg" alt="Керування спалахом, звуком і прозорістю">
+          <div class="fan-tag">Керування & Звук</div>
         </div>
-        <div class="preview-card">
-          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNy5qcGc=/347x500/gxlhJ0.jpg" alt="SvitloAlertChecker — Вибір світла та черги">
+
+        <!-- Картка 2: Графіки ДТЕК / YASNO (Центральна) -->
+        <div class="fan-card card-center">
+          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNy5qcGc=/347x500/gxlhJ0.jpg" alt="Вибір регіону та підчерг світла 1.1–6.2">
+          <div class="fan-tag">Графіки черг 1.1–6.2</div>
         </div>
-        <div class="preview-card">
-          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNi5qcGc=/347x500/WN3Dg1.jpg" alt="SvitloAlertChecker — Налаштування тривог по районах">
+
+        <!-- Картка 3: 136 Районів тривог -->
+        <div class="fan-card card-right">
+          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNi5qcGc=/347x500/WN3Dg1.jpg" alt="Налаштування тривог по районах та областях">
+          <div class="fan-tag">Радар 136 районів</div>
         </div>
       </div>
     </section>
 
+    <!-- 4 ГОЛОВНІ КАРТКИ ФІЧ v5.3.0 -->
     <section class="grid">
       <div class="card">
-        <h3>🚨 Радар тривог & Flash Screen</h3>
-        <p>Загрози по <strong>всіх 136 районах</strong> України. Червоні та жовті тривоги, <strong>3-колірний спалах монітора (Flash Screen)</strong>, звуки сирени та відбою.</p>
+        <h3>⚡ Графіки світла без збоїв</h3>
+        <p><strong>Завжди точний розклад 1.1–6.2.</strong> Дані безпосередньо з ДТЕК, YASNO та Обленерго. Шкала на 6 або 24 години оновлюється автоматично, не «ламається» при екстрених змінах та показує точний таймер до відключення/включення.</p>
       </div>
+
       <div class="card">
-        <h3>⚡ Графіки світла 20+ областей</h3>
-        <p>Автооновлення розкладу без ботів: <strong>ДТЕК, YASNO, Обленерго</strong>. Точні підчерги <strong>(1.1–6.2)</strong> та зворотний таймер до зміни статусу.</p>
+        <h3>🚨 Радар: Швидше за ботів</h3>
+        <p><strong>Миттєва реакція без затримок каналів.</strong> Червоні та жовті загрози по всіх 24 областях і 136 районах України. Сповіщення приходять швидше за Telegram, зі звуком сирени, відбоєм та 3-колірним спалахом Flash Screen.</p>
       </div>
+
       <div class="card">
-        <h3>⏱ Шкала 6 / 24 години</h3>
-        <p>Капсула над треєм на <strong>найближчі 6 год</strong>. В один клік — <strong>повна доба (24 год) та завтра</strong>. Автооновлення в реальному часі.</p>
+        <h3>🎮 Віджет & Click-Through</h3>
+        <p><strong>Інформативно, але не заважає.</strong> Міні-капсула поверх усіх вікон із регулюванням прозорості. Режим <strong>«Не реагувати на кліки»</strong>: курсор проходить крізь віджет, що дозволяє грати в ігри або працювати без випадкових натискань.</p>
       </div>
+
       <div class="card">
-        <h3>🛡 Ігровий Click-Through</h3>
-        <p><strong>«Не реагувати на кліки»</strong>: курсор проходить крізь віджет, не заважаючи в іграх. <strong>Розумне приглушення</strong>, коли тихо й світло є.</p>
+        <h3>🔄 Автооновлення баз & софту</h3>
+        <p><strong>Завжди актуальний — «поставив і забув».</strong> Бази розкладів, шлюзи парсерів та сама програма оновлюються автоматично у фоні. Жодних ручних перекачувань з репозиторіїв чи битих посилань після апдейтів від обленерго.</p>
       </div>
     </section>
 
