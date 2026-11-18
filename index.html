@@ -199,88 +199,128 @@
       display: block;
     }
 
-    /* ЄДИНИЙ КОМБІНОВАНИЙ BENTO-БЛОК */
+    /* BENTO-МАКЕТ: ЛІВИЙ БЛОК КОМПАКТНИЙ ПІД СКРІН, ПРАВІ 4 КВАДРАТИ ШИРОКІ */
     .main-bento-layout {
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
+      grid-template-columns: 335px 1fr;
       gap: 12px;
       margin-bottom: 16px;
     }
 
-    /* ЛІВА ЧАСТИНА: 3 вікна в гармошці */
-    .accordion-container {
-      display: flex;
-      gap: 8px;
-      height: 390px;
-      width: 100%;
-    }
-    .accordion-item {
-      flex: 1;
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #30363d;
+    /* ЗЛІВА: КОМПАКТНИЙ СЛАЙДЕР ВІКОН БЕЗ ЛИШНІХ ВІДСТУПІВ */
+    .slider-card {
       background: #161b22;
-      cursor: pointer;
-      transition: flex 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
-    }
-    .accordion-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      filter: brightness(0.72);
-      transition: filter 0.3s, transform 0.4s;
-    }
-    .accordion-badge {
-      position: absolute;
-      bottom: 10px;
-      left: 8px;
-      right: 8px;
-      background: rgba(13, 17, 23, 0.88);
-      backdrop-filter: blur(8px);
-      border: 1px solid #384252;
-      padding: 6px 10px;
-      border-radius: 8px;
-      color: #c9d1d9;
-      font-size: 11.5px;
-      font-weight: 600;
-      white-space: nowrap;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      height: 395px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
       overflow: hidden;
-      text-overflow: ellipsis;
-      pointer-events: none;
-      transition: all 0.3s;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    .slider-stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 10px 26px;
+      background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.05) 0%, transparent 75%);
+    }
+    .slider-stage img {
+      max-height: 320px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      border: 1px solid #384252;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+    .slider-stage img:hover {
+      border-color: #58a6ff;
     }
 
-    /* Розкриття при наведенні */
-    .accordion-item:hover {
-      flex: 2.3;
-      border-color: #58a6ff;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    /* Стрілочки */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(22, 27, 34, 0.9);
+      border: 1px solid #384252;
+      color: #e6edf3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      user-select: none;
+      z-index: 5;
     }
-    .accordion-item:hover img {
-      filter: brightness(1);
-      transform: scale(1.02);
-    }
-    .accordion-item:hover .accordion-badge {
+    .nav-arrow:hover {
       background: #1f2937;
       border-color: #58a6ff;
       color: #58a6ff;
+      transform: translateY(-50%) scale(1.1);
+    }
+    .nav-arrow.prev { left: 6px; }
+    .nav-arrow.next { right: 6px; }
+
+    /* Нижня плашка підпису слайдера */
+    .slider-footer {
+      padding: 8px 12px 10px;
+      background: #0d1117;
+      border-top: 1px solid #21262d;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .slider-caption {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #c9d1d9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .slider-dots {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #384252;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dot.active {
+      background: #58a6ff;
+      transform: scale(1.25);
     }
 
-    /* ПРАВА ЧАСТИНА: 4 КВАДРАТИ (СІТКА 2х2) */
+    /* СПРАВА: 4 ШИРОКІ КВАДРАТИ (СІТКА 2х2) */
     .features-quad {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: 8px;
-      height: 390px;
+      gap: 10px;
+      height: 395px;
     }
     .quad-card {
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -294,18 +334,18 @@
     }
     .quad-card h3 {
       margin: 0 0 6px;
-      font-size: 13.5px;
+      font-size: 14px;
       color: #ffffff;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       line-height: 1.3;
     }
     .quad-card p {
       margin: 0;
-      font-size: 11.5px;
+      font-size: 12px;
       color: #8b949e;
-      line-height: 1.4;
+      line-height: 1.45;
     }
     .quad-card strong {
       color: #e6edf3;
@@ -332,8 +372,8 @@
       .main-bento-layout {
         grid-template-columns: 1fr;
       }
-      .accordion-container {
-        height: 320px;
+      .slider-card {
+        height: 380px;
       }
       .features-quad {
         height: auto;
@@ -342,18 +382,6 @@
     @media (max-width: 580px) {
       .widgets-preview {
         grid-template-columns: 1fr;
-      }
-      .accordion-container {
-        flex-direction: column;
-        height: auto;
-      }
-      .accordion-item {
-        height: 110px;
-        flex: none;
-      }
-      .accordion-item:hover {
-        height: 320px;
-        flex: none;
       }
       .features-quad {
         grid-template-columns: 1fr;
@@ -397,28 +425,28 @@
       </div>
     </section>
 
-    <!-- ГОЛОВНИЙ BENTO-БЛОК: 3 вікна зліва + 4 квадрати фіч справа -->
+    <!-- ГОЛОВНИЙ BENTO-БЛОК: КОМПАКТНИЙ СЛАЙДЕР ЗЛІВА + 4 ШИРОКІ КВАДРАТИ СПРАВА -->
     <section class="main-bento-layout">
       
-      <!-- Зліва: 3 вікна-гармошки -->
-      <div class="accordion-container">
-        <div class="accordion-item">
-          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg" alt="Керування">
-          <div class="accordion-badge">⚙ Керування & Звук</div>
+      <!-- Зліва: Слайдер (стартує з Налаштувань) -->
+      <div class="slider-card">
+        <div class="slider-stage">
+          <button class="nav-arrow prev" onclick="moveSlide(-1)" aria-label="Попереднє вікно">‹</button>
+          <img id="activeSlideImg" src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg" alt="Керування віджетом" onclick="moveSlide(1)">
+          <button class="nav-arrow next" onclick="moveSlide(1)" aria-label="Наступне вікно">›</button>
         </div>
 
-        <div class="accordion-item">
-          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNy5qcGc=/347x500/gxlhJ0.jpg" alt="Графіки">
-          <div class="accordion-badge">⚡ Графіки 1.1–6.2</div>
-        </div>
-
-        <div class="accordion-item">
-          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNi5qcGc=/347x500/WN3Dg1.jpg" alt="Райони">
-          <div class="accordion-badge">🚨 136 Районів</div>
+        <div class="slider-footer">
+          <div class="slider-caption" id="slideCaption">⚙ Налаштування під себе: звук, спалах, прозорість</div>
+          <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+          </div>
         </div>
       </div>
 
-      <!-- Справа: 4 квадрати (сітка 2х2) -->
+      <!-- Справа: 4 просторі квадрати (сітка 2х2) -->
       <div class="features-quad">
         <div class="quad-card">
           <h3>⚡ Графіки без збоїв</h3>
@@ -448,5 +476,55 @@
     </footer>
 
   </div>
+
+  <script>
+    // 1-й: Керування, 2-й: Регіони тривог, 3-й: Графіки світла
+    const slidesData = [
+      {
+        src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg",
+        caption: "⚙ Налаштування під себе: звук, спалах, прозорість"
+      },
+      {
+        src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNi5qcGc=/347x500/WN3Dg1.jpg",
+        caption: "📍 Вибір району, всієї обл. одразу або декількох"
+      },
+      {
+        src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNy5qcGc=/347x500/gxlhJ0.jpg",
+        caption: "⚡ Графік відключень світла: обл. та черга"
+      }
+    ];
+
+    let currentSlide = 0;
+    const imgEl = document.getElementById('activeSlideImg');
+    const captionEl = document.getElementById('slideCaption');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    function updateSlide() {
+      imgEl.style.opacity = '0.25';
+      imgEl.style.transform = 'scale(0.97)';
+      
+      setTimeout(() => {
+        imgEl.src = slidesData[currentSlide].src;
+        captionEl.textContent = slidesData[currentSlide].caption;
+        
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentSlide);
+        });
+
+        imgEl.style.opacity = '1';
+        imgEl.style.transform = 'scale(1)';
+      }, 150);
+    }
+
+    function moveSlide(dir) {
+      currentSlide = (currentSlide + dir + slidesData.length) % slidesData.length;
+      updateSlide();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlide();
+    }
+  </script>
 </body>
 </html>
