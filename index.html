@@ -15,7 +15,7 @@
 
   <!-- OpenGraph -->
   <meta property="og:title" content="SvitloAlertChecker v5.3.0 — Повітряна тривога + Графік відключень світла для ПК">
-  <meta property="og:description" content="Миттєвий радар 136 районів швидше за ботів та графіки ДТЕК/YASNO без збоїв шкали. Компактний віджет для Windows.">
+  <meta property="og:description" content="Миттєвий радар 136 районів швидше за ботів та графіки ДТЕК/YASNO на Cloudflare без збоїв шкали.">
   <meta property="og:image" content="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg">
   <meta property="og:url" content="https://devmihey.github.io/SvitloAlertChecker/">
   <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
     "applicationCategory": "UtilitiesApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "UAH" },
     "author": { "@type": "Person", "name": "DEV MIHEY" },
-    "description": "Глобальне об'єднання AlertChecker та SvitloChecker в єдиний віджет для Windows: радар повітряних тривог по 136 районах та графік відключень світла (ДТЕК, YASNO, Обленерго)."
+    "description": "Глобальне об'єднання AlertChecker та SvitloChecker: радар 136 районів та графіки світла ДТЕК, YASNO, Обленерго на базі Cloudflare."
   }
   </script>
 
@@ -199,7 +199,7 @@
       display: block;
     }
 
-    /* BENTO-МАКЕТ: ЛІВИЙ БЛОК КОМПАКТНИЙ ПІД СКРІН, ПРАВІ 4 КВАДРАТИ ШИРОКІ */
+    /* BENTO-МАКЕТ: КОМПАКТНИЙ СЛАЙДЕР + ШИРОКІ КАРТКИ */
     .main-bento-layout {
       display: grid;
       grid-template-columns: 335px 1fr;
@@ -207,12 +207,12 @@
       margin-bottom: 16px;
     }
 
-    /* ЗЛІВА: КОМПАКТНИЙ СЛАЙДЕР ВІКОН БЕЗ ЛИШНІХ ВІДСТУПІВ */
+    /* ЗЛІВА: СЛАЙДЕР ВІКОН БЕЗ ОБРІЗАННЯ */
     .slider-card {
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 14px;
-      height: 395px;
+      height: 410px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -225,11 +225,11 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 10px 26px;
+      padding: 10px 24px;
       background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.05) 0%, transparent 75%);
     }
     .slider-stage img {
-      max-height: 320px;
+      max-height: 330px;
       width: auto;
       max-width: 100%;
       object-fit: contain;
@@ -272,7 +272,7 @@
     .nav-arrow.prev { left: 6px; }
     .nav-arrow.next { right: 6px; }
 
-    /* Нижня плашка підпису слайдера */
+    /* Нижня панель слайдера */
     .slider-footer {
       padding: 8px 12px 10px;
       background: #0d1117;
@@ -308,19 +308,19 @@
       transform: scale(1.25);
     }
 
-    /* СПРАВА: 4 ШИРОКІ КВАДРАТИ (СІТКА 2х2) */
+    /* СПРАВА: 4 ПРОСТОРІ КВАДРАТИ (СІТКА 2х2) */
     .features-quad {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 10px;
-      height: 395px;
+      height: 410px;
     }
     .quad-card {
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 13px 15px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -334,7 +334,7 @@
     }
     .quad-card h3 {
       margin: 0 0 6px;
-      font-size: 14px;
+      font-size: 13.5px;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -343,7 +343,7 @@
     }
     .quad-card p {
       margin: 0;
-      font-size: 12px;
+      font-size: 11.5px;
       color: #8b949e;
       line-height: 1.45;
     }
@@ -425,10 +425,10 @@
       </div>
     </section>
 
-    <!-- ГОЛОВНИЙ BENTO-БЛОК: КОМПАКТНИЙ СЛАЙДЕР ЗЛІВА + 4 ШИРОКІ КВАДРАТИ СПРАВА -->
+    <!-- ГОЛОВНИЙ BENTO-БЛОК -->
     <section class="main-bento-layout">
       
-      <!-- Зліва: Слайдер (стартує з Налаштувань) -->
+      <!-- Зліва: Слайдер (стартує з 1-го вікна Налаштувань) -->
       <div class="slider-card">
         <div class="slider-stage">
           <button class="nav-arrow prev" onclick="moveSlide(-1)" aria-label="Попереднє вікно">‹</button>
@@ -437,7 +437,7 @@
         </div>
 
         <div class="slider-footer">
-          <div class="slider-caption" id="slideCaption">⚙ Налаштування під себе: звук, спалах, прозорість</div>
+          <div class="slider-caption" id="slideCaption">⚙ Керування: налаштуйте все під себе</div>
           <div class="slider-dots">
             <span class="dot active" onclick="goToSlide(0)"></span>
             <span class="dot" onclick="goToSlide(1)"></span>
@@ -446,27 +446,33 @@
         </div>
       </div>
 
-      <!-- Справа: 4 просторі квадрати (сітка 2х2) -->
+      <!-- Справа: 4 квадрати за твоїм сценарієм -->
       <div class="features-quad">
+        
+        <!-- 1. Графіки світла -->
         <div class="quad-card">
           <h3>⚡ Графіки без збоїв</h3>
-          <p><strong>Точний розклад 1.1–6.2.</strong> ДТЕК, YASNO, Обленерго. Шкала на 6/24 год не ламається при екстрених змінах + зворотний таймер.</p>
+          <p><strong>Власна база на Cloudflare.</strong> Не перевантажує сайти ДТЕК, YASNO чи Обленерго. Ви завжди маєте актуальний розклад, навіть коли офіційні сервіси "лежать". Шкала на 6 год завжди активна, по кліку — доба (24 год), а за 30 хв до вимкнення капсула та екран блимнуть попередженням.</p>
         </div>
 
+        <!-- 2. Тривоги -->
         <div class="quad-card">
-          <h3>🚨 Швидше за ботів</h3>
-          <p><strong>Миттєвий радар.</strong> 24 області та 136 районів без затримок каналів. 3-колірний спалах Flash Screen, сирена та відбій.</p>
+          <h3>🚨 Радар: Миттєві тривоги</h3>
+          <p><strong>Усі обрані області та райони.</strong> Миттєве сповіщення про червону або жовту загрозу швидше за Telegram-ботів. Супроводжується звуком сирени, пульсуючим миганням капсули та периметральним спалахом країв монітора (Flash Screen).</p>
         </div>
 
+        <!-- 3. Не заважає за ПК -->
         <div class="quad-card">
-          <h3>🎮 Click-Through</h3>
-          <p><strong>Не заважає за ПК.</strong> Прозорість та пропуск кліків миші — спокійно грайте чи працюйте без випадкових натискань.</p>
+          <h3>🎮 Працює та не заважає</h3>
+          <p><strong>Ідеально для роботи та ігор.</strong> Виставили віджет у зручний кут (або 2-й монітор), налаштували прозорість і закріпили: віджет стає непомітним, коли все тихо й світло є, та привертає увагу яскравим кольором лише під час загрози.</p>
         </div>
 
+        <!-- 4. Автооновлення -->
         <div class="quad-card">
-          <h3>🔄 Автооновлення</h3>
-          <p><strong>Поставив і забув.</strong> Програма, бази розкладів та парсери оновлюються автоматично у фоні без ручних завантажень.</p>
+          <h3>🔄 Повне автооновлення</h3>
+          <p><strong>Жодних зайвих клопотів.</strong> Програма та бази даних оновлюються автоматично у фоні без ручних завантажень. Кнопка примусового оновлення баз потрібна лише як резерв, якщо інтернет підвів чи графіки раптово переписали просто зараз.</p>
         </div>
+
       </div>
 
     </section>
@@ -478,15 +484,15 @@
   </div>
 
   <script>
-    // 1-й: Керування, 2-й: Регіони тривог, 3-й: Графіки світла
+    // Чітка черговість: 0 = Керування, 1 = Регіони тривог, 2 = Графік світла
     const slidesData = [
       {
         src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg",
-        caption: "⚙ Налаштування під себе: звук, спалах, прозорість"
+        caption: "⚙ Керування: налаштуйте все під себе"
       },
       {
         src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNi5qcGc=/347x500/WN3Dg1.jpg",
-        caption: "📍 Вибір району, всієї обл. одразу або декількох"
+        caption: "📍 Вибір району, всієї обл. одразу або кількох"
       },
       {
         src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNy5qcGc=/347x500/gxlhJ0.jpg",
