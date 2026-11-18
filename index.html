@@ -178,12 +178,22 @@
       transform: translateY(-1px);
     }
 
-    /* Галерея з 3-х скриншотів */
-    .screenshots-row {
+    /* Bento-галерея (2 горизонтальні зверху + 3 вертикальні знизу) */
+    .bento-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .gallery-row-horizontal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .gallery-row-vertical {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      margin-bottom: 12px;
     }
     .preview-card {
       background: #161b22;
@@ -207,7 +217,8 @@
       display: block;
     }
     @media (max-width: 768px) {
-      .screenshots-row {
+      .gallery-row-horizontal,
+      .gallery-row-vertical {
         grid-template-columns: 1fr;
       }
     }
@@ -293,15 +304,28 @@
       </div>
     </header>
 
-    <section class="screenshots-row">
-      <div class="preview-card">
-        <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg" alt="SvitloAlertChecker — Відбій тривоги та статус світла">
+    <section class="bento-gallery">
+      <!-- 2 горизонтальні картинки -->
+      <div class="gallery-row-horizontal">
+        <div class="preview-card">
+          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyMzcyNi5qcGc=/347x500/csalhw.jpg" alt="SvitloAlertChecker — Тривога та таймер до відключення">
+        </div>
+        <div class="preview-card">
+          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg" alt="SvitloAlertChecker — Відбій тривоги та статус світла">
+        </div>
       </div>
-      <div class="preview-card">
-        <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyMzcyNi5qcGc=/347x500/csalhw.jpg" alt="SvitloAlertChecker — Тривога та таймер до відключення">
-      </div>
-      <div class="preview-card">
-        <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQwNjU1OS5qcGc=/347x500/wl5etf.jpg" alt="SvitloAlertChecker — Повна шкала на 24 години">
+
+      <!-- 3 вертикальні картинки -->
+      <div class="gallery-row-vertical">
+        <div class="preview-card">
+          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg" alt="SvitloAlertChecker — Меню керування">
+        </div>
+        <div class="preview-card">
+          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNy5qcGc=/347x500/gxlhJ0.jpg" alt="SvitloAlertChecker — Вибір світла та черги">
+        </div>
+        <div class="preview-card">
+          <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNi5qcGc=/347x500/WN3Dg1.jpg" alt="SvitloAlertChecker — Налаштування тривог по районах">
+        </div>
       </div>
     </section>
 
