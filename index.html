@@ -78,7 +78,7 @@
       filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
     }
 
-    /* ЗОЛОТА КАПСУЛА: ІДЕАЛЬНА СИМЕТРІЯ ЛІВОГО ТА ПРАВОГО КРАЇВ */
+    /* ЗОЛОТА КАПСУЛА: ІДЕАЛЬНА СИМЕТРІЯ */
     .brand-capsule-wrap {
       display: flex;
       justify-content: center;
@@ -115,7 +115,7 @@
       transform: scale(1.05);
     }
 
-    /* ЦЕНТР: НАЗВА (+30%) ТА СЛОГАН */
+    /* ЦЕНТР: НАЗВА ТА СЛОГАН */
     .brand-center-block {
       display: flex;
       flex-direction: column;
@@ -158,7 +158,7 @@
     .heart-blue { color: #58a6ff; font-size: 12px; }
     .heart-yellow { color: #ffd859; font-size: 12px; }
 
-    /* ПРАВИЙ БЛОК: QR МОНОБАНКУ (В ТОЧНИЙ РОЗМІР ЛІВОЇ ІКОНКИ) */
+    /* ПРАВИЙ БЛОК: QR МОНОБАНКУ */
     .mono-qr-box {
       width: clamp(50px, 5.5vw, 56px);
       height: clamp(50px, 5.5vw, 56px);
@@ -239,7 +239,7 @@
       border: 0;
     }
 
-    /* ХВИЛЬОВЕ ПЕРЕЛИВАННЯ КНОПОК ОДНА В ОДНУ */
+    /* ХВИЛЬОВЕ ПЕРЕЛИВАННЯ КНОПОК */
     @keyframes wave-itch {
       0%, 100% { box-shadow: 0 0 0 rgba(250, 92, 92, 0); transform: translateY(0); }
       20% { box-shadow: 0 0 18px rgba(250, 92, 92, 0.85); transform: translateY(-1px); }
@@ -468,6 +468,130 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
       display: block;
       margin: 0 auto;
+    }
+
+    /* ========================================================
+       ПРЕС-ЦЕНТР ТА СОЦІАЛЬНИЙ ДОКАЗ (DEV.UA, DOU, KASHA...)
+       ======================================================== */
+    .press-center-wrap {
+      margin: 10px auto 4px;
+      max-width: 860px;
+      text-align: center;
+    }
+    .press-details {
+      background: rgba(22, 27, 34, 0.6);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      border-radius: 30px;
+      padding: 4px 14px;
+      transition: all 0.25s ease;
+      display: inline-block;
+      width: auto;
+    }
+    .press-details:hover {
+      border-color: rgba(234, 179, 8, 0.8);
+      background: rgba(28, 33, 40, 0.85);
+      box-shadow: 0 0 18px rgba(234, 179, 8, 0.2);
+    }
+    .press-details[open] {
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+      background: #11161d;
+      border-color: rgba(234, 179, 8, 0.7);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 20px rgba(234, 179, 8, 0.15);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .press-summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+      font-size: 11.5px;
+      color: #e6edf3;
+      line-height: 1.2;
+    }
+    .press-summary::-webkit-details-marker {
+      display: none;
+    }
+    .press-badge-tag {
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 10.5px;
+      letter-spacing: 0.3px;
+    }
+    .badge-dev { background: #000000; color: #ffffff; border: 1px solid rgba(255,255,255,0.25); }
+    .badge-dou { background: #ff3344; color: #ffffff; }
+    .badge-kasha { background: #ffd859; color: #000000; }
+    .badge-pontyk { background: #238636; color: #ffffff; }
+
+    .press-arrow {
+      color: #ffd859;
+      font-size: 9px;
+      transition: transform 0.2s ease;
+      margin-left: 4px;
+    }
+    .press-details[open] .press-arrow {
+      transform: rotate(180deg);
+    }
+    .press-details[open] .press-summary {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(234, 179, 8, 0.25);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: #ffd859;
+      font-size: 12.5px;
+    }
+
+    /* СІТКА СТАТЕЙ У РОЗГОРНУТОМУ ПРЕС-ЦЕНТРІ */
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 8px;
+    }
+    .press-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 8px 10px;
+      text-decoration: none;
+      color: #c9d1d9;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .press-card:hover {
+      border-color: #ffd859;
+      background: rgba(234, 179, 8, 0.05);
+      transform: translateY(-1px);
+    }
+    .press-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .press-card-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #e6edf3;
+      line-height: 1.35;
+      margin: 0;
+    }
+    .press-card-link-text {
+      font-size: 10px;
+      color: #58a6ff;
+      margin-top: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
     }
 
     /* 2 ГОРИЗОНТАЛЬНІ ВІДЖЕТИ */
@@ -851,6 +975,89 @@
           </div>
         </details>
 
+      </div>
+
+      <!-- ========================================================
+           ПРЕС-ЦЕНТР: ЗМІ ТА IT-СПІЛЬНОТА ПРО НАС (DEV.UA, DOU...)
+           ======================================================== -->
+      <div class="press-center-wrap">
+        <details class="press-details">
+          <summary class="press-summary">
+            <span>📰 <strong>Про нас пишуть:</strong></span>
+            <span class="press-badge-tag badge-dev">dev.ua</span>
+            <span class="press-badge-tag badge-dou">DOU</span>
+            <span class="press-badge-tag badge-kasha">KASHA</span>
+            <span class="press-badge-tag badge-pontyk">Pontyk</span>
+            <span style="color: #8b949e; font-size: 11px;">(6 публікацій)</span>
+            <span class="press-arrow">▼</span>
+          </summary>
+
+          <div style="margin-top: 10px;">
+            <div class="press-grid">
+              
+              <!-- 1. DEV.UA ГОЛОВНА СТАТТЯ -->
+              <a href="https://dev.ua/news/svitlo-1794376540" target="_blank" rel="noopener" class="press-card">
+                <div class="press-card-top">
+                  <span class="press-badge-tag badge-dev">dev.ua</span>
+                  <span style="font-size: 10px; color: #8b949e;">Ексклюзив</span>
+                </div>
+                <p class="press-card-title">«Український розробник створив застосунок для моніторингу світла на Windows»</p>
+                <span class="press-card-link-text">Читати статтю ↗</span>
+              </a>
+
+              <!-- 2. DEV.UA ТОП-10 ДОДАТКІВ -->
+              <a href="https://dev.ua/news/vaibkodynh-proty-blekautiv-10-korysnykh-dodatkiv-i-vidzhetiv-iaki-ukrainski-aitivtsi-stvoryly-dlia-vykorystannia-pry-vidkliuchenniakh-svitla-1794391841" target="_blank" rel="noopener" class="press-card">
+                <div class="press-card-top">
+                  <span class="press-badge-tag badge-dev">dev.ua</span>
+                  <span style="font-size: 10px; color: #8b949e;">Добірка</span>
+                </div>
+                <p class="press-card-title">Вайбкодинг проти блекаутів: 10 корисних додатків і віджетів від українських айтівців</p>
+                <span class="press-card-link-text">Читати огляд ↗</span>
+              </a>
+
+              <!-- 3. DOU.UA ФОРУМ -->
+              <a href="https://dou.ua/forums/topic/63230/" target="_blank" rel="noopener" class="press-card">
+                <div class="press-card-top">
+                  <span class="press-badge-tag badge-dou">DOU.ua</span>
+                  <span style="font-size: 10px; color: #8b949e;">Спільнота</span>
+                </div>
+                <p class="press-card-title">Дискусії, релізи та обговорення розробки у найбільшій IT-спільноті України</p>
+                <span class="press-card-link-text">Читати на DOU ↗</span>
+              </a>
+
+              <!-- 4. KASHA MEDIA -->
+              <a href="https://kasha.media/tekhnologii/ukrainski-rozrobnyky-stvoriuiut-novi-instrumenty-dlia-zhyttia-v-umovakh-" target="_blank" rel="noopener" class="press-card">
+                <div class="press-card-top">
+                  <span class="press-badge-tag badge-kasha">KASHA Media</span>
+                  <span style="font-size: 10px; color: #8b949e;">Технології</span>
+                </div>
+                <p class="press-card-title">«Українські розробники створюють нові інструменти для життя в умовах відключень»</p>
+                <span class="press-card-link-text">Читати матеріал ↗</span>
+              </a>
+
+              <!-- 5. PONTYK MEDIA -->
+              <a href="https://pontyk.com.ua/uk/rozrobka/svitlochecker-zastosunok-dlya-monitorynhu-vidklyuchen-svitla-na-windows/" target="_blank" rel="noopener" class="press-card">
+                <div class="press-card-top">
+                  <span class="press-badge-tag badge-pontyk">Pontyk Media</span>
+                  <span style="font-size: 10px; color: #8b949e;">Огляд</span>
+                </div>
+                <p class="press-card-title">SvitloChecker — детальний огляд застосунку для моніторингу графіків на ПК</p>
+                <span class="press-card-link-text">Читати розбір ↗</span>
+              </a>
+
+              <!-- 6. LINKEDIN DEV.UA -->
+              <a href="https://ua.linkedin.com/posts/dev-ua_%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B9-%D1%80%D0%BE%D0%B7%D1%80%D0%BE%D0%B1%D0%BD%D0%B8%D0%BA-%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B8%D0%B2-%D0%B7%D0%B0%D1%81%D1%82%D0%BE%D1%81%D1%83%D0%BD%D0%BE%D0%BA-activity-7526163924380200961-MO3E" target="_blank" rel="noopener" class="press-card">
+                <div class="press-card-top">
+                  <span style="background: #0a66c2; color: #ffffff; padding: 1px 6px; border-radius: 4px; font-weight: 800; font-size: 10px;">LinkedIn</span>
+                  <span style="font-size: 10px; color: #8b949e;">Вірусний пост</span>
+                </div>
+                <p class="press-card-title">Публікація та сотні реакцій українських айтівців у професійній мережі</p>
+                <span class="press-card-link-text">Переглянути в LinkedIn ↗</span>
+              </a>
+
+            </div>
+          </div>
+        </details>
       </div>
 
     </header>
