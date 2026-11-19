@@ -126,25 +126,12 @@
       filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.35));
     }
 
-    /* ЗБАЛАНСОВАНИЙ ЄДИНИЙ РЯДОК БЕЗ ПЛЮСА */
+    /* ЦЕНТРАЛЬНА ПЛАШКА */
     .unified-line {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 6px 12px;
-      font-size: 12px;
-      color: #8b949e;
       margin-bottom: 12px;
-      line-height: 1.4;
-    }
-    .unified-side {
-      color: #9da7b3;
-      font-size: 11.5px;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
     }
     .unified-center {
       display: inline-flex;
@@ -153,7 +140,7 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 8px;
-      padding: 3px 12px;
+      padding: 4px 14px;
       color: #ffffff;
       white-space: nowrap;
     }
@@ -164,6 +151,19 @@
     .text-power {
       color: #79c0ff;
       font-weight: 700;
+    }
+
+    /* SEO ТЕГ (НЕВИДИМИЙ ДЛЯ ОКА, АЛЕ ІНДЕКСУЄТЬСЯ РОБОТАМИ GOOGLE) */
+    .seo-hidden-text {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     /* ОВАЛ АКТУАЛЬНОЇ ВЕРСІЇ */
@@ -221,10 +221,12 @@
       }
     }
 
+    /* ГРУПА КНОПОК ТА SMARTSCREEN В ОДНОМУ РЯДКУ */
     .btn-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 8px;
     }
     .btn {
@@ -266,64 +268,74 @@
       transform: translateY(-1px);
     }
 
-    /* СПОЙЛЕР SMARTSCREEN */
-    .smartscreen-wrap {
-      margin-top: 8px;
-      display: flex;
-      justify-content: center;
-    }
-    .smartscreen-details {
+    /* КНОПКА-СПОЙЛЕР SMARTSCREEN В РЯДУ КНОПОК */
+    .smartscreen-inline {
+      position: relative;
       display: inline-block;
-      width: auto;
-      background: rgba(13, 23, 38, 0.7);
-      border: 1px dashed rgba(56, 139, 253, 0.5);
-      border-radius: 30px;
-      padding: 3px 12px;
-      transition: all 0.25s ease;
-      text-align: center;
-      animation: pulse-smartscreen 2.4s infinite ease-in-out;
     }
-    .smartscreen-details:hover {
-      border-color: rgba(56, 139, 253, 1);
-      background: rgba(18, 30, 49, 0.95);
-      box-shadow: 0 0 14px rgba(56, 139, 253, 0.35);
-    }
-    .smartscreen-details[open] {
-      display: block;
-      width: 100%;
-      max-width: 650px;
-      border-radius: 12px;
-      border-style: solid;
-      border-color: #388bfd;
-      background: #0f192a;
-      box-shadow: 0 0 20px rgba(56, 139, 253, 0.25);
-      padding: 12px 16px;
-      text-align: left;
-      animation: none;
-    }
-    .smartscreen-summary {
+    .smartscreen-inline-summary {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+      background: rgba(13, 23, 38, 0.75);
+      border: 1px dashed rgba(56, 139, 253, 0.6);
+      border-radius: 7px;
+      padding: 6px 12px;
       cursor: pointer;
       list-style: none;
       outline: none;
       user-select: none;
       color: #58a6ff;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 600;
-      line-height: 1.2;
+      transition: all 0.2s ease;
+      animation: pulse-smartscreen 2.4s infinite ease-in-out;
     }
-    .smartscreen-summary::-webkit-details-marker {
+    .smartscreen-inline-summary::-webkit-details-marker {
       display: none;
     }
-    .smartscreen-details[open] .smartscreen-summary {
+    .smartscreen-inline-summary:hover {
+      border-color: rgba(56, 139, 253, 1);
+      background: rgba(18, 30, 49, 0.95);
+      box-shadow: 0 0 12px rgba(56, 139, 253, 0.35);
+    }
+    .smartscreen-arrow {
+      font-size: 9px;
+      transition: transform 0.2s ease;
+      color: #79c0ff;
+    }
+    .smartscreen-inline[open] .smartscreen-arrow {
+      transform: rotate(180deg);
+    }
+    .smartscreen-inline[open] .smartscreen-inline-summary {
+      border-style: solid;
+      border-color: #388bfd;
+      animation: none;
+      background: #111a29;
+    }
+
+    /* ВИПЛИВАЮЧЕ ВІКНО ПРИ ВІДКРИТТІ */
+    .smartscreen-dropdown {
+      position: relative;
+      max-width: 650px;
+      margin: 12px auto 0;
+      background: #0f192a;
+      border: 1px solid #388bfd;
+      border-radius: 12px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 139, 253, 0.25);
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .smartscreen-dropdown-header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid rgba(56, 139, 253, 0.25);
       padding-bottom: 6px;
       margin-bottom: 8px;
       color: #79c0ff;
+      font-weight: 600;
+      font-size: 12px;
     }
     .smartscreen-content {
       color: #8b949e;
@@ -598,9 +610,13 @@
       .features-quad {
         grid-template-columns: 1fr;
       }
-      .unified-line {
+      .btn-group {
         flex-direction: column;
-        gap: 5px;
+        width: 100%;
+      }
+      .btn, .smartscreen-inline, .smartscreen-inline-summary {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
@@ -625,14 +641,17 @@
       <!-- ГОЛОВНА НАЗВА В ЗОЛОТОМУ ГРАДІЄНТІ -->
       <h1 class="main-title">SvitloAlertChecker</h1>
       
-      <!-- ЄДИНИЙ РЯДОК БЕЗ ПЛЮСА З ПРАПОРОМ УКРАЇНИ -->
+      <!-- ЦЕНТРАЛЬНА ПЛАШКА -->
       <div class="unified-line">
-        <span class="unified-side">🇺🇦 Усі області та райони (червоні й жовті)</span>
         <div class="unified-center">
           <span class="text-alert">🚨 Повітряна тривога</span>
           <span class="text-power">⚡ Графік відключень світла для ПК</span>
         </div>
-        <span class="unified-side">⚡ ДТЕК, YASNO, Обленерго</span>
+      </div>
+
+      <!-- ТЕКСТ ДЛЯ ІНДЕКСАЦІЇ GOOGLE (НЕВИДИМИЙ В ІНТЕРФЕЙСІ, АЛЕ ПРАЦЮЄ ДЛЯ SEO) -->
+      <div class="seo-hidden-text">
+        Україна: Усі області та райони, червоні й жовті тривоги. ДТЕК, YASNO, Обленерго графіки відключення світла для ПК.
       </div>
 
       <!-- ОВАЛ АКТУАЛЬНОЇ ВЕРСІЇ -->
@@ -648,30 +667,35 @@
         </div>
       </div>
       
-      <!-- КНОПКИ З НЕОНОВИМ ДИХАННЯМ -->
+      <!-- РЯДОК КНОПОК РАЗОМ ЗІ SMARTSCREEN -->
       <div class="btn-group">
         <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener" class="btn btn-itch">⬇ Завантажити на itch.io</a>
         <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest" target="_blank" rel="noopener" class="btn btn-gh">Завантажити з GitHub (.exe)</a>
         <a href="https://github.com/DEVMIHEY/SvitloAlertChecker" target="_blank" rel="noopener" class="btn btn-sec">Репозиторій</a>
-      </div>
 
-      <!-- МОРГАЮЧИЙ СПОЙЛЕР SMARTSCREEN -->
-      <div class="smartscreen-wrap">
-        <details class="smartscreen-details">
-          <summary class="smartscreen-summary">
-            <span>🛡️ Windows SmartScreen? Підказка для першого запуску</span>
+        <!-- SMARTSCREEN В РЯДКУ З КНОПКАМИ -->
+        <details class="smartscreen-inline">
+          <summary class="smartscreen-inline-summary">
+            <span>🛡️ SmartScreen?</span>
+            <span class="smartscreen-arrow">▼</span>
           </summary>
-          <div class="smartscreen-content">
-            <p style="margin: 0 0 6px 0;">
-              Програма на <strong>100% безкоштовна, без реклами та платних підписок — все для людей 💙</strong>. Оскільки утиліта створена незалежним автором і не має дорогого сертифіката Microsoft, система показує синю табличку <em>«Windows захистила ваш ПК»</em>. Це штатна безпека Windows для некомерційного ПЗ.
-            </p>
-            <strong>Запуск у 2 швидкі кліки:</strong>
-            <ol class="smartscreen-steps">
-              <li>Натисніть <strong style="color: #79c0ff;">«Детальніше»</strong> у вікні захисту.</li>
-              <li>Натисніть кнопку <strong style="color: #3fb950;">«Виконати все одно»</strong>, що з'явиться знизу.</li>
-            </ol>
-            <div class="smartscreen-img-wrap">
-              <img src="https://raw.githubusercontent.com/DEVMIHEY/SvitloAlertChecker/main/image_111fdb36%20(1).jpeg" alt="Інструкція запуску Windows SmartScreen" class="smartscreen-img">
+          
+          <div class="smartscreen-dropdown">
+            <div class="smartscreen-dropdown-header">
+              <span>🛡️ Що робити при появі Windows SmartScreen?</span>
+            </div>
+            <div class="smartscreen-content">
+              <p style="margin: 0 0 6px 0;">
+                Програма на <strong>100% безкоштовна, без реклами та платних підписок — все для людей 💙</strong>. Оскільки утиліта створена незалежним автором і не має дорогого комерційного сертифіката Microsoft, система показує синю табличку <em>«Windows захистила ваш ПК»</em>. Це штатна безпека Windows для некомерційного ПЗ.
+              </p>
+              <strong>Запуск у 2 швидкі кліки:</strong>
+              <ol class="smartscreen-steps">
+                <li>Натисніть <strong style="color: #79c0ff;">«Детальніше»</strong> у вікні захисту.</li>
+                <li>Натисніть кнопку <strong style="color: #3fb950;">«Виконати все одно»</strong>, що з'явиться знизу.</li>
+              </ol>
+              <div class="smartscreen-img-wrap">
+                <img src="https://raw.githubusercontent.com/DEVMIHEY/SvitloAlertChecker/main/image_111fdb36%20(1).jpeg" alt="Інструкція запуску Windows SmartScreen" class="smartscreen-img">
+              </div>
             </div>
           </div>
         </details>
