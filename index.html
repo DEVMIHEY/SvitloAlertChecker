@@ -49,81 +49,78 @@
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 16px;
-      padding: 12px 16px 14px;
+      padding: 14px 16px 14px;
       margin-bottom: 8px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
-    .app-icon {
-      width: 44px;
-      height: 44px;
-      margin: 0 auto 6px;
-      display: block;
-      border-radius: 50%;
-      box-shadow: 0 0 12px rgba(88, 166, 255, 0.35);
-      transition: transform 0.2s ease;
-    }
-    .app-icon:hover {
-      transform: scale(1.06);
-    }
 
-    /* БЛОК ЛЕГЕНД */
-    .legend-hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      margin-bottom: 4px;
-    }
-    .gold-title {
-      background: linear-gradient(135deg, #fff382 0%, #ffd700 50%, #e69500 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 900;
-      font-size: 13px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      display: inline-block;
-      white-space: nowrap;
-      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.35));
-    }
-    
-    /* ЗОЛОТА КАПСУЛА */
-    .gold-badge {
+    /* ВЕРХНІЙ ТЕКСТ ЛЕГЕНД БЕЗ ОБВОДКИ */
+    .merger-clean-line {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 7px;
-      background: linear-gradient(180deg, rgba(32, 28, 18, 0.9) 0%, rgba(20, 18, 12, 0.95) 100%);
-      border: 1px solid rgba(234, 179, 8, 0.65);
-      border-radius: 20px;
-      padding: 3px 14px;
-      box-shadow: 0 0 12px rgba(234, 179, 8, 0.15), inset 0 0 8px rgba(234, 179, 8, 0.1);
+      margin-bottom: 6px;
     }
-    .gold-text {
+    .gold-text-clean {
       background: linear-gradient(135deg, #ffe066 0%, #ffc107 50%, #ff9800 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
-      font-size: 12px;
-      letter-spacing: 0.6px;
+      font-size: 12.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       white-space: nowrap;
+      filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.25));
     }
-    .gold-icon {
+    .gold-icon-sep {
       font-size: 11px;
       filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
     }
 
-    /* КРУПНА ЗОЛОТА ГОЛОВНА НАЗВА */
+    /* ФІРМОВА ЗОЛОТА КАПСУЛА З ІКОНКОЮ ТА НАЗВОЮ */
+    .brand-capsule-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .brand-capsule {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(180deg, rgba(32, 28, 18, 0.85) 0%, rgba(20, 18, 12, 0.95) 100%);
+      border: 1.5px solid rgba(234, 179, 8, 0.7);
+      border-radius: 40px;
+      padding: 5px 22px 5px 10px;
+      box-shadow: 0 0 20px rgba(234, 179, 8, 0.18), inset 0 0 10px rgba(234, 179, 8, 0.08);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .brand-capsule:hover {
+      border-color: rgba(234, 179, 8, 0.95);
+      box-shadow: 0 0 26px rgba(234, 179, 8, 0.28), inset 0 0 12px rgba(234, 179, 8, 0.12);
+    }
+    .app-icon-large {
+      width: clamp(42px, 5vw, 50px);
+      height: clamp(42px, 5vw, 50px);
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(88, 166, 255, 0.4);
+      transition: transform 0.2s ease;
+    }
+    .brand-capsule:hover .app-icon-large {
+      transform: scale(1.06);
+    }
     h1.main-title {
-      margin: 4px 0 8px;
-      font-size: clamp(28px, 4.2vw, 36px);
+      margin: 0;
+      font-size: clamp(24px, 3.8vw, 33px);
       font-weight: 900;
       letter-spacing: -0.5px;
       background: linear-gradient(135deg, #ffffff 0%, #fff275 25%, #ffd700 55%, #e69500 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
-      filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.35));
+      filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.35));
+      line-height: 1.15;
     }
 
     /* ЦЕНТРАЛЬНА ПЛАШКА */
@@ -153,7 +150,7 @@
       font-weight: 700;
     }
 
-    /* SEO ТЕГ (НЕВИДИМИЙ ДЛЯ ОКА, АЛЕ ІНДЕКСУЄТЬСЯ РОБОТАМИ GOOGLE) */
+    /* SEO ТЕГ (НЕВИДИМИЙ В ІНТЕРФЕЙСІ, АЛЕ ПРАЦЮЄ ДЛЯ GOOGLE) */
     .seo-hidden-text {
       position: absolute;
       width: 1px;
@@ -221,7 +218,7 @@
       }
     }
 
-    /* ГРУПА КНОПОК ТА SMARTSCREEN В ОДНОМУ РЯДКУ */
+    /* ГРУПА КНОПОК */
     .btn-group {
       display: flex;
       flex-wrap: wrap;
@@ -268,7 +265,7 @@
       transform: translateY(-1px);
     }
 
-    /* КНОПКА-СПОЙЛЕР SMARTSCREEN В РЯДУ КНОПОК */
+    /* КНОПКА SMARTSCREEN В РЯДУ КНОПОК */
     .smartscreen-inline {
       position: relative;
       display: inline-block;
@@ -314,7 +311,6 @@
       background: #111a29;
     }
 
-    /* ВИПЛИВАЮЧЕ ВІКНО ПРИ ВІДКРИТТІ */
     .smartscreen-dropdown {
       position: relative;
       max-width: 650px;
@@ -625,21 +621,21 @@
   <div class="container">
 
     <header class="hero">
-      <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon" onerror="this.style.display='none';">
 
-      <!-- ЛЕГЕНДИ: ЗОЛОТИЙ СТИЛЬ З ОБВОДКОЮ БЕЗ ПЛЮСА -->
-      <div class="legend-hero">
-        <span class="gold-title">ЛЕГЕНДИ</span>
-        <div class="gold-badge">
-          <span class="gold-icon">💥</span>
-          <span class="gold-text">ALERTCHECKER</span>
-          <span class="gold-icon">💥</span>
-          <span class="gold-text">SVITLOCHECKER</span>
-        </div>
+      <!-- ЧИСТИЙ ЗОЛОТИЙ ТЕКСТ ЛЕГЕНД БЕЗ ПЕРШОГО ЗНАЧКА І БЕЗ ОБВОДКИ -->
+      <div class="merger-clean-line">
+        <span class="gold-text-clean">ALERTCHECKER</span>
+        <span class="gold-icon-sep">💥</span>
+        <span class="gold-text-clean">SVITLOCHECKER</span>
       </div>
       
-      <!-- ГОЛОВНА НАЗВА В ЗОЛОТОМУ ГРАДІЄНТІ -->
-      <h1 class="main-title">SvitloAlertChecker</h1>
+      <!-- ЗОЛОТА КАПСУЛА З ВЕЛИКОЮ ІКОНКОЮ ТА НАЗВОЮ -->
+      <div class="brand-capsule-wrap">
+        <div class="brand-capsule">
+          <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon-large" onerror="this.style.display='none';">
+          <h1 class="main-title">SvitloAlertChecker</h1>
+        </div>
+      </div>
       
       <!-- ЦЕНТРАЛЬНА ПЛАШКА -->
       <div class="unified-line">
@@ -649,7 +645,7 @@
         </div>
       </div>
 
-      <!-- ТЕКСТ ДЛЯ ІНДЕКСАЦІЇ GOOGLE (НЕВИДИМИЙ В ІНТЕРФЕЙСІ, АЛЕ ПРАЦЮЄ ДЛЯ SEO) -->
+      <!-- ТЕКСТ ДЛЯ ІНДЕКСАЦІЇ GOOGLE (НЕВИДИМИЙ, ДЛЯ SEO) -->
       <div class="seo-hidden-text">
         Україна: Усі області та райони, червоні й жовті тривоги. ДТЕК, YASNO, Обленерго графіки відключення світла для ПК.
       </div>
