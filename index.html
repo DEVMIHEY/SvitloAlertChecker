@@ -1,23 +1,221 @@
-<!-- РІДНИЙ ДИСКЛЕЙМЕР З БАНКОЮ (БЕЗ ЗЛАМАНИХ СТИЛІВ) -->
-<div style="background: rgba(220, 38, 38, 0.05); border: 1px solid #7f1d1d; border-radius: 12px; padding: 18px 22px; margin: 25px auto; max-width: 950px; text-align: left; box-sizing: border-box;">
-  
-  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-    <span style="font-size: 16px;">🛡️</span>
-    <span style="color: #ef4444; font-weight: 800; font-size: 14px; letter-spacing: 0.5px;">ДИСКЛЕЙМЕР РОЗРОБНИКА (AS IS)</span>
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SvitloAlertChecker — Повітряна тривога + Графік світла ПК</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22><text y=%2222%22 font-size=%2222%22>⚡</text></svg>">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0b0f19;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 0 16px 60px 16px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 60px 0 35px 0;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 650px;
+      margin: 0 auto 28px auto;
+    }
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 45px;
+    }
+    .btn-download {
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 13px 26px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+    .btn-download:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .card h3 {
+      font-size: 17px;
+      color: #f8fafc;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card p {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .disclaimer-box {
+      background: rgba(220, 38, 38, 0.04);
+      border: 1px solid #7f1d1d;
+      border-radius: 14px;
+      padding: 22px;
+      margin-top: 40px;
+      text-align: left;
+    }
+    .disclaimer-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ef4444;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .disclaimer-text {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .disclaimer-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .btn-mono {
+      background: #e11d48;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      border: 1px solid #f43f5e;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-mono:hover {
+      background: #be123c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="badge">⚡ ВЕРСІЯ ДЛЯ WINDOWS</div>
+      <h1>SvitloAlertChecker</h1>
+      <p class="subtitle">Повітряна тривога 136 районів + Точний графік відключень світла ДТЕК, YASNO та Обленерго в одному легкому віджеті.</p>
+      
+      <div class="cta-group">
+        <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" class="btn-download">
+          ⬇️ Завантажити на itch.io
+        </a>
+        <a href="https://send.monobank.ua/jar/92mWEAz49W" target="_blank" class="btn-secondary">
+          ☕ Підтримати банку
+        </a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h3>⏱️ Шкала (6/24 год)</h3>
+        <p>Показує найближчі години відключень прямо перед очима. Клік мишкою розгортає повну добу (Сьогодні/Завтра).</p>
+      </div>
+      <div class="card">
+        <h3>🛡️ Ігровий режим (Click-Through)</h3>
+        <p>Увімкніть «Не реагувати на кліки», щоб курсор вільно проходив крізь віджет під час ігор та роботи в повноекранних додатках.</p>
+      </div>
+      <div class="card">
+        <h3>🚨 Радар тривог + Підсвітка</h3>
+        <p>Миттєве сповіщення про загрози по 136 районах України зі звуком та м'яким спалахом по краях монітора.</p>
+      </div>
+      <div class="card">
+        <h3>🌙 Розумне приглушення</h3>
+        <p>Якщо світло є і тривоги немає — шкала стає прозорою (від 10% яскравості). При тривозі чи відключенні стає на 100%.</p>
+      </div>
+    </div>
+
+    <!-- ТВОЯ ПЛАШКА ДИСКЛЕЙМЕРА З МОНОБАНКОЮ -->
+    <div class="disclaimer-box">
+      <div class="disclaimer-head">
+        <span>🛡️</span>
+        <span>ДИСКЛЕЙМЕР РОЗРОБНИКА (AS IS)</span>
+      </div>
+
+      <p class="disclaimer-text">
+        Проєкт розробляється та підтримується <strong style="color: #fff;">однією людиною на чистому ентузіазмі</strong> — безкоштовно, без реклами та без корпоративних бюджетів. Автор не є співробітником ДТЕК, YASNO чи Обленерго, не керує електромережами та не впливає на стабільність офіційних баз. Програма надається за принципом <strong style="color: #fff;">«AS IS» (як є)</strong>: без жодних юридичних чи фінансових гарантій.
+      </p>
+
+      <div class="disclaimer-footer">
+        <span style="color: #64748b; font-size: 13px;">
+          Зроблено з 💛💙 в Україні · Автор: <strong style="color: #cbd5e1;">DEV MIHEY</strong>
+        </span>
+
+        <a href="https://send.monobank.ua/jar/92mWEAz49W" target="_blank" rel="noopener" class="btn-mono">
+          ☕ Підтримати (МоноБанка)
+        </a>
+      </div>
+    </div>
   </div>
 
-  <p style="color: #94a3b8; font-size: 13.5px; line-height: 1.55; margin: 0 0 14px 0;">
-    Проєкт розробляється та підтримується <strong style="color: #f1f5f9;">однією людиною на чистому ентузіазмі</strong> — безкоштовно, без реклами та без корпоративних бюджетів. Автор не є співробітником ДТЕК, YASNO чи Обленерго, не керує електромережами та не впливає на стабільність офіційних баз. Програма надається за принципом <strong style="color: #f1f5f9;">«AS IS» (як є)</strong>: без жодних юридичних чи фінансових гарантій.
-  </p>
-
-  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
-    <span style="color: #64748b; font-size: 13px;">
-      Зроблено з 💛💙 в Україні · Автор: <strong style="color: #cbd5e1;">DEV MIHEY</strong>
-    </span>
-
-    <a href="https://send.monobank.ua/jar/92mWEAz49W" target="_blank" rel="noopener" style="background: #e11d48; color: #ffffff; text-decoration: none; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px solid #f43f5e; display: inline-flex; align-items: center; gap: 6px;">
-      ☕ Підтримати (МоноБанка)
-    </a>
-  </div>
-
-</div>
+</body>
+</html>
