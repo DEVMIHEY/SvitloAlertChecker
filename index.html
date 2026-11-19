@@ -470,9 +470,7 @@
       margin: 0 auto;
     }
 
-    /* ========================================================
-       ПРЕС-ЦЕНТР ТА СОЦІАЛЬНИЙ ДОКАЗ (DEV.UA, DOU, KASHA...)
-       ======================================================== */
+    /* ПРЕС-ЦЕНТР */
     .press-center-wrap {
       margin: 10px auto 4px;
       max-width: 860px;
@@ -549,7 +547,6 @@
       font-size: 12.5px;
     }
 
-    /* СІТКА СТАТЕЙ У РОЗГОРНУТОМУ ПРЕС-ЦЕНТРІ */
     .press-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -801,6 +798,40 @@
       margin-top: 3px;
     }
 
+    /* БЛОК ДИСКЛЕЙМЕРА (AS IS) */
+    .disclaimer-card {
+      max-width: 860px;
+      margin: 10px auto 8px;
+      background: rgba(22, 27, 34, 0.75);
+      border: 1px solid rgba(248, 81, 73, 0.4);
+      border-radius: 12px;
+      padding: 10px 16px;
+      text-align: left;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+    .disclaimer-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .disclaimer-title {
+      color: #ff7b72;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .disclaimer-text {
+      font-size: 11px;
+      color: #8b949e;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .disclaimer-text strong {
+      color: #e6edf3;
+    }
+
     .footer {
       text-align: center;
       color: #8b949e;
@@ -977,9 +1008,7 @@
 
       </div>
 
-      <!-- ========================================================
-           ПРЕС-ЦЕНТР: ЗМІ ТА IT-СПІЛЬНОТА ПРО НАС (DEV.UA, DOU...)
-           ======================================================== -->
+      <!-- ПРЕС-ЦЕНТР: ЗМІ ТА IT-СПІЛЬНОТА ПРО НАС -->
       <div class="press-center-wrap">
         <details class="press-details">
           <summary class="press-summary">
@@ -1175,6 +1204,17 @@
       </div>
 
     </section>
+
+    <!-- ЗОНА ВІДПОВІДАЛЬНОСТІ / ДИСКЛЕЙМЕР (AS IS) -->
+    <div class="disclaimer-card">
+      <div class="disclaimer-header">
+        <span style="font-size: 14px;">🛡️</span>
+        <span class="disclaimer-title">Дисклеймер розробника (AS IS)</span>
+      </div>
+      <p class="disclaimer-text">
+        Проєкт розробляється та підтримується <strong>однією людиною на чистому ентузіазмі</strong> — безкоштовно, без реклами та без корпоративних бюджетів. Автор не є співробітником ДТЕК, YASNO чи Обленерго, не керує електромережами та не впливає на стабільність офіційних баз. Програма надається за принципом <strong>«AS IS» (як є)</strong>: без жодних юридичних чи фінансових гарантій.
+      </p>
+    </div>
 
     <footer class="footer">
       Зроблено з 💛💙 в Україні · Автор: <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener">DEV MIHEY</a>
