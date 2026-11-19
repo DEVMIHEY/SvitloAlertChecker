@@ -67,7 +67,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
-      font-size: 12.5px;
+      font-size: 13px;
       letter-spacing: 1px;
       text-transform: uppercase;
       white-space: nowrap;
@@ -78,7 +78,7 @@
       filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
     }
 
-    /* ФІРМОВА ЗОЛОТА КАПСУЛА: ІКОНКА + КРУПНА НАЗВА ЗІ СЛОГАНОМ + КОТИК QR */
+    /* ЗБІЛЬШЕНА ЗОЛОТА КАПСУЛА: ІКОНКА + КРУПНА НАЗВА + ГАРАНТОВАНИЙ QR */
     .brand-capsule-wrap {
       display: flex;
       justify-content: center;
@@ -88,34 +88,34 @@
       display: inline-flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      background: linear-gradient(180deg, rgba(32, 28, 18, 0.88) 0%, rgba(18, 16, 11, 0.95) 100%);
-      border: 1.5px solid rgba(234, 179, 8, 0.75);
-      border-radius: 46px;
-      padding: 6px 16px 6px 12px;
-      box-shadow: 0 0 24px rgba(234, 179, 8, 0.2), inset 0 0 12px rgba(234, 179, 8, 0.08);
+      gap: 20px;
+      background: linear-gradient(180deg, rgba(32, 28, 18, 0.88) 0%, rgba(18, 16, 11, 0.96) 100%);
+      border: 1.8px solid rgba(234, 179, 8, 0.8);
+      border-radius: 50px;
+      padding: 7px 20px 7px 14px;
+      box-shadow: 0 0 28px rgba(234, 179, 8, 0.22), inset 0 0 14px rgba(234, 179, 8, 0.08);
       transition: all 0.25s ease;
     }
     .brand-capsule:hover {
       border-color: rgba(234, 179, 8, 1);
-      box-shadow: 0 0 30px rgba(234, 179, 8, 0.3), inset 0 0 14px rgba(234, 179, 8, 0.12);
+      box-shadow: 0 0 34px rgba(234, 179, 8, 0.32), inset 0 0 16px rgba(234, 179, 8, 0.12);
     }
 
-    /* ЛІВА ВЕЛИКА ІКОНКА ПРОГРАМИ */
+    /* ВЕЛИКА ІКОНКА ПРОГРАМИ */
     .app-icon-large {
-      width: clamp(48px, 5.5vw, 56px);
-      height: clamp(48px, 5.5vw, 56px);
+      width: clamp(52px, 6vw, 62px);
+      height: clamp(52px, 6vw, 62px);
       display: block;
       border-radius: 50%;
-      box-shadow: 0 0 14px rgba(88, 166, 255, 0.45);
+      box-shadow: 0 0 16px rgba(88, 166, 255, 0.45);
       transition: transform 0.2s ease;
       flex-shrink: 0;
     }
     .brand-capsule:hover .app-icon-large {
-      transform: scale(1.06);
+      transform: scale(1.05);
     }
 
-    /* ЦЕНТР: НАЗВА (+30%) ТА НОВИЙ СЛОГАН */
+    /* ЦЕНТР: НАЗВА (+30%) ТА СЛОГАН З SVG-ПРАПОРАМИ */
     .brand-center-block {
       display: flex;
       flex-direction: column;
@@ -124,51 +124,78 @@
     }
     h1.main-title {
       margin: 0;
-      font-size: clamp(28px, 4.4vw, 40px);
+      font-size: clamp(30px, 4.8vw, 44px);
       font-weight: 900;
       letter-spacing: -0.5px;
       background: linear-gradient(135deg, #ffffff 0%, #fff275 25%, #ffd700 55%, #e69500 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
-      filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.4));
+      filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.45));
       line-height: 1.1;
       white-space: nowrap;
     }
+    
+    /* СЛОГАН БЕЗ ТЕКСТУ "UA" — З ЧИСТИМИ ПРАПОРАМИ ТА СЕРДЕЧКАМИ */
     .brand-slogan {
-      margin-top: 3px;
-      font-size: 11.5px;
+      margin-top: 4px;
+      font-size: 12.5px;
       font-weight: 700;
       color: #e6edf3;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       white-space: nowrap;
     }
+    .svg-flag-icon {
+      width: 17px;
+      height: 12px;
+      border-radius: 2px;
+      display: inline-block;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      vertical-align: middle;
+    }
+    .heart-blue { color: #58a6ff; font-size: 13px; }
+    .heart-yellow { color: #ffd859; font-size: 13px; }
 
-    /* ПРАВИЙ БЛОК: ОФІЦІЙНИЙ СТРІМ-ВІДЖЕТ MONOBANK (КОТИК QR) */
-    .mono-widget-wrap {
-      width: 65px;
-      height: 65px;
+    /* ПРАВИЙ БЛОК: ГАРАНТОВАНИЙ QR МОНОБАНКУ З КОТИКОМ */
+    .mono-qr-box {
       position: relative;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
       flex-shrink: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(234, 179, 8, 0.3);
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease;
     }
-    .mono-widget-wrap:hover {
-      transform: scale(1.1);
-      border-color: rgba(234, 179, 8, 0.9);
-      box-shadow: 0 0 16px rgba(234, 179, 8, 0.4);
+    .mono-qr-box:hover {
+      transform: scale(1.08);
     }
-    .mono-widget-frame {
-      width: 250px;
-      height: 250px;
-      border: none;
-      transform: scale(0.26);
-      transform-origin: 0 0;
-      pointer-events: none;
+    .cat-ears-wrap {
+      width: 40px;
+      height: 10px;
+      margin-bottom: -2px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 4px;
+    }
+    .cat-ear {
+      width: 10px;
+      height: 10px;
+      background: #ffffff;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    .mono-qr-display {
+      width: clamp(58px, 6.5vw, 68px);
+      height: clamp(58px, 6.5vw, 68px);
+      background: #ffffff;
+      padding: 3px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6), 0 0 10px rgba(234, 179, 8, 0.3);
+      display: block;
+      object-fit: contain;
     }
 
     /* ЦЕНТРАЛЬНА ПЛАШКА */
@@ -198,7 +225,7 @@
       font-weight: 700;
     }
 
-    /* SEO ТЕГ (НЕВИДИМИЙ В ІНТЕРФЕЙСІ, АЛЕ ПРАЦЮЄ ДЛЯ GOOGLE) */
+    /* SEO ТЕГ */
     .seo-hidden-text {
       position: absolute;
       width: 1px;
@@ -211,7 +238,7 @@
       border: 0;
     }
 
-    /* АНІМАЦІЇ ДИХАННЯ / ПУЛЬСАЦІЇ ДЛЯ ВСІХ КНОПОК */
+    /* ПУЛЬСАЦІЇ КНОПОК */
     @keyframes pulse-itch {
       0%, 100% { box-shadow: 0 0 0 rgba(250, 92, 92, 0); }
       50% { box-shadow: 0 0 16px rgba(250, 92, 92, 0.65); }
@@ -222,7 +249,7 @@
         border-color: #2ea043;
       }
       50% { 
-        box-shadow: 0 0 20px rgba(46, 160, 67, 0.75); 
+        box-shadow: 0 0 20px rgba(46, 160, 67, 0.8); 
         border-color: #3fb950;
       }
     }
@@ -308,7 +335,7 @@
       transform: translateY(-1px);
     }
 
-    /* КНОПКА SMARTSCREEN В РЯДУ КНОПОК (ШВИДКЕ МОРГАННЯ) */
+    /* КНОПКА SMARTSCREEN В РЯДУ КНОПОК (ШВИДКЕ МОРГАННЯ 1.2с) */
     .smartscreen-inline {
       position: relative;
       display: inline-block;
@@ -678,24 +705,46 @@
         <span class="gold-text-clean">SVITLOCHECKER</span>
       </div>
       
-      <!-- ЗОЛОТА КАПСУЛА: ІКОНКА + КРУПНА НАЗВА ЗІ СЛОГАНОМ + КОТИК QR -->
+      <!-- ЗБІЛЬШЕНА ЗОЛОТА КАПСУЛА: ІКОНКА + КРУПНА НАЗВА + ГАРАНТОВАНИЙ QR -->
       <div class="brand-capsule-wrap">
         <div class="brand-capsule">
           
           <!-- ЛІВОРУЧ: ВЕЛИКА ІКОНКА -->
           <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon-large" onerror="this.style.display='none';">
           
-          <!-- ЦЕНТР: НАЗВА (+30%) ТА НОВИЙ СЛОГАН З ПРАПОРАМИ -->
+          <!-- ЦЕНТР: НАЗВА (+30%) ТА СЛОГАН З SVG-ПРАПОРАМИ І СЕРДЯМИ -->
           <div class="brand-center-block">
             <h1 class="main-title">SvitloAlertChecker</h1>
             <div class="brand-slogan">
-              🇺🇦 Безкоштовно 🇺🇦 Україна 🇺🇦 Без реклами 🇺🇦
+              <!-- ЧИСТИЙ SVG ПРАПОРЕЦЬ (НІКОЛИ НЕ ПЕРЕТВОРИТЬСЯ НА ТЕКСТ "UA") -->
+              <svg class="svg-flag-icon" viewBox="0 0 24 16">
+                <rect width="24" height="8" fill="#0057b7"/>
+                <rect y="8" width="24" height="8" fill="#ffd700"/>
+              </svg>
+              <span>Безкоштовно</span>
+              <span class="heart-blue">💙</span>
+              <span>Україна</span>
+              <span class="heart-yellow">💛</span>
+              <span>Без реклами</span>
+              <svg class="svg-flag-icon" viewBox="0 0 24 16">
+                <rect width="24" height="8" fill="#0057b7"/>
+                <rect y="8" width="24" height="8" fill="#ffd700"/>
+              </svg>
             </div>
           </div>
 
-          <!-- ПРАВОРУЧ: ВІДЖЕТ MONOBANK (КОТИК QR НАЖИВО) -->
-          <a href="https://send.monobank.ua/jar/ybt1euJoZpejopFHKbncRMHkQg8bveG" target="_blank" rel="noopener" class="mono-widget-wrap" title="Підтримати Монобанку (натисніть, щоб відкрити)">
-            <iframe src="https://send.monobank.ua/widget.html?jar=ybt1euJoZpejopFHKbncRMHkQg8bveG&sendId=92mWEAz49W&type=qr" scrolling="no" class="mono-widget-frame"></iframe>
+          <!-- ПРАВОРУЧ: ГАРАНТОВАНИЙ РОБОЧИЙ QR МОНОБАНКУ З КОТИКОМ -->
+          <a href="https://send.monobank.ua/jar/ybt1euJoZpejopFHKbncRMHkQg8bveG" target="_blank" rel="noopener" class="mono-qr-box" title="Підтримати Монобанку (натисніть, щоб відкрити)">
+            <!-- Вушка котика -->
+            <div class="cat-ears-wrap">
+              <div class="cat-ear"></div>
+              <div class="cat-ear"></div>
+            </div>
+            <!-- Сам QR з безперебійною автогенерацією -->
+            <img src="qr.png" 
+                 onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fsend.monobank.ua%2Fjar%2Fybt1euJoZpejopFHKbncRMHkQg8bveG';" 
+                 alt="QR Monobank" 
+                 class="mono-qr-display">
           </a>
 
         </div>
