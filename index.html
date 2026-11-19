@@ -1,19 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0d1117">
-  
+
   <title>SvitloAlertChecker — Повітряна тривога та Графік відключень світла для ПК (Windows)</title>
   <meta name="description" content="SvitloAlertChecker для Windows: миттєвий радар повітряних тривог по 136 районах та графік відключень світла (ДТЕК, YASNO, Обленерго). Віджет поверх усіх вікон, click-through, автооновлення розкладу.">
   <meta name="keywords" content="повітряна тривога пк, графік відключень світла windows, SvitloAlertChecker, AlertChecker, SvitloChecker, радар тривог, ДТЕК графік, YASNO, обленерго">
   <meta name="author" content="DEV MIHEY">
 
-  <!-- Канонічне посилання -->
   <link rel="canonical" href="https://devmihey.github.io/SvitloAlertChecker/">
 
-  <!-- OpenGraph -->
   <meta property="og:title" content="SvitloAlertChecker — Повітряна тривога + Графік відключень світла для ПК">
   <meta property="og:description" content="Миттєвий радар 136 районів швидше за ботів та графіки ДТЕК/YASNO на Cloudflare без збоїв шкали.">
   <meta property="og:image" content="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg">
@@ -21,13 +20,14 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
-  <meta name="google-site-verification" content="3UCZaG-gHaYudyfYwhqsb65zi61D7xWmKpI3Cp_xJqI" />
+  <meta name="google-site-verification" content="3UCZaG-gHaYudyfYwhqsb65zi61D7xWmKpI3Cp_xJqI">
   <link rel="icon" type="image/png" href="icon.png">
 
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -36,13 +36,13 @@
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
     }
-    
+
     .container {
       max-width: 1040px;
       margin: 0 auto;
       padding: 14px 14px 8px;
     }
-    
+
     /* HERO */
     .hero {
       text-align: center;
@@ -62,6 +62,7 @@
       gap: 7px;
       margin-bottom: 6px;
     }
+
     .gold-text-clean {
       background: linear-gradient(135deg, #ffe066 0%, #ffc107 50%, #ff9800 100%);
       -webkit-background-clip: text;
@@ -73,17 +74,19 @@
       white-space: nowrap;
       filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.25));
     }
+
     .gold-icon-sep {
       font-size: 11px;
       filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
     }
 
-    /* ЗОЛОТА КАПСУЛА: ІДЕАЛЬНА СИМЕТРІЯ */
+    /* ЗОЛОТА КАПСУЛА */
     .brand-capsule-wrap {
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
     }
+
     .brand-capsule {
       display: inline-flex;
       align-items: center;
@@ -96,12 +99,12 @@
       box-shadow: 0 0 28px rgba(234, 179, 8, 0.22), inset 0 0 14px rgba(234, 179, 8, 0.08);
       transition: all 0.25s ease;
     }
+
     .brand-capsule:hover {
       border-color: rgba(234, 179, 8, 1);
       box-shadow: 0 0 34px rgba(234, 179, 8, 0.32), inset 0 0 16px rgba(234, 179, 8, 0.12);
     }
 
-    /* ЛІВА ІКОНКА ПРОГРАМИ */
     .app-icon-large {
       width: clamp(50px, 5.5vw, 56px);
       height: clamp(50px, 5.5vw, 56px);
@@ -111,17 +114,18 @@
       transition: transform 0.2s ease;
       flex-shrink: 0;
     }
+
     .brand-capsule:hover .app-icon-large {
       transform: scale(1.05);
     }
 
-    /* ЦЕНТР: НАЗВА ТА СЛОГАН */
     .brand-center-block {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
+
     h1.main-title {
       margin: 0;
       font-size: clamp(28px, 4.4vw, 40px);
@@ -135,7 +139,7 @@
       line-height: 1.1;
       white-space: nowrap;
     }
-    
+
     .brand-slogan {
       margin-top: 4px;
       font-size: 12px;
@@ -147,6 +151,7 @@
       gap: 6px;
       white-space: nowrap;
     }
+
     .svg-flag-icon {
       width: 16px;
       height: 11px;
@@ -155,10 +160,11 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.5);
       vertical-align: middle;
     }
+
     .heart-blue { color: #58a6ff; font-size: 12px; }
     .heart-yellow { color: #ffd859; font-size: 12px; }
 
-    /* ПРАВИЙ БЛОК: QR МОНОБАНКУ */
+    /* QR МОНОБАНКУ */
     .mono-qr-box {
       width: clamp(50px, 5.5vw, 56px);
       height: clamp(50px, 5.5vw, 56px);
@@ -171,9 +177,11 @@
       flex-shrink: 0;
       transition: transform 0.2s ease;
     }
+
     .mono-qr-box:hover {
       transform: scale(1.08);
     }
+
     .cat-ears-wrap {
       width: 32px;
       height: 7px;
@@ -182,12 +190,14 @@
       justify-content: space-between;
       padding: 0 2px;
     }
+
     .cat-ear {
       width: 8px;
       height: 8px;
       background: #ffffff;
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
+
     .mono-qr-display {
       width: 100%;
       height: calc(100% - 6px);
@@ -206,6 +216,7 @@
       justify-content: center;
       margin-bottom: 12px;
     }
+
     .unified-center {
       display: inline-flex;
       align-items: center;
@@ -217,16 +228,17 @@
       color: #ffffff;
       white-space: nowrap;
     }
+
     .text-alert {
       color: #ff7b72;
       font-weight: 700;
     }
+
     .text-power {
       color: #79c0ff;
       font-weight: 700;
     }
 
-    /* SEO ТЕГ */
     .seo-hidden-text {
       position: absolute;
       width: 1px;
@@ -239,36 +251,39 @@
       border: 0;
     }
 
-    /* ХВИЛЬОВЕ ПЕРЕЛИВАННЯ КНОПОК */
+    /* АНІМАЦІЇ КНОПОК */
     @keyframes wave-itch {
       0%, 100% { box-shadow: 0 0 0 rgba(250, 92, 92, 0); transform: translateY(0); }
       20% { box-shadow: 0 0 18px rgba(250, 92, 92, 0.85); transform: translateY(-1px); }
       40%, 100% { box-shadow: 0 0 0 rgba(250, 92, 92, 0); transform: translateY(0); }
     }
+
     @keyframes wave-gh {
       0%, 20% { box-shadow: 0 0 0 rgba(46, 160, 67, 0); transform: translateY(0); }
       40% { box-shadow: 0 0 22px rgba(46, 160, 67, 0.95); transform: translateY(-1px); }
       60%, 100% { box-shadow: 0 0 0 rgba(46, 160, 67, 0); transform: translateY(0); }
     }
+
     @keyframes wave-repo {
       0%, 40% { box-shadow: 0 0 0 rgba(88, 166, 255, 0); border-color: #30363d; transform: translateY(0); }
       60% { box-shadow: 0 0 18px rgba(88, 166, 255, 0.75); border-color: #58a6ff; transform: translateY(-1px); }
       80%, 100% { box-shadow: 0 0 0 rgba(88, 166, 255, 0); border-color: #30363d; transform: translateY(0); }
     }
+
     @keyframes wave-smartscreen {
-      0%, 60% { 
-        border-color: rgba(56, 139, 253, 0.4); 
-        box-shadow: 0 0 0 rgba(56, 139, 253, 0); 
+      0%, 60% {
+        border-color: rgba(56, 139, 253, 0.4);
+        box-shadow: 0 0 0 rgba(56, 139, 253, 0);
         transform: translateY(0);
       }
-      80% { 
-        border-color: #388bfd; 
-        box-shadow: 0 0 25px rgba(56, 139, 253, 1), inset 0 0 10px rgba(56, 139, 253, 0.4); 
+      80% {
+        border-color: #388bfd;
+        box-shadow: 0 0 25px rgba(56, 139, 253, 1), inset 0 0 10px rgba(56, 139, 253, 0.4);
         transform: translateY(-1px);
       }
-      100% { 
-        border-color: rgba(56, 139, 253, 0.4); 
-        box-shadow: 0 0 0 rgba(56, 139, 253, 0); 
+      100% {
+        border-color: rgba(56, 139, 253, 0.4);
+        box-shadow: 0 0 0 rgba(56, 139, 253, 0);
         transform: translateY(0);
       }
     }
@@ -286,6 +301,7 @@
       align-items: center;
       gap: 8px;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -298,17 +314,16 @@
       transition: all 0.2s ease;
     }
 
-    /* 1. ITCH */
     .btn-itch {
       background: #fa5c5c;
       color: #ffffff;
       animation: wave-itch 3.2s infinite ease-in-out;
     }
+
     .btn-itch:hover {
       background: #ff7070;
     }
-    
-    /* 2. GITHUB LATEST RELEASE */
+
     .btn-gh-version {
       background: #238636;
       border: 1px solid #2ea043;
@@ -316,9 +331,11 @@
       animation: wave-gh 3.2s infinite ease-in-out;
       gap: 6px;
     }
+
     .btn-gh-version:hover {
       background: #2ea043;
     }
+
     .btn-gh-dot {
       width: 7px;
       height: 7px;
@@ -327,7 +344,6 @@
       box-shadow: 0 0 6px #3fb950;
     }
 
-    /* 3. КВАДРАТНИЙ РЕПОЗИТОРІЙ */
     .btn-repo-icon {
       background: #21262d;
       border: 1px solid #30363d;
@@ -341,21 +357,24 @@
       justify-content: center;
       animation: wave-repo 3.2s infinite ease-in-out;
     }
+
     .btn-repo-icon:hover {
       background: #30363d;
       border-color: #58a6ff;
     }
+
     .github-svg-icon {
       width: 18px;
       height: 18px;
       fill: #ffffff;
     }
 
-    /* 4. SMARTSCREEN */
+    /* SMARTSCREEN */
     .smartscreen-inline {
       position: relative;
       display: inline-block;
     }
+
     .smartscreen-inline-summary {
       position: relative;
       display: inline-flex;
@@ -375,22 +394,27 @@
       transition: all 0.2s ease;
       animation: wave-smartscreen 3.2s infinite ease-in-out;
     }
+
     .smartscreen-inline-summary::-webkit-details-marker {
       display: none;
     }
+
     .smartscreen-inline-summary:hover {
       border-color: rgba(56, 139, 253, 1);
       background: rgba(18, 30, 49, 0.95);
       box-shadow: 0 0 18px rgba(56, 139, 253, 0.6);
     }
+
     .smartscreen-arrow {
       font-size: 9px;
       transition: transform 0.2s ease;
       color: #79c0ff;
     }
+
     .smartscreen-inline[open] .smartscreen-arrow {
       transform: rotate(180deg);
     }
+
     .smartscreen-inline[open] .smartscreen-inline-summary {
       border-style: solid;
       border-color: #388bfd;
@@ -430,6 +454,7 @@
       padding: 14px 18px;
       text-align: left;
     }
+
     .smartscreen-dropdown-header {
       display: flex;
       justify-content: space-between;
@@ -441,25 +466,31 @@
       font-weight: 600;
       font-size: 12px;
     }
+
     .smartscreen-content {
       color: #8b949e;
       font-size: 11.8px;
       line-height: 1.5;
     }
+
     .smartscreen-content strong {
       color: #e6edf3;
     }
+
     .smartscreen-steps {
       margin: 6px 0 10px;
       padding-left: 18px;
     }
+
     .smartscreen-steps li {
       margin-bottom: 3px;
     }
+
     .smartscreen-img-wrap {
       text-align: center;
       margin-top: 10px;
     }
+
     .smartscreen-img {
       max-width: 100%;
       height: auto;
@@ -476,6 +507,7 @@
       max-width: 860px;
       text-align: center;
     }
+
     .press-details {
       background: rgba(22, 27, 34, 0.6);
       border: 1px solid rgba(234, 179, 8, 0.35);
@@ -485,11 +517,13 @@
       display: inline-block;
       width: auto;
     }
+
     .press-details:hover {
       border-color: rgba(234, 179, 8, 0.8);
       background: rgba(28, 33, 40, 0.85);
       box-shadow: 0 0 18px rgba(234, 179, 8, 0.2);
     }
+
     .press-details[open] {
       display: block;
       width: 100%;
@@ -500,6 +534,7 @@
       padding: 12px 16px;
       text-align: left;
     }
+
     .press-summary {
       display: inline-flex;
       align-items: center;
@@ -512,9 +547,11 @@
       color: #e6edf3;
       line-height: 1.2;
     }
+
     .press-summary::-webkit-details-marker {
       display: none;
     }
+
     .press-badge-tag {
       padding: 1px 6px;
       border-radius: 4px;
@@ -522,6 +559,7 @@
       font-size: 10.5px;
       letter-spacing: 0.3px;
     }
+
     .badge-dev { background: #000000; color: #ffffff; border: 1px solid rgba(255,255,255,0.25); }
     .badge-dou { background: #ff3344; color: #ffffff; }
     .badge-kasha { background: #ffd859; color: #000000; }
@@ -533,9 +571,11 @@
       transition: transform 0.2s ease;
       margin-left: 4px;
     }
+
     .press-details[open] .press-arrow {
       transform: rotate(180deg);
     }
+
     .press-details[open] .press-summary {
       display: flex;
       justify-content: space-between;
@@ -552,6 +592,7 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 8px;
     }
+
     .press-card {
       background: rgba(0, 0, 0, 0.35);
       border: 1px solid #30363d;
@@ -564,17 +605,20 @@
       justify-content: space-between;
       transition: all 0.2s ease;
     }
+
     .press-card:hover {
       border-color: #ffd859;
       background: rgba(234, 179, 8, 0.05);
       transform: translateY(-1px);
     }
+
     .press-card-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 4px;
     }
+
     .press-card-title {
       font-size: 11px;
       font-weight: 600;
@@ -582,6 +626,7 @@
       line-height: 1.35;
       margin: 0;
     }
+
     .press-card-link-text {
       font-size: 10px;
       color: #58a6ff;
@@ -598,6 +643,7 @@
       gap: 8px;
       margin-bottom: 8px;
     }
+
     .preview-card {
       background: #161b22;
       border: 1px solid #30363d;
@@ -606,10 +652,12 @@
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
       transition: border-color 0.2s, transform 0.2s;
     }
+
     .preview-card:hover {
       border-color: #58a6ff;
       transform: translateY(-1px);
     }
+
     .preview-card img {
       width: 100%;
       height: auto;
@@ -624,7 +672,7 @@
       margin-bottom: 8px;
     }
 
-    /* СЛАЙДЕР ЗЛІВА */
+    /* СЛАЙДЕР */
     .slider-card {
       background: #161b22;
       border: 1px solid #30363d;
@@ -636,6 +684,7 @@
       overflow: hidden;
       box-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
     }
+
     .slider-stage {
       flex: 1;
       display: flex;
@@ -645,6 +694,7 @@
       padding: 4px 14px;
       background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.05) 0%, transparent 75%);
     }
+
     .slider-stage img {
       max-height: 240px;
       width: auto;
@@ -656,6 +706,7 @@
       transition: opacity 0.2s ease, transform 0.2s ease;
       cursor: pointer;
     }
+
     .slider-stage img:hover {
       border-color: #58a6ff;
     }
@@ -679,12 +730,14 @@
       user-select: none;
       z-index: 5;
     }
+
     .nav-arrow:hover {
       background: #1f2937;
       border-color: #58a6ff;
       color: #58a6ff;
       transform: translateY(-50%) scale(1.1);
     }
+
     .nav-arrow.prev { left: 5px; }
     .nav-arrow.next { right: 5px; }
 
@@ -697,6 +750,7 @@
       justify-content: space-between;
       gap: 6px;
     }
+
     .slider-caption {
       font-size: 11px;
       font-weight: 600;
@@ -705,11 +759,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .slider-dots {
       display: flex;
       gap: 4px;
       flex-shrink: 0;
     }
+
     .dot {
       width: 6px;
       height: 6px;
@@ -718,12 +774,13 @@
       cursor: pointer;
       transition: all 0.2s;
     }
+
     .dot.active {
       background: #58a6ff;
       transform: scale(1.25);
     }
 
-    /* СПРАВА: 4 КАРТКИ В СІТЦІ 310px */
+    /* 4 КАРТКИ */
     .features-quad {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -731,6 +788,7 @@
       gap: 8px;
       height: 310px;
     }
+
     .quad-card {
       background: #161b22;
       border: 1px solid #30363d;
@@ -742,29 +800,33 @@
       transition: all 0.2s ease;
       overflow: hidden;
     }
+
     .quad-card:hover {
       border-color: #58a6ff;
       transform: translateY(-1px);
       background: #19202c;
     }
-    
+
     .quad-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 3px;
     }
+
     .quad-title-group {
       display: flex;
       align-items: center;
       gap: 5px;
     }
+
     .quad-title-group h3 {
       margin: 0;
       font-size: 11.8px;
       color: #ffffff;
       font-weight: 700;
     }
+
     .quad-pill {
       font-size: 9px;
       font-weight: 600;
@@ -783,6 +845,7 @@
       color: #8b949e;
       line-height: 1.33;
     }
+
     .quad-desc strong {
       color: #e6edf3;
     }
@@ -798,23 +861,25 @@
       margin-top: 3px;
     }
 
-    /* БЛОК ДИСКЛЕЙМЕРА (AS IS) */
+    /* ДИСКЛЕЙМЕР РОЗРОБНИКА */
     .disclaimer-card {
       max-width: 860px;
       margin: 10px auto 8px;
       background: rgba(22, 27, 34, 0.75);
       border: 1px solid rgba(248, 81, 73, 0.4);
       border-radius: 12px;
-      padding: 10px 16px;
+      padding: 12px 16px;
       text-align: left;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
     }
+
     .disclaimer-header {
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 4px;
+      margin-bottom: 7px;
     }
+
     .disclaimer-title {
       color: #ff7b72;
       font-size: 12px;
@@ -822,94 +887,220 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
+
     .disclaimer-text {
       font-size: 11px;
       color: #8b949e;
-      line-height: 1.45;
+      line-height: 1.55;
       margin: 0;
     }
+
     .disclaimer-text strong {
       color: #e6edf3;
     }
 
+    .disclaimer-text p {
+      margin: 0 0 7px;
+    }
+
+    .disclaimer-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .disclaimer-thanks {
+      color: #c9d1d9;
+    }
+
+    /* FOOTER */
     .footer {
       text-align: center;
       color: #8b949e;
       font-size: 11px;
-      padding-top: 6px;
+      padding: 9px 0 5px;
       border-top: 1px solid #21262d;
     }
-    .footer a {
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer a.author-link {
       color: #58a6ff;
       text-decoration: none;
       font-weight: 600;
     }
-    .footer a:hover {
+
+    .footer a.author-link:hover {
       text-decoration: underline;
+    }
+
+    /* TELEGRAM — ПРОПОЗИЦІЇ ТА ІДЕЇ */
+    .telegram-suggestions {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(34, 158, 217, 0.12);
+      border: 1px solid rgba(57, 169, 232, 0.4);
+      color: #39a9e8;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .telegram-suggestions svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .telegram-suggestions:hover {
+      background: #229ed9;
+      color: #ffffff;
+      border-color: #229ed9;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 14px rgba(34, 158, 217, 0.35);
+    }
+
+    .telegram-suggestions:focus-visible {
+      outline: 2px solid #39a9e8;
+      outline-offset: 3px;
+    }
+
+    .telegram-tooltip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translate(-50%, 4px);
+      width: max-content;
+      max-width: min(270px, 80vw);
+      padding: 8px 11px;
+      border-radius: 8px;
+      background: #202a36;
+      border: 1px solid #34485c;
+      color: #dbeafe;
+      font-size: 10.5px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: normal;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.4);
+      z-index: 20;
+    }
+
+    .telegram-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: #34485c;
+    }
+
+    .telegram-suggestions:hover .telegram-tooltip,
+    .telegram-suggestions:focus-visible .telegram-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
     }
 
     @media (max-width: 860px) {
       .main-bento-layout {
         grid-template-columns: 1fr;
       }
+
       .slider-card {
         height: 310px;
       }
+
       .features-quad {
         height: auto;
       }
+
       .quad-card {
         min-height: 145px;
       }
     }
+
     @media (max-width: 720px) {
       .widgets-preview {
         grid-template-columns: 1fr;
       }
+
       .features-quad {
         grid-template-columns: 1fr;
       }
+
       .brand-capsule {
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 28px;
         padding: 10px 14px;
       }
+
       .btn-group {
         flex-direction: column;
         width: 100%;
       }
-      .btn, .smartscreen-inline, .smartscreen-inline-summary {
+
+      .btn,
+      .smartscreen-inline,
+      .smartscreen-inline-summary {
         width: 100%;
         justify-content: center;
       }
+
       .btn-repo-icon {
         width: 100%;
         height: 36px;
       }
+
+      .footer-inner {
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
 
     <header class="hero">
 
-      <!-- ЗОЛОТИЙ ТЕКСТ ЛЕГЕНД -->
       <div class="merger-clean-line">
         <span class="gold-text-clean">ALERTCHECKER</span>
         <span class="gold-icon-sep">💥</span>
         <span class="gold-text-clean">SVITLOCHECKER</span>
       </div>
-      
-      <!-- ЗОЛОТА КАПСУЛА: ІДЕАЛЬНА СИМЕТРІЯ -->
+
       <div class="brand-capsule-wrap">
         <div class="brand-capsule">
-          
-          <!-- ЛІВОРУЧ: ІКОНКА ПРОГРАМИ -->
+
           <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon-large" onerror="this.style.display='none';">
-          
-          <!-- ЦЕНТР: НАЗВА ТА СЛОГАН -->
+
           <div class="brand-center-block">
             <h1 class="main-title">SvitloAlertChecker</h1>
             <div class="brand-slogan">
@@ -929,22 +1120,20 @@
             </div>
           </div>
 
-          <!-- ПРАВОРУЧ: QR МОНОБАНКУ В ТОЧНИЙ РОЗМІР ЛІВОЇ ІКОНКИ -->
-          <a href="https://send.monobank.ua/jar/ybt1euJoZpejopFHKbncRMHkQg8bveG" target="_blank" rel="noopener" class="mono-qr-box" title="Підтримати Монобанку (натисніть, щоб відкрити)">
+          <a href="https://send.monobank.ua/jar/ybt1euJoZpejopFHKbncRMHkQg8bveG" target="_blank" rel="noopener" class="mono-qr-box" title="Посилання на банку Monobank">
             <div class="cat-ears-wrap">
               <div class="cat-ear"></div>
               <div class="cat-ear"></div>
             </div>
-            <img src="qr.png" 
-                 onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fsend.monobank.ua%2Fjar%2Fybt1euJoZpejopFHKbncRMHkQg8bveG';" 
-                 alt="QR Monobank" 
+            <img src="qr.png"
+                 onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fsend.monobank.ua%2Fjar%2Fybt1euJoZpejopFHKbncRMHkQg8bveG';"
+                 alt="QR Monobank"
                  class="mono-qr-display">
           </a>
 
         </div>
       </div>
-      
-      <!-- ЦЕНТРАЛЬНА ПЛАШКА -->
+
       <div class="unified-line">
         <div class="unified-center">
           <span class="text-alert">🚨 Повітряна тривога</span>
@@ -952,40 +1141,34 @@
         </div>
       </div>
 
-      <!-- ТЕКСТ ДЛЯ ІНДЕКСАЦІЇ GOOGLE -->
       <div class="seo-hidden-text">
         Україна: Усі області та райони, червоні й жовті тривоги. ДТЕК, YASNO, Обленерго графіки відключення світла для ПК.
       </div>
-      
-      <!-- РЯДОК КНОПОК З ХВИЛЬОВИМ ПЕРЕЛИВАННЯМ -->
+
       <div class="btn-group">
-        
-        <!-- 1. ITCH -->
+
         <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener" class="btn btn-itch" title="Проєкт у топі чартів Itch.io">
           ⬇ ТОП у чартах по Україні · Itch.io
         </a>
-        
-        <!-- 2. GITHUB LATEST RELEASE -->
+
         <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest" target="_blank" rel="noopener" class="btn btn-gh-version" title="Завантажити останній реліз із GitHub">
           <span class="btn-gh-dot"></span>
           <span>Latest Release GitHub: <strong id="appVersion">v5.3.2.1</strong></span>
         </a>
 
-        <!-- 3. КВАДРАТНИЙ РЕПОЗИТОРІЙ -->
         <a href="https://github.com/DEVMIHEY/SvitloAlertChecker" target="_blank" rel="noopener" class="btn btn-repo-icon" title="Репозиторій на GitHub">
           <svg class="github-svg-icon" viewBox="0 0 16 16">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
           </svg>
         </a>
 
-        <!-- 4. SMARTSCREEN З ЯСКРАВИМ СПАЛАХОМ ТА ЧЕРВОНИМ ЗНАКОМ -->
         <details class="smartscreen-inline">
           <summary class="smartscreen-inline-summary">
             <span class="smartscreen-warning-badge">!</span>
             <span>🛡️ SmartScreen?</span>
             <span class="smartscreen-arrow">▼</span>
           </summary>
-          
+
           <div class="smartscreen-dropdown">
             <div class="smartscreen-dropdown-header">
               <span>🛡️ Що робити при появі Windows SmartScreen?</span>
@@ -1008,7 +1191,7 @@
 
       </div>
 
-      <!-- ПРЕС-ЦЕНТР: ЗМІ ТА IT-СПІЛЬНОТА ПРО НАС -->
+      <!-- ПРЕС-ЦЕНТР -->
       <div class="press-center-wrap">
         <details class="press-details">
           <summary class="press-summary">
@@ -1023,8 +1206,7 @@
 
           <div style="margin-top: 10px;">
             <div class="press-grid">
-              
-              <!-- 1. DEV.UA ГОЛОВНА СТАТТЯ -->
+
               <a href="https://dev.ua/news/svitlo-1794376540" target="_blank" rel="noopener" class="press-card">
                 <div class="press-card-top">
                   <span class="press-badge-tag badge-dev">dev.ua</span>
@@ -1034,7 +1216,6 @@
                 <span class="press-card-link-text">Читати статтю ↗</span>
               </a>
 
-              <!-- 2. DEV.UA ТОП-10 ДОДАТКІВ -->
               <a href="https://dev.ua/news/vaibkodynh-proty-blekautiv-10-korysnykh-dodatkiv-i-vidzhetiv-iaki-ukrainski-aitivtsi-stvoryly-dlia-vykorystannia-pry-vidkliuchenniakh-svitla-1794391841" target="_blank" rel="noopener" class="press-card">
                 <div class="press-card-top">
                   <span class="press-badge-tag badge-dev">dev.ua</span>
@@ -1044,7 +1225,6 @@
                 <span class="press-card-link-text">Читати огляд ↗</span>
               </a>
 
-              <!-- 3. DOU.UA ФОРУМ -->
               <a href="https://dou.ua/forums/topic/63230/" target="_blank" rel="noopener" class="press-card">
                 <div class="press-card-top">
                   <span class="press-badge-tag badge-dou">DOU.ua</span>
@@ -1054,7 +1234,6 @@
                 <span class="press-card-link-text">Читати на DOU ↗</span>
               </a>
 
-              <!-- 4. KASHA MEDIA -->
               <a href="https://kasha.media/tekhnologii/ukrainski-rozrobnyky-stvoriuiut-novi-instrumenty-dlia-zhyttia-v-umovakh-" target="_blank" rel="noopener" class="press-card">
                 <div class="press-card-top">
                   <span class="press-badge-tag badge-kasha">KASHA Media</span>
@@ -1064,7 +1243,6 @@
                 <span class="press-card-link-text">Читати матеріал ↗</span>
               </a>
 
-              <!-- 5. PONTYK MEDIA -->
               <a href="https://pontyk.com.ua/uk/rozrobka/svitlochecker-zastosunok-dlya-monitorynhu-vidklyuchen-svitla-na-windows/" target="_blank" rel="noopener" class="press-card">
                 <div class="press-card-top">
                   <span class="press-badge-tag badge-pontyk">Pontyk Media</span>
@@ -1074,7 +1252,6 @@
                 <span class="press-card-link-text">Читати розбір ↗</span>
               </a>
 
-              <!-- 6. LINKEDIN DEV.UA -->
               <a href="https://ua.linkedin.com/posts/dev-ua_%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B9-%D1%80%D0%BE%D0%B7%D1%80%D0%BE%D0%B1%D0%BD%D0%B8%D0%BA-%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B8%D0%B2-%D0%B7%D0%B0%D1%81%D1%82%D0%BE%D1%81%D1%83%D0%BD%D0%BE%D0%BA-activity-7526163924380200961-MO3E" target="_blank" rel="noopener" class="press-card">
                 <div class="press-card-top">
                   <span style="background: #0a66c2; color: #ffffff; padding: 1px 6px; border-radius: 4px; font-weight: 800; font-size: 10px;">LinkedIn</span>
@@ -1103,8 +1280,7 @@
 
     <!-- ГОЛОВНИЙ BENTO-БЛОК -->
     <section class="main-bento-layout">
-      
-      <!-- Зліва: Слайдер -->
+
       <div class="slider-card">
         <div class="slider-stage">
           <button class="nav-arrow prev" onclick="moveSlide(-1)" aria-label="Попереднє вікно">‹</button>
@@ -1122,10 +1298,8 @@
         </div>
       </div>
 
-      <!-- Справа: 4 квадрати -->
       <div class="features-quad">
-        
-        <!-- 1. Графіки світла -->
+
         <div class="quad-card">
           <div>
             <div class="quad-top">
@@ -1144,7 +1318,6 @@
           </div>
         </div>
 
-        <!-- 2. Тривоги -->
         <div class="quad-card">
           <div>
             <div class="quad-top">
@@ -1163,7 +1336,6 @@
           </div>
         </div>
 
-        <!-- 3. Не заважає за ПК -->
         <div class="quad-card">
           <div>
             <div class="quad-top">
@@ -1182,7 +1354,6 @@
           </div>
         </div>
 
-        <!-- 4. Розумна індикація та Calm Mode -->
         <div class="quad-card">
           <div>
             <div class="quad-top">
@@ -1202,22 +1373,62 @@
         </div>
 
       </div>
-
     </section>
 
-    <!-- ЗОНА ВІДПОВІДАЛЬНОСТІ / ДИСКЛЕЙМЕР (AS IS) -->
+    <!-- ДИСКЛЕЙМЕР ТА ПОЗИЦІЯ РОЗРОБНИКА -->
     <div class="disclaimer-card">
       <div class="disclaimer-header">
         <span style="font-size: 14px;">🛡️</span>
-        <span class="disclaimer-title">Дисклеймер розробника (AS IS)</span>
+        <span class="disclaimer-title">Позиція розробника · AS IS</span>
       </div>
-      <p class="disclaimer-text">
-        Проєкт розробляється та підтримується <strong>однією людиною на чистому ентузіазмі</strong> — безкоштовно, без реклами та без корпоративних бюджетів. Автор не є співробітником ДТЕК, YASNO чи Обленерго, не керує електромережами та не впливає на стабільність офіційних баз. Програма надається за принципом <strong>«AS IS» (як є)</strong>: без жодних юридичних чи фінансових гарантій.
-      </p>
+
+      <div class="disclaimer-text">
+        <p>
+          <strong>SvitloAlertChecker — незалежний проєкт, який створюється та підтримується однією людиною — DEV MIHEY.</strong>
+          За ним немає команди, компанії чи корпоративного бюджету. Уся розробка, оновлення та підтримка — це мій особистий час, робота й власний ентузіазм.
+        </p>
+
+        <p>
+          Проєкт залишається <strong>безкоштовним і без реклами</strong>. Наразі жодного збору коштів на розвиток не ведеться. Я не прошу донатів, не встановлюю платних підписок і не очікую навіть однієї гривні за свою роботу. Посилання на банку в шапці сайту не означає, що зараз проводиться збір або що користувачі зобов'язані мене підтримувати.
+        </p>
+
+        <p>
+          Я розвиваю цей інструмент тому, що вважаю його корисним для людей. Роблю це добровільно, на власній совісті та за власним бажанням. <strong>Користуйтеся безкоштовно — жодних фінансових зобов'язань переді мною у вас немає.</strong>
+        </p>
+
+        <p class="disclaimer-thanks">
+          Дякую кожному, хто користується програмою, поширює її та надсилає конструктивні ідеї. Саме ваші відгуки допомагають робити наступні оновлення кращими. 💛💙
+        </p>
+
+        <p>
+          Автор не є співробітником ДТЕК, YASNO чи Обленерго, не керує електромережами та не впливає на стабільність офіційних баз. Програма надається за принципом <strong>«AS IS» (як є)</strong>, без гарантій безперервної роботи чи абсолютної точності сторонніх даних.
+        </p>
+      </div>
     </div>
 
     <footer class="footer">
-      Зроблено з 💛💙 в Україні · Автор: <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener">DEV MIHEY</a>
+      <div class="footer-inner">
+        <span>
+          Зроблено з 💛💙 в Україні · Автор:
+          <a class="author-link" href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener">DEV MIHEY</a>
+        </span>
+
+        <a
+          class="telegram-suggestions"
+          href="https://t.me/+GJcw40ZlYadkNzIy"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Telegram — пропозиції та ідеї для наступних оновлень"
+          title="Пропозиції та ідеї для наступних оновлень"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.9 4.6 18.6 20c-.25 1.1-.9 1.35-1.8.85l-5-3.7-2.4 2.3c-.27.27-.5.5-1 .5l.35-5.1 9.3-8.4c.4-.35-.1-.55-.6-.2L6 13.4l-4.9-1.55c-1.05-.33-1.07-1.05.22-1.55L20.5 3.1c.87-.32 1.63.2 1.4 1.5Z"/>
+          </svg>
+          <span class="telegram-tooltip">
+            Є ідея або побажання? Надішліть пропозицію — цікаві ідеї розглядаються для найближчих оновлень!
+          </span>
+        </a>
+      </div>
     </footer>
 
   </div>
@@ -1263,11 +1474,11 @@
     function updateSlide() {
       imgEl.style.opacity = '0.25';
       imgEl.style.transform = 'scale(0.97)';
-      
+
       setTimeout(() => {
         imgEl.src = slidesData[currentSlide].src;
         captionEl.textContent = slidesData[currentSlide].caption;
-        
+
         dots.forEach((dot, idx) => {
           dot.classList.toggle('active', idx === currentSlide);
         });
@@ -1283,6 +1494,7 @@
     }
 
     function goToSlide(index) {
+      if (index < 0 || index >= slidesData.length) return;
       currentSlide = index;
       updateSlide();
     }
