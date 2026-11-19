@@ -66,7 +66,7 @@
       transform: scale(1.06);
     }
 
-    /* БЛОК ЛЕГЕНД У ТОЧНОМУ ЗОЛОТОМУ СТИЛІ */
+    /* БЛОК ЛЕГЕНД */
     .legend-hero {
       display: flex;
       flex-direction: column;
@@ -87,7 +87,7 @@
       filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.35));
     }
     
-    /* ФІРМОВА ЗОЛОТА КАПСУЛА З СКРИНШОТА */
+    /* ЗОЛОТА КАПСУЛА */
     .gold-badge {
       display: inline-flex;
       align-items: center;
@@ -95,7 +95,7 @@
       background: linear-gradient(180deg, rgba(32, 28, 18, 0.9) 0%, rgba(20, 18, 12, 0.95) 100%);
       border: 1px solid rgba(234, 179, 8, 0.65);
       border-radius: 20px;
-      padding: 3px 12px;
+      padding: 3px 14px;
       box-shadow: 0 0 12px rgba(234, 179, 8, 0.15), inset 0 0 8px rgba(234, 179, 8, 0.1);
     }
     .gold-text {
@@ -108,47 +108,52 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-    .gold-plus {
-      color: #ffd859;
-      font-weight: 900;
-      font-size: 12px;
+    .gold-icon {
+      font-size: 11px;
+      filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
     }
 
-    /* КРУПНА ГОЛОВНА НАЗВА */
+    /* КРУПНА ЗОЛОТА ГОЛОВНА НАЗВА */
     h1.main-title {
       margin: 4px 0 8px;
       font-size: clamp(28px, 4.2vw, 36px);
       font-weight: 900;
       letter-spacing: -0.5px;
-      color: #ffffff;
-      text-shadow: 0 0 24px rgba(88, 166, 255, 0.3);
+      background: linear-gradient(135deg, #ffffff 0%, #fff275 25%, #ffd700 55%, #e69500 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.35));
     }
 
-    /* ЗБАЛАНСОВАНИЙ ЄДИНИЙ РЯДОК */
+    /* ЗБАЛАНСОВАНИЙ ЄДИНИЙ РЯДОК БЕЗ ПЛЮСА */
     .unified-line {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 6px 10px;
+      gap: 6px 12px;
       font-size: 12px;
       color: #8b949e;
       margin-bottom: 12px;
       line-height: 1.4;
     }
     .unified-side {
-      color: #8b949e;
+      color: #9da7b3;
       font-size: 11.5px;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
     .unified-center {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 8px;
-      padding: 2px 10px;
+      padding: 3px 12px;
       color: #ffffff;
       white-space: nowrap;
     }
@@ -586,7 +591,7 @@
         min-height: 145px;
       }
     }
-    @media (max-width: 680px) {
+    @media (max-width: 720px) {
       .widgets-preview {
         grid-template-columns: 1fr;
       }
@@ -595,7 +600,7 @@
       }
       .unified-line {
         flex-direction: column;
-        gap: 4px;
+        gap: 5px;
       }
     }
   </style>
@@ -606,31 +611,31 @@
     <header class="hero">
       <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon" onerror="this.style.display='none';">
 
-      <!-- ЛЕГЕНДИ: ЗОЛОТИЙ СТИЛЬ З ОБВОДКОЮ -->
+      <!-- ЛЕГЕНДИ: ЗОЛОТИЙ СТИЛЬ З ОБВОДКОЮ БЕЗ ПЛЮСА -->
       <div class="legend-hero">
-        <span class="gold-title">ЛЕГЕНДАРНІ</span>
+        <span class="gold-title">ЛЕГЕНДИ</span>
         <div class="gold-badge">
-          <span class="gold-text">💥 AlertChecker</span>
-          <span class="gold-plus">+</span>
-          <span class="gold-text">SvitloChecker</span>
+          <span class="gold-icon">💥</span>
+          <span class="gold-text">ALERTCHECKER</span>
+          <span class="gold-icon">💥</span>
+          <span class="gold-text">SVITLOCHECKER</span>
         </div>
       </div>
       
-      <!-- КРУПНО НАЗВА ПРОГРАМИ -->
+      <!-- ГОЛОВНА НАЗВА В ЗОЛОТОМУ ГРАДІЄНТІ -->
       <h1 class="main-title">SvitloAlertChecker</h1>
       
-      <!-- ЄДИНИЙ СИМЕТРИЧНИЙ РЯДОК (ВІД ЦЕНТРУ ДО КРАЇВ) -->
+      <!-- ЄДИНИЙ РЯДОК БЕЗ ПЛЮСА З ПРАПОРОМ УКРАЇНИ -->
       <div class="unified-line">
-        <span class="unified-side">📍 24 області, 136 районів (червоні й жовті тривоги)</span>
+        <span class="unified-side">🇺🇦 Усі області та райони (червоні й жовті)</span>
         <div class="unified-center">
           <span class="text-alert">🚨 Повітряна тривога</span>
-          <span>+</span>
           <span class="text-power">⚡ Графік відключень світла для ПК</span>
         </div>
-        <span class="unified-side">⚡ ДТЕК, YASNO, Обленерго — усі регіони</span>
+        <span class="unified-side">⚡ ДТЕК, YASNO, Обленерго</span>
       </div>
 
-      <!-- ОВАЛ АКТУАЛЬНОЇ ВЕРСІЇ (АВТОЗЧИТУВАННЯ З GITHUB) -->
+      <!-- ОВАЛ АКТУАЛЬНОЇ ВЕРСІЇ -->
       <div>
         <div class="version-oval">
           <span class="version-dot"></span>
@@ -808,7 +813,7 @@
         }
       })
       .catch(() => {
-        // Fallback версія залишається v5.3.2.1
+        // Fallback версія v5.3.2.1
       });
 
     // 2. СЛАЙДЕР ВІКОН
