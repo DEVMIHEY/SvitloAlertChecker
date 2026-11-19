@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0d1117">
   
-  <title>SvitloAlertChecker v5.3.2.1 — Повітряна тривога та Графік відключень світла для ПК (Windows)</title>
-  <meta name="description" content="SvitloAlertChecker v5.3.2.1 для Windows: миттєвий радар повітряних тривог по 136 районах та графік відключень світла (ДТЕК, YASNO, Обленерго) 1.1–6.2. Віджет поверх усіх вікон, click-through, автооновлення розкладу.">
-  <meta name="keywords" content="повітряна тривога пк, графік відключень світла windows, SvitloAlertChecker, AlertChecker, SvitloChecker, радар тривог, ДТЕК графік, YASNO, обленерго черги, віджет тривоги на робочий стіл, флеш спалах екрану, жовта тривога, відбій тривоги">
+  <title>SvitloAlertChecker — Повітряна тривога та Графік відключень світла для ПК (Windows)</title>
+  <meta name="description" content="SvitloAlertChecker для Windows: миттєвий радар повітряних тривог по 136 районах та графік відключень світла (ДТЕК, YASNO, Обленерго). Віджет поверх усіх вікон, click-through, автооновлення розкладу.">
+  <meta name="keywords" content="повітряна тривога пк, графік відключень світла windows, SvitloAlertChecker, AlertChecker, SvitloChecker, радар тривог, ДТЕК графік, YASNO, обленерго">
   <meta name="author" content="DEV MIHEY">
 
   <!-- Канонічне посилання -->
   <link rel="canonical" href="https://devmihey.github.io/SvitloAlertChecker/">
 
   <!-- OpenGraph -->
-  <meta property="og:title" content="SvitloAlertChecker v5.3.2.1 — Повітряна тривога + Графік відключень світла для ПК">
+  <meta property="og:title" content="SvitloAlertChecker — Повітряна тривога + Графік відключень світла для ПК">
   <meta property="og:description" content="Миттєвий радар 136 районів швидше за ботів та графіки ДТЕК/YASNO на Cloudflare без збоїв шкали.">
   <meta property="og:image" content="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg">
   <meta property="og:url" content="https://devmihey.github.io/SvitloAlertChecker/">
@@ -23,21 +23,6 @@
 
   <meta name="google-site-verification" content="3UCZaG-gHaYudyfYwhqsb65zi61D7xWmKpI3Cp_xJqI" />
   <link rel="icon" type="image/png" href="icon.png">
-
-  <!-- Мікророзмітка Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "SvitloAlertChecker",
-    "softwareVersion": "v5.3.2.1",
-    "operatingSystem": "Windows 10, Windows 11",
-    "applicationCategory": "UtilitiesApplication",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "UAH" },
-    "author": { "@type": "Person", "name": "DEV MIHEY" },
-    "description": "Глобальне об'єднання AlertChecker та SvitloChecker: радар 136 районів та графіки світла ДТЕК, YASNO, Обленерго на базі Cloudflare."
-  }
-  </script>
 
   <style>
     *, *::before, *::after {
@@ -51,10 +36,11 @@
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
     }
+    
     .container {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 6px 14px 8px;
+      padding: 14px 14px 8px;
     }
     
     /* HERO */
@@ -63,14 +49,14 @@
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 16px;
-      padding: 10px 16px 12px;
+      padding: 12px 16px 14px;
       margin-bottom: 8px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
     .app-icon {
       width: 44px;
       height: 44px;
-      margin: 0 auto 5px;
+      margin: 0 auto 6px;
       display: block;
       border-radius: 50%;
       box-shadow: 0 0 12px rgba(88, 166, 255, 0.35);
@@ -79,92 +65,155 @@
     .app-icon:hover {
       transform: scale(1.06);
     }
-    .badges-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 5px;
-    }
-    .badge {
-      display: inline-block;
-      background: #1f2937;
-      border: 1px solid #384252;
-      color: #58a6ff;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-    .badge-merger {
-      display: inline-block;
-      background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(59, 130, 246, 0.15));
-      border: 1px solid rgba(234, 179, 8, 0.4);
-      color: #ffd859;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-    h1 {
-      margin: 0 0 2px;
-      font-size: clamp(20px, 3vw, 25px);
-      color: #ffffff;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-    .hero-lead {
-      color: #58a6ff;
-      font-size: 13.5px;
-      font-weight: 600;
-      max-width: 720px;
-      margin: 0 auto 6px;
-    }
 
-    .subtitle {
-      color: #9da7b3;
-      font-size: 11.8px;
-      max-width: 860px;
-      margin: 0 auto 10px;
-      line-height: 1.45;
+    /* БЛОК ЛЕГЕНД У ТОЧНОМУ ЗОЛОТОМУ СТИЛІ */
+    .legend-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 4px;
     }
-    
-    .gold-caps {
+    .gold-title {
       background: linear-gradient(135deg, #fff382 0%, #ffd700 50%, #e69500 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 900;
-      letter-spacing: 0.8px;
+      font-size: 13px;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
       display: inline-block;
       white-space: nowrap;
       filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.35));
     }
     
-    .tag-app {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: #ffffff;
-      font-weight: 700;
-      padding: 1px 6px;
-      border-radius: 5px;
-      display: inline-block;
+    /* ФІРМОВА ЗОЛОТА КАПСУЛА З СКРИНШОТА */
+    .gold-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(180deg, rgba(32, 28, 18, 0.9) 0%, rgba(20, 18, 12, 0.95) 100%);
+      border: 1px solid rgba(234, 179, 8, 0.65);
+      border-radius: 20px;
+      padding: 3px 12px;
+      box-shadow: 0 0 12px rgba(234, 179, 8, 0.15), inset 0 0 8px rgba(234, 179, 8, 0.1);
+    }
+    .gold-text {
+      background: linear-gradient(135deg, #ffe066 0%, #ffc107 50%, #ff9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .gold-plus {
+      color: #ffd859;
+      font-weight: 900;
+      font-size: 12px;
     }
 
+    /* КРУПНА ГОЛОВНА НАЗВА */
+    h1.main-title {
+      margin: 4px 0 8px;
+      font-size: clamp(28px, 4.2vw, 36px);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      text-shadow: 0 0 24px rgba(88, 166, 255, 0.3);
+    }
+
+    /* ЗБАЛАНСОВАНИЙ ЄДИНИЙ РЯДОК */
+    .unified-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px 10px;
+      font-size: 12px;
+      color: #8b949e;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .unified-side {
+      color: #8b949e;
+      font-size: 11.5px;
+      white-space: nowrap;
+    }
+    .unified-center {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 2px 10px;
+      color: #ffffff;
+      white-space: nowrap;
+    }
     .text-alert {
-      background: linear-gradient(135deg, #ff7b72 0%, #f85149 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      color: #ff7b72;
+      font-weight: 700;
     }
     .text-power {
-      background: linear-gradient(135deg, #79c0ff 0%, #388bfd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      color: #79c0ff;
+      font-weight: 700;
+    }
+
+    /* ОВАЛ АКТУАЛЬНОЇ ВЕРСІЇ */
+    .version-oval {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(35, 134, 54, 0.12);
+      border: 1px solid rgba(46, 160, 67, 0.45);
+      color: #c9d1d9;
+      font-size: 11.5px;
+      padding: 3px 14px;
+      border-radius: 20px;
+      margin: 0 auto 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    .version-dot {
+      width: 7px;
+      height: 7px;
+      background: #3fb950;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #3fb950;
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 0.6; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 10px #3fb950; }
+    }
+    .version-tag {
+      color: #3fb950;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .version-sep {
+      color: #30363d;
+    }
+
+    /* АНІМАЦІЇ ДЛЯ КНОПОК */
+    @keyframes pulse-itch {
+      0%, 100% { box-shadow: 0 0 0 rgba(250, 92, 92, 0); }
+      50% { box-shadow: 0 0 14px rgba(250, 92, 92, 0.55); }
+    }
+    @keyframes pulse-gh {
+      0%, 100% { box-shadow: 0 0 0 rgba(46, 160, 67, 0); }
+      50% { box-shadow: 0 0 14px rgba(46, 160, 67, 0.6); }
+    }
+    @keyframes pulse-smartscreen {
+      0%, 100% { 
+        border-color: rgba(56, 139, 253, 0.45);
+        box-shadow: 0 0 0 rgba(56, 139, 253, 0); 
+      }
+      50% { 
+        border-color: rgba(56, 139, 253, 1);
+        box-shadow: 0 0 14px rgba(56, 139, 253, 0.5); 
+      }
     }
 
     .btn-group {
@@ -187,6 +236,7 @@
     .btn-itch {
       background: #fa5c5c;
       color: #ffffff;
+      animation: pulse-itch 2.6s infinite ease-in-out;
     }
     .btn-itch:hover {
       background: #ff7070;
@@ -195,6 +245,7 @@
     .btn-gh {
       background: #238636;
       color: #ffffff;
+      animation: pulse-gh 2.6s infinite ease-in-out 1.3s;
     }
     .btn-gh:hover {
       background: #2ea043;
@@ -210,7 +261,7 @@
       transform: translateY(-1px);
     }
 
-    /* КОМПАКТНИЙ СПОЙЛЕР SMARTSCREEN */
+    /* СПОЙЛЕР SMARTSCREEN */
     .smartscreen-wrap {
       margin-top: 8px;
       display: flex;
@@ -219,17 +270,18 @@
     .smartscreen-details {
       display: inline-block;
       width: auto;
-      background: rgba(13, 23, 38, 0.6);
+      background: rgba(13, 23, 38, 0.7);
       border: 1px dashed rgba(56, 139, 253, 0.5);
       border-radius: 30px;
       padding: 3px 12px;
       transition: all 0.25s ease;
       text-align: center;
+      animation: pulse-smartscreen 2.4s infinite ease-in-out;
     }
     .smartscreen-details:hover {
-      border-color: rgba(56, 139, 253, 0.9);
-      background: rgba(18, 30, 49, 0.85);
-      box-shadow: 0 0 12px rgba(56, 139, 253, 0.2);
+      border-color: rgba(56, 139, 253, 1);
+      background: rgba(18, 30, 49, 0.95);
+      box-shadow: 0 0 14px rgba(56, 139, 253, 0.35);
     }
     .smartscreen-details[open] {
       display: block;
@@ -242,6 +294,7 @@
       box-shadow: 0 0 20px rgba(56, 139, 253, 0.25);
       padding: 12px 16px;
       text-align: left;
+      animation: none;
     }
     .smartscreen-summary {
       display: inline-flex;
@@ -296,7 +349,7 @@
       margin: 0 auto;
     }
 
-    /* 2 ГОРИЗОНТАЛЬНІ ВІДЖЕТИ — ПОВНІ РІДНІ ПРОПОРЦІЇ БЕЗ СТИСКАННЯ */
+    /* 2 ГОРИЗОНТАЛЬНІ ВІДЖЕТИ */
     .widgets-preview {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -321,7 +374,7 @@
       display: block;
     }
 
-    /* BENTO-МАКЕТ ЗМЕНШЕНИЙ ДО 305px ДЛЯ КОМПЕНСАЦІЇ */
+    /* BENTO-МАКЕТ */
     .main-bento-layout {
       display: grid;
       grid-template-columns: 300px 1fr;
@@ -428,7 +481,7 @@
       transform: scale(1.25);
     }
 
-    /* СПРАВА: 4 КАРТКИ В СІТЦІ 305px */
+    /* СПРАВА: 4 КАРТКИ */
     .features-quad {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -533,12 +586,16 @@
         min-height: 145px;
       }
     }
-    @media (max-width: 580px) {
+    @media (max-width: 680px) {
       .widgets-preview {
         grid-template-columns: 1fr;
       }
       .features-quad {
         grid-template-columns: 1fr;
+      }
+      .unified-line {
+        flex-direction: column;
+        gap: 4px;
       }
     }
   </style>
@@ -549,27 +606,51 @@
     <header class="hero">
       <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon" onerror="this.style.display='none';">
 
-      <div class="badges-row">
-        <span class="badge-merger">💥 AlertChecker + SvitloChecker</span>
-        <span class="badge">⚡ v5.3.2.1 · Windows 10 / 11 · Безкоштовно</span>
+      <!-- ЛЕГЕНДИ: ЗОЛОТИЙ СТИЛЬ З ОБВОДКОЮ -->
+      <div class="legend-hero">
+        <span class="gold-title">ЛЕГЕНДАРНІ</span>
+        <div class="gold-badge">
+          <span class="gold-text">💥 AlertChecker</span>
+          <span class="gold-plus">+</span>
+          <span class="gold-text">SvitloChecker</span>
+        </div>
       </div>
       
-      <h1>SvitloAlertChecker</h1>
-      <div class="hero-lead">Повітряна тривога + Графік відключень світла для ПК</div>
+      <!-- КРУПНО НАЗВА ПРОГРАМИ -->
+      <h1 class="main-title">SvitloAlertChecker</h1>
       
-      <p class="subtitle">
-        <span class="gold-caps">ЛЕГЕНДАРНІ</span> <span class="tag-app">AlertChecker</span> та <span class="tag-app">SvitloChecker</span> тепер разом! 
-        <strong class="text-alert">Повітряна тривога</strong> (24 області, 136 районів, червоні й жовті загрози) + 
-        <strong class="text-power">Графік відключень світла</strong> (<strong>ДТЕК, YASNO, Обленерго</strong>, черги 1.1–6.2) у компактному Soft Bento віджеті поверх усіх вікон.
-      </p>
+      <!-- ЄДИНИЙ СИМЕТРИЧНИЙ РЯДОК (ВІД ЦЕНТРУ ДО КРАЇВ) -->
+      <div class="unified-line">
+        <span class="unified-side">📍 24 області, 136 районів (червоні й жовті тривоги)</span>
+        <div class="unified-center">
+          <span class="text-alert">🚨 Повітряна тривога</span>
+          <span>+</span>
+          <span class="text-power">⚡ Графік відключень світла для ПК</span>
+        </div>
+        <span class="unified-side">⚡ ДТЕК, YASNO, Обленерго — усі регіони</span>
+      </div>
+
+      <!-- ОВАЛ АКТУАЛЬНОЇ ВЕРСІЇ (АВТОЗЧИТУВАННЯ З GITHUB) -->
+      <div>
+        <div class="version-oval">
+          <span class="version-dot"></span>
+          <span>Актуальна версія:</span>
+          <strong class="version-tag" id="appVersion">v5.3.2.1</strong>
+          <span class="version-sep">•</span>
+          <span>Windows 10 / 11</span>
+          <span class="version-sep">•</span>
+          <span style="color: #3fb950; font-weight: 600;">Безкоштовно</span>
+        </div>
+      </div>
       
+      <!-- КНОПКИ З НЕОНОВИМ ДИХАННЯМ -->
       <div class="btn-group">
         <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener" class="btn btn-itch">⬇ Завантажити на itch.io</a>
         <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest" target="_blank" rel="noopener" class="btn btn-gh">Завантажити з GitHub (.exe)</a>
         <a href="https://github.com/DEVMIHEY/SvitloAlertChecker" target="_blank" rel="noopener" class="btn btn-sec">Репозиторій</a>
       </div>
 
-      <!-- КОМПАКТНИЙ СПОЙЛЕР SMARTSCREEN -->
+      <!-- МОРГАЮЧИЙ СПОЙЛЕР SMARTSCREEN -->
       <div class="smartscreen-wrap">
         <details class="smartscreen-details">
           <summary class="smartscreen-summary">
@@ -593,7 +674,7 @@
 
     </header>
 
-    <!-- 2 ГОРИЗОНТАЛЬНІ ВІДЖЕТИ (РІДНИЙ ВИГЛЯД ТА МАСШТАБ) -->
+    <!-- 2 ГОРИЗОНТАЛЬНІ ВІДЖЕТИ -->
     <section class="widgets-preview">
       <div class="preview-card">
         <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyMzcyNi5qcGc=/347x500/csalhw.jpg" alt="SvitloAlertChecker — Тривога та таймер до відключення">
@@ -714,6 +795,23 @@
   </div>
 
   <script>
+    // 1. АВТОМАТИЧНЕ ОТРИМАННЯ ОСТАННЬОЇ ВЕРСІЇ З GITHUB RELEASES
+    fetch('https://api.github.com/repos/DEVMIHEY/SvitloAlertChecker/releases/latest')
+      .then(res => {
+        if (!res.ok) throw new Error();
+        return res.json();
+      })
+      .then(data => {
+        if (data && data.tag_name) {
+          const el = document.getElementById('appVersion');
+          if (el) el.textContent = data.tag_name;
+        }
+      })
+      .catch(() => {
+        // Fallback версія залишається v5.3.2.1
+      });
+
+    // 2. СЛАЙДЕР ВІКОН
     const slidesData = [
       {
         src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg",
