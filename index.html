@@ -173,6 +173,76 @@
       transform: translateY(-1px);
     }
 
+    /* СПОЙЛЕР SMARTSCREEN ПІД КНОПКАМИ */
+    .smartscreen-spoiler {
+      max-width: 680px;
+      margin: 16px auto 0;
+      text-align: left;
+    }
+    .smartscreen-details {
+      background: rgba(22, 27, 34, 0.7);
+      border: 1px dashed rgba(234, 179, 8, 0.35);
+      border-radius: 12px;
+      padding: 8px 14px;
+      transition: all 0.2s ease;
+    }
+    .smartscreen-details[open] {
+      background: #11161d;
+      border-style: solid;
+      border-color: rgba(234, 179, 8, 0.5);
+      padding: 14px 16px;
+    }
+    .smartscreen-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+      color: #d29922;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+    .smartscreen-summary::-webkit-details-marker {
+      display: none;
+    }
+    .smartscreen-summary:hover {
+      color: #f2cc60;
+    }
+    .smartscreen-content {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #21262d;
+      color: #8b949e;
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+    .smartscreen-content strong {
+      color: #e6edf3;
+    }
+    .smartscreen-steps {
+      margin: 8px 0 12px;
+      padding-left: 20px;
+    }
+    .smartscreen-steps li {
+      margin-bottom: 4px;
+    }
+    .smartscreen-img-wrap {
+      text-align: center;
+      margin-top: 12px;
+    }
+    .smartscreen-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #30363d;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      display: block;
+      margin: 0 auto;
+    }
+
     /* 2 ГОРИЗОНТАЛЬНІ ВІДЖЕТИ */
     .widgets-preview {
       display: grid;
@@ -413,6 +483,29 @@
         <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest" target="_blank" rel="noopener" class="btn btn-gh">Завантажити з GitHub (.exe)</a>
         <a href="https://github.com/DEVMIHEY/SvitloAlertChecker" target="_blank" rel="noopener" class="btn btn-sec">Репозиторій</a>
       </div>
+
+      <!-- СПОЙЛЕР SMARTSCREEN -->
+      <div class="smartscreen-spoiler">
+        <details class="smartscreen-details">
+          <summary class="smartscreen-summary">
+            <span>⚠️ Windows SmartScreen? Підказка для першого запуску</span>
+          </summary>
+          <div class="smartscreen-content">
+            <p style="margin: 0 0 8px 0;">
+              Оскільки програма безкоштовна і не має <strong>платного цифрового підпису</strong> (який коштує сотні доларів на рік), система під час першого запуску може показати синю табличку <em>«Windows захистила ваш ПК»</em>. Це штатна поведінка безпеки Windows для некомерційних утиліт.
+            </p>
+            <strong>Щоб запустити програму:</strong>
+            <ol class="smartscreen-steps">
+              <li>Натисніть <strong>«Детальніше»</strong> у синьому вікні попередження.</li>
+              <li>Натисніть кнопку <strong>«Виконати все одно»</strong>, що з'явиться знизу.</li>
+            </ol>
+            <div class="smartscreen-img-wrap">
+              <img src="https://raw.githubusercontent.com/DEVMIHEY/SvitloAlertChecker/main/image_111fdb36%20(1).jpeg" alt="Інструкція запуску Windows SmartScreen" class="smartscreen-img">
+            </div>
+          </div>
+        </details>
+      </div>
+
     </header>
 
     <!-- 2 горизонтальні віджети -->
