@@ -49,12 +49,12 @@
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 16px;
-      padding: 14px 16px 14px;
+      padding: 12px 16px 14px;
       margin-bottom: 8px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
 
-    /* ВЕРХНІЙ ТЕКСТ ЛЕГЕНД БЕЗ ОБВОДКИ */
+    /* ВЕРХНІЙ ЗОЛОТИЙ ТЕКСТ ЛЕГЕНД */
     .merger-clean-line {
       display: inline-flex;
       align-items: center;
@@ -78,7 +78,7 @@
       filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
     }
 
-    /* ФІРМОВА ЗОЛОТА КАПСУЛА З ІКОНКОЮ ТА НАЗВОЮ */
+    /* ЗОЛОТА КАПСУЛА З ІКОНКОЮ ТА НАЗВОЮ */
     .brand-capsule-wrap {
       display: flex;
       justify-content: center;
@@ -128,7 +128,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .unified-center {
       display: inline-flex;
@@ -400,7 +400,7 @@
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 12px;
-      height: 305px;
+      height: 310px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -417,7 +417,7 @@
       background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.05) 0%, transparent 75%);
     }
     .slider-stage img {
-      max-height: 235px;
+      max-height: 240px;
       width: auto;
       max-width: 100%;
       object-fit: contain;
@@ -494,13 +494,13 @@
       transform: scale(1.25);
     }
 
-    /* СПРАВА: 4 КАРТКИ */
+    /* СПРАВА: 4 КАРТКИ В СІТЦІ 310px (ІДЕАЛЬНО ЗАПОВНЕНІ) */
     .features-quad {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 8px;
-      height: 305px;
+      height: 310px;
     }
     .quad-card {
       background: #161b22;
@@ -550,9 +550,9 @@
 
     .quad-desc {
       margin: 0;
-      font-size: 10.5px;
+      font-size: 10.3px;
       color: #8b949e;
-      line-height: 1.35;
+      line-height: 1.33;
     }
     .quad-desc strong {
       color: #e6edf3;
@@ -563,7 +563,7 @@
       border-left: 2px solid #388bfd;
       padding: 3px 6px;
       border-radius: 0 4px 4px 0;
-      font-size: 9.8px;
+      font-size: 9.6px;
       color: #c9d1d9;
       line-height: 1.25;
       margin-top: 3px;
@@ -622,7 +622,7 @@
 
     <header class="hero">
 
-      <!-- ЧИСТИЙ ЗОЛОТИЙ ТЕКСТ ЛЕГЕНД БЕЗ ПЕРШОГО ЗНАЧКА І БЕЗ ОБВОДКИ -->
+      <!-- ЗОЛОТИЙ ТЕКСТ ЛЕГЕНД -->
       <div class="merger-clean-line">
         <span class="gold-text-clean">ALERTCHECKER</span>
         <span class="gold-icon-sep">💥</span>
@@ -730,7 +730,7 @@
         </div>
       </div>
 
-      <!-- Справа: 4 квадрати -->
+      <!-- Справа: 4 квадрати (повне насичене наповнення) -->
       <div class="features-quad">
         
         <!-- 1. Графіки світла -->
@@ -744,11 +744,11 @@
               <span class="quad-pill">Cloudflare</span>
             </div>
             <p class="quad-desc">
-              <strong>Власна хмарна база.</strong> Не перевантажує сервери. Актуальний розклад завжди під рукою, навіть коли сайти ДТЕК чи YASNO не відповідають.
+              <strong>Власна хмарна база.</strong> Не навантажує сервери та показує розклад, навіть коли сайти ДТЕК чи YASNO не відповідають. Капсула показує 6 год або всю добу (24 год) по кліку ЛКМ чи в треї. Графік на завтра підтягується автоматично.
             </p>
           </div>
           <div class="quad-footer-tag">
-            ⏱️ Шкала 6 год / доба по кліку + спалах за 30 хв
+            ⏱️ 6 / 24 год по кліку ЛКМ · Графік на завтра авто
           </div>
         </div>
 
@@ -763,11 +763,11 @@
               <span class="quad-pill">136 районів</span>
             </div>
             <p class="quad-desc">
-              <strong>Миттєве сповіщення.</strong> Червоні та жовті загрози напряму з радарів — швидше за ботів і без затримок у чергах повідомлень.
+              <strong>Усі області та райони.</strong> Миттєве сповіщення про червоні та жовті загрози напряму з радарів — швидше за ботів і без затримок у чергах повідомлень. Обирайте всю Україну, окремі області або лише ваш район без спаму.
             </p>
           </div>
           <div class="quad-footer-tag">
-            🔔 Звук сирени, пульсація капсули та Flash Screen
+            ⚡ Прямий моніторинг без затримок у Telegram
           </div>
         </div>
 
@@ -782,30 +782,30 @@
               <span class="quad-pill">Click-Through</span>
             </div>
             <p class="quad-desc">
-              <strong>Для роботи та ігор.</strong> Закріпіть у будь-якому кутку. Режим «крізь кліки» дозволяє курсору проходити крізь вікно у шутерах чи Photoshop.
+              <strong>Тільки важливе.</strong> Закріпіть у будь-якому кутку або на 2-му моніторі. Режим «крізь кліки» дозволяє курсору вільно проходити крізь вікно у шутерах, фільмах, Photoshop чи Python-кодингу без зриву прицілу або втрати фокусу.
             </p>
           </div>
           <div class="quad-footer-tag">
-            🌙 Calm Mode: стає прозорим, коли все спокійно
+            🎯 Наскрізний клік для шутерів, коду та фільмів
           </div>
         </div>
 
-        <!-- 4. Автооновлення -->
+        <!-- 4. Розумна індикація та Calm Mode -->
         <div class="quad-card">
           <div>
             <div class="quad-top">
               <div class="quad-title-group">
-                <span>🔄</span>
-                <h3>Автооновлення</h3>
+                <span>🔔</span>
+                <h3>Розумна індикація</h3>
               </div>
-              <span class="quad-pill">Портативно</span>
+              <span class="quad-pill">Calm Mode</span>
             </div>
             <p class="quad-desc">
-              <strong>Без ручних турбот.</strong> Програма та графіки оновлюються автоматично у фоні. Чистий нативний бінарник (~29 МБ) без встановлення.
+              <strong>Спалахи та звук.</strong> За 30 хв до вимкнення капсула блимає, екран робить спалах Flash Screen і лунає сигнал (тривоги — аналогічно). Екстрені зміни чи графік на завтра зустрічає спалах, а нові релізи — блакитна плашка. У спокої капсула прозора.
             </p>
           </div>
           <div class="quad-footer-tag">
-            🚀 1 клік автозапуску з Windows без зайвих служб
+            💡 Flash Screen на зміни та релізи · Спокійний Calm Mode
           </div>
         </div>
 
