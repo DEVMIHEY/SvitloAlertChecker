@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -356,11 +355,97 @@
       fill: #fff;
     }
 
-    /* SMARTSCREEN */
+    /* TELEGRAM BUTTON (IN BTN-GROUP) */
 
-    .smartscreen-inline {
+    .telegram-suggestions {
+      position: relative;
+      width: 33px;
+      height: 33px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: rgba(34,158,217,.12);
+      border: 1px solid rgba(57,169,232,.4);
+      color: #39a9e8;
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .telegram-suggestions svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+    }
+
+    .telegram-suggestions:hover {
+      background: #229ed9;
+      color: #fff;
+      border-color: #229ed9;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 14px rgba(34,158,217,.35);
+    }
+
+    .telegram-suggestions:focus-visible {
+      outline: 2px solid #39a9e8;
+      outline-offset: 3px;
+    }
+
+    .telegram-tooltip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translate(-50%,4px);
+      width: max-content;
+      max-width: min(270px,80vw);
+      padding: 8px 11px;
+      border-radius: 8px;
+      background: #202a36;
+      border: 1px solid #34485c;
+      color: #dbeafe;
+      font-size: 10.5px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: normal;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .2s,transform .2s,visibility .2s;
+      box-shadow: 0 5px 18px rgba(0,0,0,.4);
+      z-index: 25;
+    }
+
+    .telegram-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: #34485c;
+    }
+
+    .telegram-suggestions:hover .telegram-tooltip,
+    .telegram-suggestions:focus-visible .telegram-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%,0);
+    }
+
+    /* SMARTSCREEN & DISCLAIMER INLINE DETAILS */
+
+    .smartscreen-inline,
+    .disclaimer-inline {
       position: relative;
       display: inline-block;
+    }
+
+    .smartscreen-inline[open],
+    .disclaimer-inline[open] {
+      width: 100%;
+      text-align: center;
     }
 
     .smartscreen-inline-summary {
@@ -391,13 +476,15 @@
       box-shadow: 0 0 18px rgba(56,139,253,.6);
     }
 
-    .smartscreen-arrow {
+    .smartscreen-arrow,
+    .disclaimer-arrow {
       font-size: 9px;
       transition: transform .2s;
       color: #79c0ff;
     }
 
-    .smartscreen-inline[open] .smartscreen-arrow {
+    .smartscreen-inline[open] .smartscreen-arrow,
+    .disclaimer-inline[open] .disclaimer-arrow {
       transform: rotate(180deg);
     }
 
@@ -481,6 +568,76 @@
       box-shadow: 0 4px 16px rgba(0,0,0,.7);
       display: block;
       margin: 0 auto;
+    }
+
+    /* DISCLAIMER INLINE (IN BTN-GROUP) */
+
+    .disclaimer-inline-summary {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 7px 15px;
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+      color: #8b949e;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all .2s;
+    }
+
+    .disclaimer-inline-summary::-webkit-details-marker { display: none; }
+
+    .disclaimer-inline-summary:hover {
+      color: #e6edf3;
+      border-color: #58a6ff;
+      background: #1c2530;
+    }
+
+    .disclaimer-inline[open] .disclaimer-inline-summary {
+      color: #ff7b72;
+      border-color: rgba(248,81,73,.5);
+      background: #161b22;
+    }
+
+    .disclaimer-inline[open] .disclaimer-arrow {
+      color: #ff7b72;
+    }
+
+    .disclaimer-dropdown {
+      position: relative;
+      max-width: 680px;
+      margin: 12px auto 0;
+      background: #161b22;
+      border: 1px solid rgba(248,81,73,.45);
+      border-radius: 12px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.7),0 0 20px rgba(248,81,73,.15);
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: #8b949e;
+    }
+
+    .disclaimer-dropdown strong {
+      color: #e6edf3;
+    }
+
+    .disclaimer-dropdown p {
+      margin: 0 0 9px;
+    }
+
+    .disclaimer-dropdown p:last-child {
+      margin-bottom: 0;
+    }
+
+    .disclaimer-dropdown .disclaimer-thanks {
+      color: #c9d1d9;
     }
 
     /* PRESS CENTER */
@@ -846,7 +1003,7 @@
       text-align: center;
       color: #8b949e;
       font-size: 11px;
-      padding: 9px 0 5px;
+      padding: 12px 0 8px;
       border-top: 1px solid #21262d;
     }
 
@@ -865,171 +1022,6 @@
     }
 
     .footer a.author-link:hover { text-decoration: underline; }
-
-    /* TELEGRAM */
-
-    .telegram-suggestions {
-      position: relative;
-      width: 30px;
-      height: 30px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: rgba(34,158,217,.12);
-      border: 1px solid rgba(57,169,232,.4);
-      color: #39a9e8;
-      text-decoration: none;
-      transition: all .2s;
-    }
-
-    .telegram-suggestions svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-    }
-
-    .telegram-suggestions:hover {
-      background: #229ed9;
-      color: #fff;
-      border-color: #229ed9;
-      transform: translateY(-2px);
-      box-shadow: 0 3px 14px rgba(34,158,217,.35);
-    }
-
-    .telegram-suggestions:focus-visible {
-      outline: 2px solid #39a9e8;
-      outline-offset: 3px;
-    }
-
-    .telegram-tooltip {
-      position: absolute;
-      left: 50%;
-      bottom: calc(100% + 10px);
-      transform: translate(-50%,4px);
-      width: max-content;
-      max-width: min(270px,80vw);
-      padding: 8px 11px;
-      border-radius: 8px;
-      background: #202a36;
-      border: 1px solid #34485c;
-      color: #dbeafe;
-      font-size: 10.5px;
-      font-weight: 500;
-      line-height: 1.4;
-      text-align: center;
-      white-space: normal;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity .2s,transform .2s,visibility .2s;
-      box-shadow: 0 5px 18px rgba(0,0,0,.4);
-      z-index: 20;
-    }
-
-    .telegram-tooltip::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 6px solid transparent;
-      border-top-color: #34485c;
-    }
-
-    .telegram-suggestions:hover .telegram-tooltip,
-    .telegram-suggestions:focus-visible .telegram-tooltip {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%,0);
-    }
-
-    /* ЄДИНИЙ ДИСКЛЕЙМЕР AS IS */
-
-    .footer-disclaimer {
-      max-width: 720px;
-      margin: 12px auto 5px;
-      text-align: center;
-    }
-
-    .footer-disclaimer details {
-      width: 100%;
-    }
-
-    .footer-disclaimer summary {
-      list-style: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      padding: 7px 16px;
-      border-radius: 8px;
-      background: #161b22;
-      border: 1px solid #30363d;
-      color: #8b949e;
-      font-size: 11.5px;
-      font-weight: 600;
-      transition: all .2s;
-      user-select: none;
-    }
-
-    .footer-disclaimer summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .footer-disclaimer summary:hover {
-      color: #e6edf3;
-      border-color: #58a6ff;
-      background: #1c2530;
-    }
-
-    .footer-disclaimer details[open] summary {
-      color: #ff7b72;
-      border-color: rgba(248,81,73,.5);
-      border-radius: 8px 8px 0 0;
-      background: #161b22;
-    }
-
-    .disclaimer-arrow {
-      font-size: 9px;
-      transition: transform .2s;
-    }
-
-    .footer-disclaimer details[open] .disclaimer-arrow {
-      transform: rotate(180deg);
-    }
-
-    .disclaimer-content {
-      margin-top: 0;
-      padding: 14px 17px;
-      background: #161b22;
-      border: 1px solid rgba(248,81,73,.4);
-      border-top: none;
-      border-radius: 0 0 10px 10px;
-      text-align: left;
-      font-size: 11.5px;
-      line-height: 1.55;
-      color: #8b949e;
-      box-shadow: 0 4px 14px rgba(0,0,0,.3);
-    }
-
-    .disclaimer-content strong {
-      color: #e6edf3;
-    }
-
-    .disclaimer-content p {
-      margin: 0 0 9px;
-    }
-
-    .disclaimer-content p:last-child {
-      margin-bottom: 0;
-    }
-
-    .disclaimer-content .disclaimer-thanks {
-      color: #c9d1d9;
-    }
 
     /* RESPONSIVE */
 
@@ -1064,12 +1056,15 @@
 
       .btn,
       .smartscreen-inline,
-      .smartscreen-inline-summary {
+      .smartscreen-inline-summary,
+      .disclaimer-inline,
+      .disclaimer-inline-summary {
         width: 100%;
         justify-content: center;
       }
 
-      .btn-repo-icon {
+      .btn-repo-icon,
+      .telegram-suggestions {
         width: 100%;
         height: 36px;
       }
@@ -1211,6 +1206,25 @@
         </svg>
       </a>
 
+      <!-- TELEGRAM BUTTON -->
+
+      <a class="telegram-suggestions"
+         href="https://t.me/+GJcw40ZlYadkNzIy"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Telegram — пропозиції та ідеї для наступних оновлень"
+         title="Telegram: пропозиції та ідеї для наступних оновлень">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.9 4.6 18.6 20c-.25 1.1-.9 1.35-1.8.85l-5-3.7-2.4 2.3c-.27.27-.5.5-1 .5l.35-5.1 9.3-8.4c.4-.35-.1-.55-.6-.2L6 13.4l-4.9-1.55c-1.05-.33-1.07-1.05.22-1.55L20.5 3.1c.87-.32 1.63.2 1.4 1.5Z"/>
+        </svg>
+
+        <span class="telegram-tooltip">
+          Є ідея або побажання? Надішліть пропозицію —
+          цікаві ідеї розглядаються для найближчих оновлень!
+        </span>
+      </a>
+
       <!-- SMARTSCREEN -->
 
       <details class="smartscreen-inline">
@@ -1250,6 +1264,71 @@
             </div>
 
           </div>
+        </div>
+      </details>
+
+      <!-- ДИСКЛЕЙМЕР РОЗРОБНИКА (SPOILER) -->
+
+      <details class="disclaimer-inline">
+
+        <summary class="disclaimer-inline-summary">
+          <span>🛡️ Дисклеймер · AS IS</span>
+          <span class="disclaimer-arrow">▼</span>
+        </summary>
+
+        <div class="disclaimer-dropdown">
+
+          <p>
+            <strong>SvitloAlertChecker</strong> — незалежний проєкт,
+            який створюється та підтримується однією людиною — DEV MIHEY.
+            Не є офіційним продуктом ДТЕК, YASNO, Обленерго чи державних органів.
+          </p>
+
+          <p>
+            <strong>Про розробника.</strong>
+            За проєктом немає команди, компанії чи корпоративного бюджету.
+            Уся розробка, оновлення та підтримка здійснюються власним часом,
+            роботою та ентузіазмом автора.
+          </p>
+
+          <p>
+            <strong>Безкоштовність.</strong>
+            Проєкт залишається безкоштовним і без реклами.
+            Жодних платних підписок чи фінансових зобов'язань для користувачів немає.
+            Посилання на банку Monobank не означає, що проводиться обов'язковий збір коштів.
+            Підтримка автора є виключно добровільною.
+          </p>
+
+          <p>
+            <strong>Джерела інформації.</strong>
+            Дані про графіки відключень електроенергії та повітряні тривоги
+            отримуються зі сторонніх відкритих джерел та API.
+            Автор не є співробітником ДТЕК, YASNO чи Обленерго,
+            не керує електромережами та не впливає на стабільність офіційних баз.
+          </p>
+
+          <p>
+            <strong>Обмеження відповідальності.</strong>
+            Програма надається за принципом «AS IS» (як є).
+            Автор не гарантує 100% точність інформації, безперервність роботи
+            сторонніх API та відсутність затримок або розбіжностей у даних.
+            Автор не несе відповідальності за можливі наслідки використання
+            отриманої інформації.
+          </p>
+
+          <p>
+            <strong>Важливо.</strong>
+            SvitloAlertChecker — допоміжний інструмент.
+            У критичних ситуаціях завжди перевіряйте інформацію
+            через офіційні джерела та канали оповіщення.
+          </p>
+
+          <p class="disclaimer-thanks">
+            💛💙 Дякую кожному, хто користується програмою,
+            поширює її та надсилає конструктивні ідеї.
+            Саме ваші відгуки допомагають робити наступні оновлення кращими.
+          </p>
+
         </div>
       </details>
 
@@ -1525,94 +1604,6 @@
            target="_blank"
            rel="noopener">DEV MIHEY</a>
       </span>
-
-      <a class="telegram-suggestions"
-         href="https://t.me/+GJcw40ZlYadkNzIy"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Telegram — пропозиції та ідеї для наступних оновлень"
-         title="Пропозиції та ідеї для наступних оновлень">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21.9 4.6 18.6 20c-.25 1.1-.9 1.35-1.8.85l-5-3.7-2.4 2.3c-.27.27-.5.5-1 .5l.35-5.1 9.3-8.4c.4-.35-.1-.55-.6-.2L6 13.4l-4.9-1.55c-1.05-.33-1.07-1.05.22-1.55L20.5 3.1c.87-.32 1.63.2 1.4 1.5Z"/>
-        </svg>
-
-        <span class="telegram-tooltip">
-          Є ідея або побажання? Надішліть пропозицію —
-          цікаві ідеї розглядаються для найближчих оновлень!
-        </span>
-
-      </a>
-
-    </div>
-
-    <!-- ЄДИНИЙ ДИСКЛЕЙМЕР РОЗРОБНИКА -->
-
-    <div class="footer-disclaimer">
-
-      <details>
-
-        <summary>
-          🛡️ Дисклеймер розробника · AS IS
-          <span class="disclaimer-arrow">▼</span>
-        </summary>
-
-        <div class="disclaimer-content">
-
-          <p>
-            <strong>SvitloAlertChecker</strong> — незалежний проєкт,
-            який створюється та підтримується однією людиною — DEV MIHEY.
-            Не є офіційним продуктом ДТЕК, YASNO, Обленерго чи державних органів.
-          </p>
-
-          <p>
-            <strong>Про розробника.</strong>
-            За проєктом немає команди, компанії чи корпоративного бюджету.
-            Уся розробка, оновлення та підтримка здійснюються власним часом,
-            роботою та ентузіазмом автора.
-          </p>
-
-          <p>
-            <strong>Безкоштовність.</strong>
-            Проєкт залишається безкоштовним і без реклами.
-            Жодних платних підписок чи фінансових зобов'язань для користувачів немає.
-            Посилання на банку Monobank не означає, що проводиться обов'язковий збір коштів.
-            Підтримка автора є виключно добровільною.
-          </p>
-
-          <p>
-            <strong>Джерела інформації.</strong>
-            Дані про графіки відключень електроенергії та повітряні тривоги
-            отримуються зі сторонніх відкритих джерел та API.
-            Автор не є співробітником ДТЕК, YASNO чи Обленерго,
-            не керує електромережами та не впливає на стабільність офіційних баз.
-          </p>
-
-          <p>
-            <strong>Обмеження відповідальності.</strong>
-            Програма надається за принципом «AS IS» (як є).
-            Автор не гарантує 100% точність інформації, безперервність роботи
-            сторонніх API та відсутність затримок або розбіжностей у даних.
-            Автор не несе відповідальності за можливі наслідки використання
-            отриманої інформації.
-          </p>
-
-          <p>
-            <strong>Важливо.</strong>
-            SvitloAlertChecker — допоміжний інструмент.
-            У критичних ситуаціях завжди перевіряйте інформацію
-            через офіційні джерела та канали оповіщення.
-          </p>
-
-          <p class="disclaimer-thanks">
-            💛💙 Дякую кожному, хто користується програмою,
-            поширює її та надсилає конструктивні ідеї.
-            Саме ваші відгуки допомагають робити наступні оновлення кращими.
-          </p>
-
-        </div>
-
-      </details>
 
     </div>
 
