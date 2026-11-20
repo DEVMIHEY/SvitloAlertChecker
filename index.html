@@ -713,21 +713,26 @@
       gap: 8px;
       margin-bottom: 8px;
     }
-    .preview-card {
+       .preview-card {
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 3px 12px rgba(0,0,0,.35);
       transition: border-color .2s,transform .2s;
+      aspect-ratio: 16 / 9; /* Задаем строгие пропорции карточки */
     }
+
     .preview-card:hover {
       border-color: #58a6ff;
       transform: translateY(-1px);
     }
+
     .preview-card img {
       width: 100%;
-      height: auto;
+      height: 100%; /* Растягиваем картинку на всю высоту карточки */
+      object-fit: cover; /* Обрезаем лишнее, сохраняя пропорции */
+      object-position: top center; /* Привязываем к верху, чтобы срезать именно нижнюю часть с таскбаром */
       display: block;
     }
 
