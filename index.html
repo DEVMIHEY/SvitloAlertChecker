@@ -298,34 +298,83 @@
       transition: all .2s;
     }
 
+    /* SMARTSCREEN (LEFT) */
+    .smartscreen-inline {
+      position: relative;
+      display: inline-block;
+    }
+    .smartscreen-inline[open] {
+      width: 100%;
+      text-align: center;
+    }
+    .smartscreen-inline-summary {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(13,23,38,.85);
+      border: 1px dashed rgba(56,139,253,.6);
+      border-radius: 8px;
+      padding: 7px 16px 7px 12px;
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+      color: #58a6ff;
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: all .2s;
+      animation: stadium-wave 3.6s infinite ease-in-out;
+      animation-delay: 0s; /* 1-й */
+    }
+    .smartscreen-inline-summary::-webkit-details-marker { display: none; }
+    .smartscreen-inline-summary:hover {
+      border-color: #388bfd;
+      background: rgba(18,30,49,.95);
+      box-shadow: 0 0 18px rgba(56,139,253,.6);
+    }
+    .smartscreen-inline[open] .smartscreen-arrow { transform: rotate(180deg); }
+    .smartscreen-inline[open] .smartscreen-inline-summary {
+      border-style: solid;
+      border-color: #388bfd;
+      background: #111a29;
+    }
+    .smartscreen-warning-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 17px;
+      height: 17px;
+      background: #58a6ff;
+      border: 1.5px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #fff;
+      font-weight: 900;
+      line-height: 1;
+      animation: info-beacon 1.1s infinite ease-in-out;
+      pointer-events: none;
+      box-shadow: 0 0 8px #58a6ff;
+    }
+    .smartscreen-arrow {
+      font-size: 9px;
+      transition: transform .2s;
+      color: #79c0ff;
+    }
+
+    /* ITCH.IO */
     .btn-itch {
       background: #fa5c5c;
       color: #fff;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 0s;
+      animation-delay: 0.3s; /* 2-й */
     }
-
     .btn-itch:hover { background: #ff7070; }
 
-    .btn-gh-version {
-      background: #238636;
-      border: 1px solid #2ea043;
-      color: #fff;
-      gap: 6px;
-      animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 0.3s;
-    }
-
-    .btn-gh-version:hover { background: #2ea043; }
-
-    .btn-gh-dot {
-      width: 7px;
-      height: 7px;
-      background: #3fb950;
-      border-radius: 50%;
-      box-shadow: 0 0 6px #3fb950;
-    }
-
+    /* GITHUB REPO */
     .btn-repo-icon {
       background: #21262d;
       border: 1px solid #30363d;
@@ -338,22 +387,15 @@
       align-items: center;
       justify-content: center;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 0.6s;
+      animation-delay: 0.6s; /* 3-й */
     }
-
     .btn-repo-icon:hover {
       background: #30363d;
       border-color: #58a6ff;
     }
+    .github-svg-icon { width: 18px; height: 18px; fill: #fff; }
 
-    .github-svg-icon {
-      width: 18px;
-      height: 18px;
-      fill: #fff;
-    }
-
-    /* TELEGRAM BUTTON (IN BTN-GROUP) */
-
+    /* TELEGRAM */
     .telegram-suggestions {
       position: relative;
       width: 33px;
@@ -369,15 +411,9 @@
       text-decoration: none;
       transition: all .2s;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 0.9s;
+      animation-delay: 0.9s; /* 4-й */
     }
-
-    .telegram-suggestions svg {
-      width: 17px;
-      height: 17px;
-      fill: currentColor;
-    }
-
+    .telegram-suggestions svg { width: 17px; height: 17px; fill: currentColor; }
     .telegram-suggestions:hover {
       background: #229ed9;
       color: #fff;
@@ -385,12 +421,7 @@
       transform: translateY(-2px);
       box-shadow: 0 3px 14px rgba(34,158,217,.35);
     }
-
-    .telegram-suggestions:focus-visible {
-      outline: 2px solid #39a9e8;
-      outline-offset: 3px;
-    }
-
+    .telegram-suggestions:focus-visible { outline: 2px solid #39a9e8; outline-offset: 3px; }
     .telegram-tooltip {
       position: absolute;
       left: 50%;
@@ -415,7 +446,6 @@
       box-shadow: 0 5px 18px rgba(0,0,0,.4);
       z-index: 25;
     }
-
     .telegram-tooltip::after {
       content: "";
       position: absolute;
@@ -425,7 +455,6 @@
       border: 6px solid transparent;
       border-top-color: #34485c;
     }
-
     .telegram-suggestions:hover .telegram-tooltip,
     .telegram-suggestions:focus-visible .telegram-tooltip {
       opacity: 1;
@@ -433,88 +462,74 @@
       transform: translate(-50%,0);
     }
 
-    /* SMARTSCREEN & DISCLAIMER INLINE DETAILS */
+    /* GITHUB DOWNLOAD (GREEN) */
+    .btn-gh-version {
+      background: #238636;
+      border: 1px solid #2ea043;
+      color: #fff;
+      gap: 6px;
+      animation: stadium-wave 3.6s infinite ease-in-out;
+      animation-delay: 1.2s; /* 5-й */
+    }
+    .btn-gh-version:hover { background: #2ea043; }
+    .btn-gh-dot {
+      width: 7px;
+      height: 7px;
+      background: #3fb950;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #3fb950;
+    }
 
-    .smartscreen-inline,
+    /* DISCLAIMER (RIGHT - ORANGE STYLE) */
     .disclaimer-inline {
       position: relative;
       display: inline-block;
     }
-
-    .smartscreen-inline[open],
     .disclaimer-inline[open] {
       width: 100%;
       text-align: center;
     }
-
-    .smartscreen-inline-summary {
+    .disclaimer-inline-summary {
       position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      background: rgba(13,23,38,.85);
-      border: 1px dashed rgba(56,139,253,.6);
+      gap: 6px;
+      background: rgba(38, 29, 13, 0.85); /* Темно-оранжевий/коричневий фон */
+      border: 1px dashed rgba(234, 179, 8, 0.6); /* Оранжева обводка */
       border-radius: 8px;
-      padding: 7px 16px 7px 12px;
+      padding: 7px 15px;
       cursor: pointer;
       list-style: none;
       outline: none;
       user-select: none;
-      color: #58a6ff;
-      font-size: 12.5px;
+      color: #eab308; /* Жовто-оранжевий текст */
+      font-size: 12px;
       font-weight: 600;
       transition: all .2s;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 1.2s;
+      animation-delay: 1.5s; /* 6-й */
     }
-
-    .smartscreen-inline-summary::-webkit-details-marker { display: none; }
-
-    .smartscreen-inline-summary:hover {
-      border-color: #388bfd;
-      background: rgba(18,30,49,.95);
-      box-shadow: 0 0 18px rgba(56,139,253,.6);
+    .disclaimer-inline-summary::-webkit-details-marker { display: none; }
+    .disclaimer-inline-summary:hover {
+      border-color: #eab308;
+      background: rgba(49, 38, 17, 0.95);
+      box-shadow: 0 0 18px rgba(234, 179, 8, 0.4);
     }
-
-    .smartscreen-arrow,
     .disclaimer-arrow {
       font-size: 9px;
       transition: transform .2s;
-      color: #79c0ff;
+      color: #eab308;
     }
-
-    .smartscreen-inline[open] .smartscreen-arrow,
+    .disclaimer-inline[open] .disclaimer-inline-summary {
+      border-style: solid;
+      border-color: #eab308;
+      background: #1a150d;
+    }
     .disclaimer-inline[open] .disclaimer-arrow {
       transform: rotate(180deg);
     }
 
-    .smartscreen-inline[open] .smartscreen-inline-summary {
-      border-style: solid;
-      border-color: #388bfd;
-      background: #111a29;
-    }
-
-    .smartscreen-warning-badge {
-      position: absolute;
-      top: -6px;
-      right: -6px;
-      width: 17px;
-      height: 17px;
-      background: #58a6ff;
-      border: 1.5px solid #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      color: #fff;
-      font-weight: 900;
-      line-height: 1;
-      animation: info-beacon 1.1s infinite ease-in-out;
-      pointer-events: none;
-      box-shadow: 0 0 8px #58a6ff;
-    }
-
+    /* DROPDOWNS */
     .smartscreen-dropdown {
       position: relative;
       max-width: 650px;
@@ -526,7 +541,6 @@
       padding: 14px 18px;
       text-align: left;
     }
-
     .smartscreen-dropdown-header {
       display: flex;
       justify-content: space-between;
@@ -538,27 +552,15 @@
       font-weight: 600;
       font-size: 12px;
     }
-
     .smartscreen-content {
       color: #8b949e;
       font-size: 11.8px;
       line-height: 1.5;
     }
-
     .smartscreen-content strong { color: #e6edf3; }
-
-    .smartscreen-steps {
-      margin: 6px 0 10px;
-      padding-left: 18px;
-    }
-
+    .smartscreen-steps { margin: 6px 0 10px; padding-left: 18px; }
     .smartscreen-steps li { margin-bottom: 3px; }
-
-    .smartscreen-img-wrap {
-      text-align: center;
-      margin-top: 10px;
-    }
-
+    .smartscreen-img-wrap { text-align: center; margin-top: 10px; }
     .smartscreen-img {
       max-width: 100%;
       height: auto;
@@ -569,86 +571,32 @@
       margin: 0 auto;
     }
 
-    /* DISCLAIMER INLINE (IN BTN-GROUP) */
-
-    .disclaimer-inline-summary {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 8px;
-      padding: 7px 15px;
-      cursor: pointer;
-      list-style: none;
-      outline: none;
-      user-select: none;
-      color: #8b949e;
-      font-size: 12px;
-      font-weight: 600;
-      transition: all .2s;
-      animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 1.5s;
-    }
-
-    .disclaimer-inline-summary::-webkit-details-marker { display: none; }
-
-    .disclaimer-inline-summary:hover {
-      color: #e6edf3;
-      border-color: #58a6ff;
-      background: #1c2530;
-    }
-
-    .disclaimer-inline[open] .disclaimer-inline-summary {
-      color: #ff7b72;
-      border-color: rgba(248,81,73,.5);
-      background: #161b22;
-    }
-
-    .disclaimer-inline[open] .disclaimer-arrow {
-      color: #ff7b72;
-    }
-
     .disclaimer-dropdown {
       position: relative;
       max-width: 680px;
       margin: 12px auto 0;
       background: #161b22;
-      border: 1px solid rgba(248,81,73,.45);
+      border: 1px solid rgba(234, 179, 8, 0.45); /* Оранжева рамка */
       border-radius: 12px;
-      box-shadow: 0 8px 26px rgba(0,0,0,.7),0 0 20px rgba(248,81,73,.15);
+      box-shadow: 0 8px 26px rgba(0,0,0,.7),0 0 20px rgba(234, 179, 8, 0.15);
       padding: 14px 18px;
       text-align: left;
       font-size: 11.5px;
       line-height: 1.55;
       color: #8b949e;
     }
+    .disclaimer-dropdown strong { color: #e6edf3; }
+    .disclaimer-dropdown p { margin: 0 0 9px; }
+    .disclaimer-dropdown p:last-child { margin-bottom: 0; }
+    .disclaimer-dropdown .disclaimer-thanks { color: #c9d1d9; }
 
-    .disclaimer-dropdown strong {
-      color: #e6edf3;
-    }
-
-    .disclaimer-dropdown p {
-      margin: 0 0 9px;
-    }
-
-    .disclaimer-dropdown p:last-child {
-      margin-bottom: 0;
-    }
-
-    .disclaimer-dropdown .disclaimer-thanks {
-      color: #c9d1d9;
-    }
 
     /* PRESS CENTER */
-
     .press-center-wrap {
       margin: 10px auto 4px;
       max-width: 860px;
       text-align: center;
     }
-
     .press-details {
       background: rgba(22,27,34,.6);
       border: 1px solid rgba(234,179,8,.35);
@@ -658,13 +606,11 @@
       display: inline-block;
       width: auto;
     }
-
     .press-details:hover {
       border-color: rgba(234,179,8,.8);
       background: rgba(28,33,40,.85);
       box-shadow: 0 0 18px rgba(234,179,8,.2);
     }
-
     .press-details[open] {
       display: block;
       width: 100%;
@@ -675,7 +621,6 @@
       padding: 12px 16px;
       text-align: left;
     }
-
     .press-summary {
       display: inline-flex;
       align-items: center;
@@ -688,9 +633,7 @@
       color: #e6edf3;
       line-height: 1.2;
     }
-
     .press-summary::-webkit-details-marker { display: none; }
-
     .press-badge-tag {
       padding: 1px 6px;
       border-radius: 4px;
@@ -698,21 +641,17 @@
       font-size: 10.5px;
       letter-spacing: .3px;
     }
-
     .badge-dev { background: #000; color: #fff; border: 1px solid rgba(255,255,255,.25); }
     .badge-dou { background: #ff3344; color: #fff; }
     .badge-kasha { background: #ffd859; color: #000; }
     .badge-pontyk { background: #238636; color: #fff; }
-
     .press-arrow {
       color: #ffd859;
       font-size: 9px;
       transition: transform .2s;
       margin-left: 4px;
     }
-
     .press-details[open] .press-arrow { transform: rotate(180deg); }
-
     .press-details[open] .press-summary {
       display: flex;
       justify-content: space-between;
@@ -723,13 +662,11 @@
       color: #ffd859;
       font-size: 12.5px;
     }
-
     .press-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
       gap: 8px;
     }
-
     .press-card {
       background: rgba(0,0,0,.35);
       border: 1px solid #30363d;
@@ -742,20 +679,17 @@
       justify-content: space-between;
       transition: all .2s;
     }
-
     .press-card:hover {
       border-color: #ffd859;
       background: rgba(234,179,8,.05);
       transform: translateY(-1px);
     }
-
     .press-card-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 4px;
     }
-
     .press-card-title {
       font-size: 11px;
       font-weight: 600;
@@ -763,7 +697,6 @@
       line-height: 1.35;
       margin: 0;
     }
-
     .press-card-link-text {
       font-size: 10px;
       color: #58a6ff;
@@ -774,14 +707,12 @@
     }
 
     /* PREVIEW IMAGES */
-
     .widgets-preview {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
       margin-bottom: 8px;
     }
-
     .preview-card {
       background: #161b22;
       border: 1px solid #30363d;
@@ -790,12 +721,10 @@
       box-shadow: 0 3px 12px rgba(0,0,0,.35);
       transition: border-color .2s,transform .2s;
     }
-
     .preview-card:hover {
       border-color: #58a6ff;
       transform: translateY(-1px);
     }
-
     .preview-card img {
       width: 100%;
       height: auto;
@@ -803,7 +732,6 @@
     }
 
     /* BENTO LAYOUT */
-
     .main-bento-layout {
       display: grid;
       grid-template-columns: 300px 1fr;
@@ -812,7 +740,6 @@
     }
 
     /* SLIDER */
-
     .slider-card {
       background: #161b22;
       border: 1px solid #30363d;
@@ -824,7 +751,6 @@
       overflow: hidden;
       box-shadow: 0 3px 14px rgba(0,0,0,.35);
     }
-
     .slider-stage {
       flex: 1;
       display: flex;
@@ -834,7 +760,6 @@
       padding: 4px 14px;
       background: radial-gradient(circle at 50% 50%,rgba(88,166,255,.05),transparent 75%);
     }
-
     .slider-stage img {
       max-height: 240px;
       width: auto;
@@ -846,9 +771,7 @@
       transition: opacity .2s,transform .2s;
       cursor: pointer;
     }
-
     .slider-stage img:hover { border-color: #58a6ff; }
-
     .nav-arrow {
       position: absolute;
       top: 50%;
@@ -868,17 +791,14 @@
       user-select: none;
       z-index: 5;
     }
-
     .nav-arrow:hover {
       background: #1f2937;
       border-color: #58a6ff;
       color: #58a6ff;
       transform: translateY(-50%) scale(1.1);
     }
-
     .nav-arrow.prev { left: 5px; }
     .nav-arrow.next { right: 5px; }
-
     .slider-footer {
       padding: 5px 10px;
       background: #0d1117;
@@ -888,7 +808,6 @@
       justify-content: space-between;
       gap: 6px;
     }
-
     .slider-caption {
       font-size: 11px;
       font-weight: 600;
@@ -897,13 +816,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
     .slider-dots {
       display: flex;
       gap: 4px;
       flex-shrink: 0;
     }
-
     .dot {
       width: 6px;
       height: 6px;
@@ -912,14 +829,12 @@
       cursor: pointer;
       transition: all .2s;
     }
-
     .dot.active {
       background: #58a6ff;
       transform: scale(1.25);
     }
 
     /* FEATURE CARDS */
-
     .features-quad {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -927,7 +842,6 @@
       gap: 8px;
       height: 310px;
     }
-
     .quad-card {
       background: #161b22;
       border: 1px solid #30363d;
@@ -939,33 +853,28 @@
       transition: all .2s;
       overflow: hidden;
     }
-
     .quad-card:hover {
       border-color: #58a6ff;
       transform: translateY(-1px);
       background: #19202c;
     }
-
     .quad-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 3px;
     }
-
     .quad-title-group {
       display: flex;
       align-items: center;
       gap: 5px;
     }
-
     .quad-title-group h3 {
       margin: 0;
       font-size: 11.8px;
       color: #fff;
       font-weight: 700;
     }
-
     .quad-pill {
       font-size: 9px;
       font-weight: 600;
@@ -977,16 +886,13 @@
       letter-spacing: .2px;
       white-space: nowrap;
     }
-
     .quad-desc {
       margin: 0;
       font-size: 10.3px;
       color: #8b949e;
       line-height: 1.33;
     }
-
     .quad-desc strong { color: #e6edf3; }
-
     .quad-footer-tag {
       background: rgba(0,0,0,.25);
       border-left: 2px solid #388bfd;
@@ -999,7 +905,6 @@
     }
 
     /* FOOTER */
-
     .footer {
       text-align: center;
       color: #8b949e;
@@ -1007,7 +912,6 @@
       padding: 12px 0 8px;
       border-top: 1px solid #21262d;
     }
-
     .footer-inner {
       display: flex;
       align-items: center;
@@ -1015,83 +919,41 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-
     .footer a.author-link {
       color: #58a6ff;
       text-decoration: none;
       font-weight: 600;
     }
-
     .footer a.author-link:hover { text-decoration: underline; }
 
     /* RESPONSIVE */
-
     @media (max-width: 860px) {
-      .main-bento-layout {
-        grid-template-columns: 1fr;
-      }
-
+      .main-bento-layout { grid-template-columns: 1fr; }
       .slider-card { height: 310px; }
-
       .features-quad { height: auto; }
-
       .quad-card { min-height: 145px; }
     }
 
     @media (max-width: 720px) {
       .widgets-preview { grid-template-columns: 1fr; }
-
       .features-quad { grid-template-columns: 1fr; }
-
-      .brand-capsule {
-        flex-wrap: wrap;
-        justify-content: center;
-        border-radius: 28px;
-        padding: 10px 14px;
-      }
-
-      .btn-group {
-        flex-direction: column;
-        width: 100%;
-      }
-
+      .brand-capsule { flex-wrap: wrap; justify-content: center; border-radius: 28px; padding: 10px 14px; }
+      .btn-group { flex-direction: column; width: 100%; }
       .btn,
       .smartscreen-inline,
       .smartscreen-inline-summary,
       .disclaimer-inline,
-      .disclaimer-inline-summary {
-        width: 100%;
-        justify-content: center;
-      }
-
+      .disclaimer-inline-summary { width: 100%; justify-content: center; }
       .btn-repo-icon,
-      .telegram-suggestions {
-        width: 100%;
-        height: 36px;
-      }
-
+      .telegram-suggestions { width: 100%; height: 36px; }
       .footer-inner { gap: 8px; }
-
-      .press-summary {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .press-details[open] .press-summary {
-        flex-wrap: wrap;
-      }
-
-      .unified-center {
-        flex-wrap: wrap;
-        justify-content: center;
-        white-space: normal;
-      }
+      .press-summary { flex-wrap: wrap; justify-content: center; }
+      .press-details[open] .press-summary { flex-wrap: wrap; }
+      .unified-center { flex-wrap: wrap; justify-content: center; white-space: normal; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
@@ -1105,7 +967,6 @@
 <div class="container">
 
   <!-- HEADER -->
-
   <header class="hero">
 
     <div class="merger-clean-line">
@@ -1116,15 +977,9 @@
 
     <div class="brand-capsule-wrap">
       <div class="brand-capsule">
-
-        <img src="icon.png"
-             alt="Логотип SvitloAlertChecker"
-             class="app-icon-large"
-             onerror="this.style.display='none';">
-
+        <img src="icon.png" alt="Логотип SvitloAlertChecker" class="app-icon-large" onerror="this.style.display='none';">
         <div class="brand-center-block">
           <h1 class="main-title">SvitloAlertChecker</h1>
-
           <div class="brand-slogan">
             <svg class="svg-flag-icon" viewBox="0 0 24 16">
               <rect width="24" height="8" fill="#0057b7"/>
@@ -1141,24 +996,10 @@
             </svg>
           </div>
         </div>
-
-        <a href="https://send.monobank.ua/jar/ybt1euJoZpejopFHKbncRMHkQg8bveG"
-           target="_blank"
-           rel="noopener"
-           class="mono-qr-box"
-           title="Посилання на банку Monobank">
-
-          <div class="cat-ears-wrap">
-            <div class="cat-ear"></div>
-            <div class="cat-ear"></div>
-          </div>
-
-          <img src="qr.png"
-               onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fsend.monobank.ua%2Fjar%2Fybt1euJoZpejopFHKbncRMHkQg8bveG';"
-               alt="QR Monobank"
-               class="mono-qr-display">
+        <a href="https://send.monobank.ua/jar/ybt1euJoZpejopFHKbncRMHkQg8bveG" target="_blank" rel="noopener" class="mono-qr-box" title="Посилання на банку Monobank">
+          <div class="cat-ears-wrap"><div class="cat-ear"></div><div class="cat-ear"></div></div>
+          <img src="qr.png" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fsend.monobank.ua%2Fjar%2Fybt1euJoZpejopFHKbncRMHkQg8bveG';" alt="QR Monobank" class="mono-qr-display">
         </a>
-
       </div>
     </div>
 
@@ -1174,124 +1015,83 @@
       ДТЕК, YASNO, Обленерго графіки відключення світла для ПК.
     </div>
 
-    <!-- BUTTONS -->
-
+    <!-- BUTTONS (NEW ORDER) -->
     <div class="btn-group">
 
-      <a href="https://devmihey.itch.io/svitloalertchecker"
-         target="_blank"
-         rel="noopener"
-         class="btn btn-itch"
-         title="Проєкт у топі чартів Itch.io">
-        ⬇ ТОП у чартах по Україні · Itch.io
-      </a>
-
-      <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest"
-         target="_blank"
-         rel="noopener"
-         class="btn btn-gh-version"
-         title="Завантажити останній реліз із GitHub">
-
-        <span class="btn-gh-dot"></span>
-        <span>Latest Release GitHub: <strong id="appVersion">v5.3.2.1</strong></span>
-      </a>
-
-      <a href="https://github.com/DEVMIHEY/SvitloAlertChecker"
-         target="_blank"
-         rel="noopener"
-         class="btn btn-repo-icon"
-         title="Репозиторій на GitHub">
-
-        <svg class="github-svg-icon" viewBox="0 0 16 16">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-        </svg>
-      </a>
-
-      <!-- TELEGRAM BUTTON -->
-
-      <a class="telegram-suggestions"
-         href="https://t.me/+GJcw40ZlYadkNzIy"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Telegram — пропозиції та ідеї для наступних оновлень"
-         title="Telegram: пропозиції та ідеї для наступних оновлень">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21.9 4.6 18.6 20c-.25 1.1-.9 1.35-1.8.85l-5-3.7-2.4 2.3c-.27.27-.5.5-1 .5l.35-5.1 9.3-8.4c.4-.35-.1-.55-.6-.2L6 13.4l-4.9-1.55c-1.05-.33-1.07-1.05.22-1.55L20.5 3.1c.87-.32 1.63.2 1.4 1.5Z"/>
-        </svg>
-
-        <span class="telegram-tooltip">
-          Є ідея або побажання? Надішліть пропозицію —
-          цікаві ідеї розглядаються для найближчих оновлень!
-        </span>
-      </a>
-
-      <!-- SMARTSCREEN -->
-
+      <!-- 1. SMARTSCREEN (LEFT) -->
       <details class="smartscreen-inline">
-
         <summary class="smartscreen-inline-summary">
           <span class="smartscreen-warning-badge">!</span>
           <span>🛡️ SmartScreen?</span>
           <span class="smartscreen-arrow">▼</span>
         </summary>
-
         <div class="smartscreen-dropdown">
-
           <div class="smartscreen-dropdown-header">
             <span>🛡️ Що робити при появі Windows SmartScreen?</span>
           </div>
-
           <div class="smartscreen-content">
-
             <p style="margin:0 0 6px 0;">
               Програма на <strong>100% безкоштовна, без реклами та платних підписок — все для людей 💙</strong>.
               Оскільки утиліта створена незалежним автором і не має дорогого комерційного сертифіката Microsoft,
               система показує синю табличку <em>«Windows захистила ваш ПК»</em>.
               Це штатна безпека Windows для некомерційного ПЗ.
             </p>
-
             <strong>Запуск у 2 швидкі кліки:</strong>
-
             <ol class="smartscreen-steps">
               <li>Натисніть <strong style="color:#79c0ff;">«Детальніше»</strong> у вікні захисту.</li>
               <li>Натисніть кнопку <strong style="color:#3fb950;">«Виконати все одно»</strong>, що з'явиться знизу.</li>
             </ol>
-
             <div class="smartscreen-img-wrap">
-              <img src="https://raw.githubusercontent.com/DEVMIHEY/SvitloAlertChecker/main/image_111fdb36%20(1).jpeg"
-                   alt="Інструкція запуску Windows SmartScreen"
-                   class="smartscreen-img">
+              <img src="https://raw.githubusercontent.com/DEVMIHEY/SvitloAlertChecker/main/image_111fdb36%20(1).jpeg" alt="Інструкція запуску Windows SmartScreen" class="smartscreen-img">
             </div>
-
           </div>
         </div>
       </details>
 
-      <!-- ДИСКЛЕЙМЕР РОЗРОБНИКА (SPOILER) -->
+      <!-- 2. ITCH.IO (CENTRAL LEFT) -->
+      <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener" class="btn btn-itch" title="Проєкт у топі чартів Itch.io">
+        ⬇ ТОП у чартах по Україні · Itch.io
+      </a>
 
+      <!-- 3. GITHUB REPO (CENTER) -->
+      <a href="https://github.com/DEVMIHEY/SvitloAlertChecker" target="_blank" rel="noopener" class="btn btn-repo-icon" title="Репозиторій на GitHub">
+        <svg class="github-svg-icon" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+      </a>
+
+      <!-- 4. TELEGRAM (CENTER) -->
+      <a class="telegram-suggestions" href="https://t.me/+GJcw40ZlYadkNzIy" target="_blank" rel="noopener noreferrer" aria-label="Telegram — пропозиції та ідеї для наступних оновлень" title="Telegram: пропозиції та ідеї для наступних оновлень">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.9 4.6 18.6 20c-.25 1.1-.9 1.35-1.8.85l-5-3.7-2.4 2.3c-.27.27-.5.5-1 .5l.35-5.1 9.3-8.4c.4-.35-.1-.55-.6-.2L6 13.4l-4.9-1.55c-1.05-.33-1.07-1.05.22-1.55L20.5 3.1c.87-.32 1.63.2 1.4 1.5Z"/>
+        </svg>
+        <span class="telegram-tooltip">Є ідея або побажання? Надішліть пропозицію — цікаві ідеї розглядаються для найближчих оновлень!</span>
+      </a>
+
+      <!-- 5. GITHUB DOWNLOAD (CENTRAL RIGHT) -->
+      <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest" target="_blank" rel="noopener" class="btn btn-gh-version" title="Завантажити останній реліз із GitHub">
+        <span class="btn-gh-dot"></span>
+        <span>Завантажити <strong id="appVersion">v5.3.2.1</strong></span>
+      </a>
+
+      <!-- 6. DISCLAIMER (RIGHT) -->
       <details class="disclaimer-inline">
-
         <summary class="disclaimer-inline-summary">
           <span>🛡️ Дисклеймер · AS IS</span>
           <span class="disclaimer-arrow">▼</span>
         </summary>
-
         <div class="disclaimer-dropdown">
-
           <p>
             <strong>SvitloAlertChecker</strong> — незалежний проєкт,
             який створюється та підтримується однією людиною — DEV MIHEY.
             Не є офіційним продуктом ДТЕК, YASNO, Обленерго чи державних органів.
           </p>
-
           <p>
             <strong>Про розробника.</strong>
             За проєктом немає команди, компанії чи корпоративного бюджету.
             Уся розробка, оновлення та підтримка здійснюються власним часом,
             роботою та ентузіазмом автора.
           </p>
-
           <p>
             <strong>Безкоштовність.</strong>
             Проєкт залишається безкоштовним і без реклами.
@@ -1299,48 +1099,40 @@
             Посилання на банку Monobank не означає, що проводиться обов'язковий збір коштів.
             Підтримка автора є виключно добровільною.
           </p>
-
           <p>
             <strong>Джерела інформації.</strong>
-            Дані про графіки відключень електроенергії та повітряні тривоги
+            Дані про <strong>графіки відключень електроенергії</strong> та <strong>повітряні тривоги</strong>
             отримуються зі сторонніх відкритих джерел та API.
             Автор не є співробітником ДТЕК, YASNO чи Обленерго,
             не керує електромережами та не впливає на стабільність офіційних баз.
           </p>
-
           <p>
             <strong>Обмеження відповідальності.</strong>
             Програма надається за принципом «AS IS» (як є).
-            Автор не гарантує 100% точність інформації, безперервність роботи
+            Автор не гарантує 100% точність інформації щодо світла та тривог, безперервність роботи
             сторонніх API та відсутність затримок або розбіжностей у даних.
             Автор не несе відповідальності за можливі наслідки використання
             отриманої інформації.
           </p>
-
           <p>
             <strong>Важливо.</strong>
             SvitloAlertChecker — допоміжний інструмент.
             У критичних ситуаціях завжди перевіряйте інформацію
             через офіційні джерела та канали оповіщення.
           </p>
-
           <p class="disclaimer-thanks">
             💛💙 Дякую кожному, хто користується програмою,
             поширює її та надсилає конструктивні ідеї.
             Саме ваші відгуки допомагають робити наступні оновлення кращими.
           </p>
-
         </div>
       </details>
 
     </div>
 
     <!-- PRESS CENTER -->
-
     <div class="press-center-wrap">
-
       <details class="press-details">
-
         <summary class="press-summary">
           <span>📰 <strong>Про нас пишуть:</strong></span>
           <span class="press-badge-tag badge-dev">dev.ua</span>
@@ -1350,271 +1142,128 @@
           <span style="color:#8b949e;font-size:11px;">(6 публікацій)</span>
           <span class="press-arrow">▼</span>
         </summary>
-
         <div style="margin-top:10px;">
           <div class="press-grid">
-
-            <a href="https://dev.ua/news/svitlo-1794376540"
-               target="_blank" rel="noopener" class="press-card">
-              <div class="press-card-top">
-                <span class="press-badge-tag badge-dev">dev.ua</span>
-                <span style="font-size:10px;color:#8b949e;">Ексклюзив</span>
-              </div>
-              <p class="press-card-title">
-                «Український розробник створив застосунок для моніторингу світла на Windows»
-              </p>
+            <a href="https://dev.ua/news/svitlo-1794376540" target="_blank" rel="noopener" class="press-card">
+              <div class="press-card-top"><span class="press-badge-tag badge-dev">dev.ua</span><span style="font-size:10px;color:#8b949e;">Ексклюзив</span></div>
+              <p class="press-card-title">«Український розробник створив застосунок для моніторингу світла на Windows»</p>
               <span class="press-card-link-text">Читати статтю ↗</span>
             </a>
-
-            <a href="https://dev.ua/news/vaibkodynh-proty-blekautiv-10-korysnykh-dodatkiv-i-vidzhetiv-iaki-ukrainski-aitivtsi-stvoryly-dlia-vykorystannia-pry-vidkliuchenniakh-svitla-1794391841"
-               target="_blank" rel="noopener" class="press-card">
-              <div class="press-card-top">
-                <span class="press-badge-tag badge-dev">dev.ua</span>
-                <span style="font-size:10px;color:#8b949e;">Добірка</span>
-              </div>
-              <p class="press-card-title">
-                Вайбкодинг проти блекаутів: 10 корисних додатків і віджетів від українських айтівців
-              </p>
+            <a href="https://dev.ua/news/vaibkodynh-proty-blekautiv-10-korysnykh-dodatkiv-i-vidzhetiv-iaki-ukrainski-aitivtsi-stvoryly-dlia-vykorystannia-pry-vidkliuchenniakh-svitla-1794391841" target="_blank" rel="noopener" class="press-card">
+              <div class="press-card-top"><span class="press-badge-tag badge-dev">dev.ua</span><span style="font-size:10px;color:#8b949e;">Добірка</span></div>
+              <p class="press-card-title">Вайбкодинг проти блекаутів: 10 корисних додатків і віджетів від українських айтівців</p>
               <span class="press-card-link-text">Читати огляд ↗</span>
             </a>
-
-            <a href="https://dou.ua/forums/topic/63230/"
-               target="_blank" rel="noopener" class="press-card">
-              <div class="press-card-top">
-                <span class="press-badge-tag badge-dou">DOU.ua</span>
-                <span style="font-size:10px;color:#8b949e;">Спільнота</span>
-              </div>
-              <p class="press-card-title">
-                Дискусії, релізи та обговорення розробки у найбільшій IT-спільноті України
-              </p>
+            <a href="https://dou.ua/forums/topic/63230/" target="_blank" rel="noopener" class="press-card">
+              <div class="press-card-top"><span class="press-badge-tag badge-dou">DOU.ua</span><span style="font-size:10px;color:#8b949e;">Спільнота</span></div>
+              <p class="press-card-title">Дискусії, релізи та обговорення розробки у найбільшій IT-спільноті України</p>
               <span class="press-card-link-text">Читати на DOU ↗</span>
             </a>
-
-            <a href="https://kasha.media/tekhnologii/ukrainski-rozrobnyky-stvoriuiut-novi-instrumenty-dlia-zhyttia-v-umovakh-"
-               target="_blank" rel="noopener" class="press-card">
-              <div class="press-card-top">
-                <span class="press-badge-tag badge-kasha">KASHA Media</span>
-                <span style="font-size:10px;color:#8b949e;">Технології</span>
-              </div>
-              <p class="press-card-title">
-                «Українські розробники створюють нові інструменти для життя в умовах відключень»
-              </p>
+            <a href="https://kasha.media/tekhnologii/ukrainski-rozrobnyky-stvoriuiut-novi-instrumenty-dlia-zhyttia-v-umovakh-" target="_blank" rel="noopener" class="press-card">
+              <div class="press-card-top"><span class="press-badge-tag badge-kasha">KASHA Media</span><span style="font-size:10px;color:#8b949e;">Технології</span></div>
+              <p class="press-card-title">«Українські розробники створюють нові інструменти для життя в умовах відключень»</p>
               <span class="press-card-link-text">Читати матеріал ↗</span>
             </a>
-
-            <a href="https://pontyk.com.ua/uk/rozrobka/svitlochecker-zastosunok-dlya-monitorynhu-vidklyuchen-svitla-na-windows/"
-               target="_blank" rel="noopener" class="press-card">
-              <div class="press-card-top">
-                <span class="press-badge-tag badge-pontyk">Pontyk Media</span>
-                <span style="font-size:10px;color:#8b949e;">Огляд</span>
-              </div>
-              <p class="press-card-title">
-                SvitloChecker — детальний огляд застосунку для моніторингу графіків на ПК
-              </p>
+            <a href="https://pontyk.com.ua/uk/rozrobka/svitlochecker-zastosunok-dlya-monitorynhu-vidklyuchen-svitla-na-windows/" target="_blank" rel="noopener" class="press-card">
+              <div class="press-card-top"><span class="press-badge-tag badge-pontyk">Pontyk Media</span><span style="font-size:10px;color:#8b949e;">Огляд</span></div>
+              <p class="press-card-title">SvitloChecker — детальний огляд застосунку для моніторингу графіків на ПК</p>
               <span class="press-card-link-text">Читати розбір ↗</span>
             </a>
-
-            <a href="https://ua.linkedin.com/posts/dev-ua_%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B9-%D1%80%D0%BE%D0%B7%D1%80%D0%BE%D0%B1%D0%BD%D0%B8%D0%BA-%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B8%D0%B2-%D0%B7%D0%B0%D1%81%D1%82%D0%BE%D1%81%D1%83%D0%BD%D0%BE%D0%BA-activity-7526163924380200961-MO3E"
-               target="_blank" rel="noopener" class="press-card">
-              <div class="press-card-top">
-                <span style="background:#0a66c2;color:#fff;padding:1px 6px;border-radius:4px;font-weight:800;font-size:10px;">LinkedIn</span>
-                <span style="font-size:10px;color:#8b949e;">Вірусний пост</span>
-              </div>
-              <p class="press-card-title">
-                Публікація та сотні реакцій українських айтівців у професійній мережі
-              </p>
+            <a href="https://ua.linkedin.com/posts/dev-ua_%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B9-%D1%80%D0%BE%D0%B7%D1%80%D0%BE%D0%B1%D0%BD%D0%B8%D0%BA-%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B8%D0%B2-%D0%B7%D0%B0%D1%81%D1%82%D0%BE%D1%81%D1%83%D0%BD%D0%BE%D0%BA-activity-7526163924380200961-MO3E" target="_blank" rel="noopener" class="press-card">
+              <div class="press-card-top"><span style="background:#0a66c2;color:#fff;padding:1px 6px;border-radius:4px;font-weight:800;font-size:10px;">LinkedIn</span><span style="font-size:10px;color:#8b949e;">Вірусний пост</span></div>
+              <p class="press-card-title">Публікація та сотні реакцій українських айтівців у професійній мережі</p>
               <span class="press-card-link-text">Переглянути в LinkedIn ↗</span>
             </a>
-
           </div>
         </div>
-
       </details>
     </div>
 
   </header>
 
   <!-- PREVIEW IMAGES -->
-
   <section class="widgets-preview">
-
     <div class="preview-card">
-      <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyMzcyNi5qcGc=/347x500/csalhw.jpg"
-           alt="SvitloAlertChecker — Тривога та таймер до відключення">
+      <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyMzcyNi5qcGc=/347x500/csalhw.jpg" alt="SvitloAlertChecker — Тривога та таймер до відключення">
     </div>
-
     <div class="preview-card">
-      <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg"
-           alt="SvitloAlertChecker — Відбій тривоги та статус світла">
+      <img src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQyODg2MC5qcGc=/347x500/Xkq8k9.jpg" alt="SvitloAlertChecker — Відбій тривоги та статус світла">
     </div>
-
   </section>
 
   <!-- MAIN BENTO -->
-
   <section class="main-bento-layout">
-
-    <!-- SLIDER -->
-
     <div class="slider-card">
-
       <div class="slider-stage">
-
-        <button class="nav-arrow prev"
-                onclick="moveSlide(-1)"
-                aria-label="Попереднє вікно">‹</button>
-
-        <img id="activeSlideImg"
-             src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg"
-             alt="Керування віджетом"
-             onclick="moveSlide(1)">
-
-        <button class="nav-arrow next"
-                onclick="moveSlide(1)"
-                aria-label="Наступне вікно">›</button>
-
+        <button class="nav-arrow prev" onclick="moveSlide(-1)" aria-label="Попереднє вікно">‹</button>
+        <img id="activeSlideImg" src="https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg" alt="Керування віджетом" onclick="moveSlide(1)">
+        <button class="nav-arrow next" onclick="moveSlide(1)" aria-label="Наступне вікно">›</button>
       </div>
-
       <div class="slider-footer">
-
-        <div class="slider-caption" id="slideCaption">
-          ⚙ Керування: налаштуйте все під себе
-        </div>
-
+        <div class="slider-caption" id="slideCaption">⚙ Керування: налаштуйте все під себе</div>
         <div class="slider-dots">
           <span class="dot active" onclick="goToSlide(0)"></span>
           <span class="dot" onclick="goToSlide(1)"></span>
           <span class="dot" onclick="goToSlide(2)"></span>
         </div>
-
       </div>
     </div>
 
-    <!-- FEATURES -->
-
     <div class="features-quad">
-
       <div class="quad-card">
         <div>
           <div class="quad-top">
-            <div class="quad-title-group">
-              <span>⚡</span>
-              <h3>Графіки без збоїв</h3>
-            </div>
+            <div class="quad-title-group"><span>⚡</span><h3>Графіки без збоїв</h3></div>
             <span class="quad-pill">Cloudflare</span>
           </div>
-
-          <p class="quad-desc">
-            <strong>Власна хмарна база.</strong>
-            Не навантажує сервери та показує розклад, навіть коли сайти ДТЕК чи YASNO не відповідають.
-            Капсула показує 6 год або всю добу (24 год) по кліку ЛКМ чи в треї.
-            Графік на завтра підтягується автоматично.
-          </p>
+          <p class="quad-desc"><strong>Власна хмарна база.</strong> Не навантажує сервери та показує розклад, навіть коли сайти ДТЕК чи YASNO не відповідають. Капсула показує 6 год або всю добу (24 год) по кліку ЛКМ чи в треї. Графік на завтра підтягується автоматично.</p>
         </div>
-
-        <div class="quad-footer-tag">
-          ⏱️ 6 / 24 год по кліку ЛКМ · Графік на завтра авто
-        </div>
+        <div class="quad-footer-tag">⏱️ 6 / 24 год по кліку ЛКМ · Графік на завтра авто</div>
       </div>
-
       <div class="quad-card">
         <div>
           <div class="quad-top">
-            <div class="quad-title-group">
-              <span>🚨</span>
-              <h3>Радар тривог</h3>
-            </div>
+            <div class="quad-title-group"><span>🚨</span><h3>Радар тривог</h3></div>
             <span class="quad-pill">136 районів</span>
           </div>
-
-          <p class="quad-desc">
-            <strong>Усі області та райони.</strong>
-            Миттєве сповіщення про червоні та жовті загрози напряму з радарів —
-            швидше за ботів і без затримок у чергах повідомлень.
-            Обирайте всю Україну, окремі області або лише ваш район без спаму.
-          </p>
+          <p class="quad-desc"><strong>Усі області та райони.</strong> Миттєве сповіщення про червоні та жовті загрози напряму з радарів — швидше за ботів і без затримок у чергах повідомлень. Обирайте всю Україну, окремі області або лише ваш район без спаму.</p>
         </div>
-
-        <div class="quad-footer-tag">
-          ⚡ Прямий моніторинг без затримок у Telegram
-        </div>
+        <div class="quad-footer-tag">⚡ Прямий моніторинг без затримок у Telegram</div>
       </div>
-
       <div class="quad-card">
         <div>
           <div class="quad-top">
-            <div class="quad-title-group">
-              <span>🎮</span>
-              <h3>Не заважає за ПК</h3>
-            </div>
+            <div class="quad-title-group"><span>🎮</span><h3>Не заважає за ПК</h3></div>
             <span class="quad-pill">Click-Through</span>
           </div>
-
-          <p class="quad-desc">
-            <strong>Тільки важливе.</strong>
-            Закріпіть у будь-якому кутку або на 2-му моніторі.
-            Режим «крізь кліки» дозволяє курсору вільно проходити крізь вікно
-            у шутерах, фільмах, Photoshop чи Python-кодингу
-            без зриву прицілу або втрати фокусу.
-          </p>
+          <p class="quad-desc"><strong>Тільки важливе.</strong> Закріпіть у будь-якому кутку або на 2-му моніторі. Режим «крізь кліки» дозволяє курсору вільно проходити крізь вікно у шутерах, фільмах, Photoshop чи Python-кодингу без зриву прицілу або втрати фокусу.</p>
         </div>
-
-        <div class="quad-footer-tag">
-          🎯 Наскрізний клік для шутерів, коду та фільмів
-        </div>
+        <div class="quad-footer-tag">🎯 Наскрізний клік для шутерів, коду та фільмів</div>
       </div>
-
       <div class="quad-card">
         <div>
           <div class="quad-top">
-            <div class="quad-title-group">
-              <span>🔔</span>
-              <h3>Розумна індикація</h3>
-            </div>
+            <div class="quad-title-group"><span>🔔</span><h3>Розумна індикація</h3></div>
             <span class="quad-pill">Calm Mode</span>
           </div>
-
-          <p class="quad-desc">
-            <strong>Спалахи та звук.</strong>
-            За 30 хв до вимкнення капсула блимає, екран робить спалах Flash Screen
-            і лунає сигнал (тривоги — аналогічно).
-            Екстрені зміни чи графік на завтра зустрічає спалах,
-            а нові релізи — блакитна плашка.
-            У спокої капсула прозора.
-          </p>
+          <p class="quad-desc"><strong>Спалахи та звук.</strong> За 30 хв до вимкнення капсула блимає, екран робить спалах Flash Screen і лунає сигнал (тривоги — аналогічно). Екстрені зміни чи графік на завтра зустрічає спалах, а нові релізи — блакитна плашка. У спокої капсула прозора.</p>
         </div>
-
-        <div class="quad-footer-tag">
-          💡 Flash Screen на зміни та релізи · Спокійний Calm Mode
-        </div>
+        <div class="quad-footer-tag">💡 Flash Screen на зміни та релізи · Спокійний Calm Mode</div>
       </div>
-
     </div>
   </section>
 
   <!-- FOOTER -->
-
   <footer class="footer">
-
     <div class="footer-inner">
-
-      <span>
-        Зроблено з 💛💙 в Україні · Автор:
-        <a class="author-link"
-           href="https://devmihey.itch.io/svitloalertchecker"
-           target="_blank"
-           rel="noopener">DEV MIHEY</a>
-      </span>
-
+      <span>Зроблено з 💛💙 в Україні · Автор: <a class="author-link" href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener">DEV MIHEY</a></span>
     </div>
-
   </footer>
 
 </div>
 
 <script>
   // 1. АВТОМАТИЧНЕ ОТРИМАННЯ ОСТАННЬОЇ ВЕРСІЇ З GITHUB RELEASES
-
   fetch('https://api.github.com/repos/DEVMIHEY/SvitloAlertChecker/releases/latest')
     .then(res => {
       if (!res.ok) throw new Error('GitHub API unavailable');
@@ -1630,71 +1279,45 @@
       // Резервна версія: v5.3.2.1
     });
 
-
   // 2. SLIDER
-
   const slidesData = [
-    {
-      src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg",
-      caption: "⚙ Керування: налаштуйте все під себе"
-    },
-    {
-      src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNi5qcGc=/347x500/WN3Dg1.jpg",
-      caption: "📍 Вибір району, всієї обл. одразу або кількох"
-    },
-    {
-      src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNy5qcGc=/347x500/gxlhJ0.jpg",
-      caption: "⚡ Графік відключень світла: обл. та черга"
-    }
+    { src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyOC5qcGc=/347x500/nBnKUr.jpg", caption: "⚙ Керування: налаштуйте все під себе" },
+    { src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNi5qcGc=/347x500/WN3Dg1.jpg", caption: "📍 Вибір району, всієї обл. одразу або кількох" },
+    { src: "https://img.itch.zone/aW1hZ2UvNTM4NDMwNC8zMjQ4MjkyNy5qcGc=/347x500/gxlhJ0.jpg", caption: "⚡ Графік відключень світла: обл. та черга" }
   ];
 
   let currentSlide = 0;
-
   const imgEl = document.getElementById('activeSlideImg');
   const captionEl = document.getElementById('slideCaption');
   const dots = document.querySelectorAll('.slider-dots .dot');
-
   let slideTimer = null;
 
   function updateSlide() {
     if (!imgEl || !captionEl) return;
-
     imgEl.style.opacity = '0.25';
     imgEl.style.transform = 'scale(0.97)';
-
-    if (slideTimer) {
-      clearTimeout(slideTimer);
-    }
-
+    if (slideTimer) clearTimeout(slideTimer);
     slideTimer = setTimeout(() => {
-
       imgEl.src = slidesData[currentSlide].src;
       captionEl.textContent = slidesData[currentSlide].caption;
-
       dots.forEach((dot, idx) => {
         dot.classList.toggle('active', idx === currentSlide);
       });
-
       imgEl.style.opacity = '1';
       imgEl.style.transform = 'scale(1)';
-
     }, 150);
   }
 
   function moveSlide(dir) {
-    currentSlide =
-      (currentSlide + dir + slidesData.length) % slidesData.length;
-
+    currentSlide = (currentSlide + dir + slidesData.length) % slidesData.length;
     updateSlide();
   }
 
   function goToSlide(index) {
     if (index < 0 || index >= slidesData.length) return;
-
     currentSlide = index;
     updateSlide();
   }
-
 </script>
 
 </body>
