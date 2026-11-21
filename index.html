@@ -251,7 +251,7 @@
       border: 0;
     }
 
-    /* BUTTON ANIMATIONS (STADIUM WAVE) */
+    /* BUTTON ANIMATIONS */
 
     @keyframes stadium-wave {
       0%, 100% {
@@ -298,7 +298,7 @@
       transition: all .2s;
     }
 
-    /* SMARTSCREEN (LEFT) */
+    /* SMARTSCREEN */
     .smartscreen-inline {
       position: relative;
       display: inline-block;
@@ -325,7 +325,7 @@
       font-weight: 600;
       transition: all .2s;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 0s; /* 1-й */
+      animation-delay: 0s;
     }
     .smartscreen-inline-summary::-webkit-details-marker { display: none; }
     .smartscreen-inline-summary:hover {
@@ -370,7 +370,7 @@
       background: #fa5c5c;
       color: #fff;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 0.3s; /* 2-й */
+      animation-delay: 0.3s;
     }
     .btn-itch:hover { background: #ff7070; }
 
@@ -387,7 +387,7 @@
       align-items: center;
       justify-content: center;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 0.6s; /* 3-й */
+      animation-delay: 0.6s;
     }
     .btn-repo-icon:hover {
       background: #30363d;
@@ -411,7 +411,7 @@
       text-decoration: none;
       transition: all .2s;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 0.9s; /* 4-й */
+      animation-delay: 0.9s;
     }
     .telegram-suggestions svg { width: 17px; height: 17px; fill: currentColor; }
     .telegram-suggestions:hover {
@@ -462,14 +462,14 @@
       transform: translate(-50%,0);
     }
 
-    /* GITHUB DOWNLOAD (GREEN) */
+    /* GITHUB DOWNLOAD */
     .btn-gh-version {
       background: #238636;
       border: 1px solid #2ea043;
       color: #fff;
       gap: 6px;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 1.2s; /* 5-й */
+      animation-delay: 1.2s;
     }
     .btn-gh-version:hover { background: #2ea043; }
     .btn-gh-dot {
@@ -480,7 +480,7 @@
       box-shadow: 0 0 6px #3fb950;
     }
 
-    /* DISCLAIMER (RIGHT - ORANGE STYLE) */
+    /* DISCLAIMER */
     .disclaimer-inline {
       position: relative;
       display: inline-block;
@@ -494,20 +494,20 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(38, 29, 13, 0.85); /* Темно-оранжевий/коричневий фон */
-      border: 1px dashed rgba(234, 179, 8, 0.6); /* Оранжева обводка */
+      background: rgba(38, 29, 13, 0.85);
+      border: 1px dashed rgba(234, 179, 8, 0.6);
       border-radius: 8px;
       padding: 7px 15px;
       cursor: pointer;
       list-style: none;
       outline: none;
       user-select: none;
-      color: #eab308; /* Жовто-оранжевий текст */
+      color: #eab308;
       font-size: 12px;
       font-weight: 600;
       transition: all .2s;
       animation: stadium-wave 3.6s infinite ease-in-out;
-      animation-delay: 1.5s; /* 6-й */
+      animation-delay: 1.5s;
     }
     .disclaimer-inline-summary::-webkit-details-marker { display: none; }
     .disclaimer-inline-summary:hover {
@@ -576,7 +576,7 @@
       max-width: 680px;
       margin: 12px auto 0;
       background: #161b22;
-      border: 1px solid rgba(234, 179, 8, 0.45); /* Оранжева рамка */
+      border: 1px solid rgba(234, 179, 8, 0.45);
       border-radius: 12px;
       box-shadow: 0 8px 26px rgba(0,0,0,.7),0 0 20px rgba(234, 179, 8, 0.15);
       padding: 14px 18px;
@@ -589,7 +589,6 @@
     .disclaimer-dropdown p { margin: 0 0 9px; }
     .disclaimer-dropdown p:last-child { margin-bottom: 0; }
     .disclaimer-dropdown .disclaimer-thanks { color: #c9d1d9; }
-
 
     /* PRESS CENTER */
     .press-center-wrap {
@@ -713,26 +712,24 @@
       gap: 8px;
       margin-bottom: 8px;
     }
-       .preview-card {
+    .preview-card {
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 3px 12px rgba(0,0,0,.35);
       transition: border-color .2s,transform .2s;
-      aspect-ratio: 16 / 9; /* Задаем строгие пропорции карточки */
+      aspect-ratio: 16 / 9;
     }
-
     .preview-card:hover {
       border-color: #58a6ff;
       transform: translateY(-1px);
     }
-
     .preview-card img {
       width: 100%;
-      height: 100%; /* Растягиваем картинку на всю высоту карточки */
-      object-fit: cover; /* Обрезаем лишнее, сохраняя пропорции */
-      object-position: top center; /* Привязываем к верху, чтобы срезать именно нижнюю часть с таскбаром */
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
       display: block;
     }
 
@@ -1001,9 +998,11 @@
             </svg>
           </div>
         </div>
-        <a href="https://send.monobank.ua/jar/ybt1euJoZpejopFHKbncRMHkQg8bveG" target="_blank" rel="noopener" class="mono-qr-box" title="Посилання на банку Monobank">
+
+        <!-- ОНОВЛЕНИЙ БЛОК MONOBANK -->
+        <a href="https://send.monobank.ua/jar/92mWEAz49W" target="_blank" rel="noopener" class="mono-qr-box" title="Посилання на банку Monobank">
           <div class="cat-ears-wrap"><div class="cat-ear"></div><div class="cat-ear"></div></div>
-          <img src="qr.png" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fsend.monobank.ua%2Fjar%2Fybt1euJoZpejopFHKbncRMHkQg8bveG';" alt="QR Monobank" class="mono-qr-display">
+          <img src="qr.png" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fsend.monobank.ua%2Fjar%2F92mWEAz49W';" alt="QR Monobank" class="mono-qr-display">
         </a>
       </div>
     </div>
@@ -1020,10 +1019,10 @@
       ДТЕК, YASNO, Обленерго графіки відключення світла для ПК.
     </div>
 
-    <!-- BUTTONS (NEW ORDER) -->
+    <!-- BUTTONS -->
     <div class="btn-group">
 
-      <!-- 1. SMARTSCREEN (LEFT) -->
+      <!-- 1. SMARTSCREEN -->
       <details class="smartscreen-inline">
         <summary class="smartscreen-inline-summary">
           <span class="smartscreen-warning-badge">!</span>
@@ -1053,19 +1052,19 @@
         </div>
       </details>
 
-      <!-- 2. ITCH.IO (CENTRAL LEFT) -->
+      <!-- 2. ITCH.IO -->
       <a href="https://devmihey.itch.io/svitloalertchecker" target="_blank" rel="noopener" class="btn btn-itch" title="Проєкт у топі чартів Itch.io">
         ⬇ ТОП у чартах по Україні · Itch.io
       </a>
 
-      <!-- 3. GITHUB REPO (CENTER) -->
+      <!-- 3. GITHUB REPO -->
       <a href="https://github.com/DEVMIHEY/SvitloAlertChecker" target="_blank" rel="noopener" class="btn btn-repo-icon" title="Репозиторій на GitHub">
         <svg class="github-svg-icon" viewBox="0 0 16 16">
           <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
         </svg>
       </a>
 
-      <!-- 4. TELEGRAM (CENTER) -->
+      <!-- 4. TELEGRAM -->
       <a class="telegram-suggestions" href="https://t.me/+GJcw40ZlYadkNzIy" target="_blank" rel="noopener noreferrer" aria-label="Telegram — пропозиції та ідеї для наступних оновлень" title="Telegram: пропозиції та ідеї для наступних оновлень">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M21.9 4.6 18.6 20c-.25 1.1-.9 1.35-1.8.85l-5-3.7-2.4 2.3c-.27.27-.5.5-1 .5l.35-5.1 9.3-8.4c.4-.35-.1-.55-.6-.2L6 13.4l-4.9-1.55c-1.05-.33-1.07-1.05.22-1.55L20.5 3.1c.87-.32 1.63.2 1.4 1.5Z"/>
@@ -1073,13 +1072,13 @@
         <span class="telegram-tooltip">Є ідея або побажання? Надішліть пропозицію — цікаві ідеї розглядаються для найближчих оновлень!</span>
       </a>
 
-      <!-- 5. GITHUB DOWNLOAD (CENTRAL RIGHT) -->
+      <!-- 5. GITHUB DOWNLOAD -->
       <a href="https://github.com/DEVMIHEY/SvitloAlertChecker/releases/latest" target="_blank" rel="noopener" class="btn btn-gh-version" title="Завантажити останній реліз із GitHub">
         <span class="btn-gh-dot"></span>
         <span>Завантажити <strong id="appVersion">v5.3.2.1</strong></span>
       </a>
 
-      <!-- 6. DISCLAIMER (RIGHT) -->
+      <!-- 6. DISCLAIMER -->
       <details class="disclaimer-inline">
         <summary class="disclaimer-inline-summary">
           <span>🛡️ Дисклеймер · AS IS</span>
